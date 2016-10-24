@@ -1,0 +1,233 @@
+/* --------------------- */
+.hidden-in-hy {
+  display: initial; }
+
+.hidden-in-mooc {
+  display: none; }
+
+#material-toc {
+  border: 0px none;
+}
+
+.content-progress {
+  position: fixed;
+  top: 52px;
+  z-index: 99;
+  left: 0px;
+  width: 100%;
+  background-color: white;
+  box-shadow: -3px 0px 5px rgba(0,0,0,.1);
+  display: none;
+  text-align: center;
+  font-size: 1.2rem;
+  padding-bottom: 2px;
+}
+
+.content-progress__label {
+  padding: 0.6rem;
+  font-size: 1.2rem;
+}
+
+.content-progress__bar {
+  position: absolute;
+  height: 2px;
+  bottom: 0px;
+  left: 0px;
+  background-color: #528bff;
+}
+
+.table-of-contents .table-of-contents__content {
+  overflow-y: scroll;
+  height: calc(100% - 50px);
+}
+
+.nav-pills--no-border {
+  border: 0px none !important;
+}
+
+.nav-pills > li > a:hover {
+  background-color: rgba(0,0,0,.05) !important;
+}
+
+.table-of-contents {
+  border-top: 2px solid #528bff;
+  position: fixed;
+  left: -360px;
+  width: 350px;
+  top: 0px;
+  height: 100%;
+  z-index: 99999;
+  box-shadow: 3px 0px 5px rgba(0,0,0,.1);
+  background-color: white;
+  transition: left 0.5s;
+}
+
+.table-of-contents--visible {
+  left: 0px;
+  transition: left 0.5s;
+}
+
+.table-of-contents ul li a:hover {
+  background-color: rgba(0,0,0,.05) !important;
+}
+
+.table-of-contents .table-of-contents__heading {
+  font-size: 1.4rem;
+  border-bottom: 1px solid rgba(160,160,160,.2);
+  height: 50px;
+  margin: 0px;
+  line-height: 52px;
+  vertical-align: middle;
+  padding: 0px 15px;
+}
+
+.modal-backdrop.in {
+  opacity: 0.5 !important;
+}
+
+.table-of-contents-layer {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 9999;
+  background-color: rgba(0,0,0,.5);
+  display: none;
+}
+
+.table-of-contents-layer--visible {
+  display: block;
+}
+
+html {
+  font-size: 14px;
+}
+
+/* --------------------- */
+body {
+  background-color: white !important;
+  padding-top: 52px;
+  /* #f9f9f9; */
+  font-family: 'Roboto', sans-serif !important; }
+  body > header {
+    background-color: white;
+    border: 0px none;
+    border-top: 2px solid #528bff;
+    box-shadow: 0px 3px 5px rgba(0,0,0,.1);
+    position: fixed;
+    top: 0px;
+    height: 52px;
+    left: 0px;
+    width: 100%;
+  }
+    body > header > nav > ul li a {
+      color: #667185; }
+
+    body > header > nav .navbar-link--highlighted, body > header > nav .navbar-link--highlighted:hover, body > header > nav .navbar-link--highlighted:active {
+      background-color: #528bff !important;
+      color: white !important;
+    }
+
+
+
+    body > header > h1 > button {
+      border-color: #528bff;
+      color: #528bff;
+    }
+
+    body > header > h1 > button .icon-bar {
+      color: #528bff;
+      background-color: #528bff;
+    }
+
+    body > header > h1 > button:hover {
+      background-color: white;
+    }
+
+    body > header > nav {
+      background-color: white;
+    }
+
+    body > header > nav > ul li a:hover {
+      color: #667185;
+      background-color: rgba(0,0,0,.05);
+    }
+
+body > header > nav {
+  border: 0px none !important;
+}
+
+section {
+  color: #667185 }
+  section > header > h1 {
+    font-weight: normal;
+    }
+  section > h1 {
+    font-weight: normal;
+    }
+  section > h2 {
+    font-weight: normal;
+    }
+  section > h3 {
+    font-weight: normal;
+    }
+  section > h4 {
+    font-weight: normal;
+    }
+
+section {
+  border: 0px none;
+}
+
+section > header > h1 {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-color: rgba(160,160,160,.2);
+}
+
+aside {
+  border: 0px none;
+  box-shadow: 0px 3px 5px rgba(0,0,0,.1);
+  border-radius: 0.25rem;
+  border-left: 4px solid #528bff;
+}
+
+a {
+  cursor: pointer;
+  color: #528bff;
+}
+
+a:hover, a:active {
+  color: #528bff;
+}
+
+aside.pohdi {
+  border-color: #666; }
+  aside.pohdi h1:before {
+    border-color: #666; }
+aside h1 {
+  font-weight: bold;
+}
+aside h1:before {
+  font-weight: normal;
+  text-transform: uppercase; }
+
+.assignment {
+  border: 0px none;
+  box-shadow: 0px 3px 5px rgba(0,0,0,.1);
+  border-radius: 0.25rem;
+  }
+  .assignment > header {
+      background-color: #528bff;
+      border-radius: 0.25rem;
+    }
+    .assignment > header > h1 {
+      font-weight: normal;
+      }
+  .assignment > div h1 {
+    font-weight: normal;
+    }
+  .assignment > div h2 {
+    font-weight: normal;
+    }
