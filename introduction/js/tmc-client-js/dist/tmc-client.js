@@ -3362,7 +3362,7 @@ var TmcClient =
 	      var username = _ref.username;
 	      var password = _ref.password;
 	
-	      var body = ['client_id=' + CLIENT_ID, 'client_secret=' + CLIENT_SECRET, 'username=' + username, 'password=' + password, 'grant_type=password'].join('&');
+	      var body = ['client_id=' + CLIENT_ID, 'client_secret=' + CLIENT_SECRET, 'username=' + encodeURIComponent(username), 'password=' + encodeURIComponent(password), 'grant_type=password'].join('&');
 	
 	      var options = {
 	        headers: {
@@ -3821,9 +3821,13 @@ var TmcClient =
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	try {
-	  __webpack_require__(116);
+	  /* eslint-disable global-require */
 	  __webpack_require__(117);
-	} catch (e) {}
+	  __webpack_require__(116);
+	  /* eslint-enable global-require */
+	} catch (e) {
+	  console.warn('Could not require some of the dependencies.');
+	}
 	
 	exports.default = _tmcClient2.default;
 	module.exports = exports['default'];

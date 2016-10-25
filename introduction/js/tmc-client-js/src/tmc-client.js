@@ -9,8 +9,8 @@ class TmcClient {
     const body = [
       `client_id=${CLIENT_ID}`,
       `client_secret=${CLIENT_SECRET}`,
-      `username=${username}`,
-      `password=${password}`,
+      `username=${encodeURIComponent(username)}`,
+      `password=${encodeURIComponent(password)}`,
       'grant_type=password',
     ].join('&');
 
