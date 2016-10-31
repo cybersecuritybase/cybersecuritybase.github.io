@@ -745,16 +745,14 @@ public class ListController {
 
 	<p>Iterating a list in the Thymeleaf template can be done using the attribute <code>th:each</code>. The basic syntax for <code>th:each</code> is as follows.</p>
 
-<pre><code class="xml">&lt;pre&gt;
-    &lt;p th:each="item : ${list}"&gt;
-        &lt;span th:text="${item}"&gt;hello world!&lt;/span&gt;
-    &lt;/p&gt;</code></pre>
+<pre><code class="xml">&lt;p th:each="item : ${list}"&gt;
+    &lt;span th:text="${item}"&gt;hello world!&lt;/span&gt;
+&lt;/p&gt;</code></pre>
 
 
         <p>In the example above, we search for a value with the key <code>list</code> and print all the items in the list one by one. The attribute <code>th:each</code> can be used in principle with any repeatable element; it could be used, for example, with the <code>li</code>-element as follows.</p>
 
-<pre><code class="xml">&lt;pre&gt;
-&lt;ul&gt;
+<pre><code class="xml">&lt;ul&gt;
     &lt;li th:each="item : ${list}"&gt;
         &lt;span th:text="${item}"&gt;hello world!&lt;/span&gt;
     &lt;/li&gt;
