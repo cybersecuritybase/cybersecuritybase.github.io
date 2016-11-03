@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="css/mooc-icon/style.css"/>
     <link rel="stylesheet" href="css/csa.css"/>
     <link rel="stylesheet" href="css/csa-mooc.css"/>
 
@@ -19,6 +20,9 @@
     <!-- BEGIN NAV -->
     <header role="navigation">
       <h1>
+        <a href="http://mooc.fi" alt="MOOC" target="_blank">
+          <span class="icon-mooc"></span>
+        </a>
         <button type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
@@ -29,14 +33,15 @@
       <nav class="collapse bs-navbar-collapse" role="navigation">
         <ul>
           <li>
-            <a href="#" class="navbar-link--highlighted table-of-contents-trigger">
+            <a href="#" class="table-of-contents-trigger">
               Table of contents
             </a>
           </li>
         </ul>
+
         <ul class="pull-right">
           <li>
-            <a href="#" class="navbar-link--highlighted login-trigger">
+            <a href="#" class="login-trigger">
               Log in
             </a>
           </li>
@@ -235,7 +240,7 @@
 	<p>When beginning development of a new application, there are few factors that should immediately be considered. From the point of view of this course series, we naturally take the stance that security is the biggest one. It is essential to apply some kind of threat modelling in the design phase. If not, the application may have serious flaws or the effort to maintain security is wasted on the wrong part of the application. In the process of threat modelling one examines the application and deconstructs it to smaller parts--features and modules--that do a certain thing. From these parts threats are identified and from these threats the vulnerabilities. This process can continue, with each of part being further deconstructed to even smaller parts.</p>
 
 	<p>Threats can be revealed by a variety of actors. For example, an ordinary user may stumble on a flaw in an application; a script kiddie running automated tools may discover a flaw; or a truly motivated attacker may find a flaw in the application through manual analysis. A threat's impact on an application might include unauthorized access being granted due to authorization failure, the browser cache being poisoned with malicious data, or private data being revealed via eavesdropping.</p>
-	      
+
 	<p>To simplify modelling, multiple ways exist of classifying threats. Two examples are the STRIDE and DREAD checklists. Neither one is exhaustive, but both provide good structures for determining the type of a given threat.</p>
 
 	<h3>The STRIDE Threat Model</h3>
@@ -330,6 +335,12 @@
     <!-- QUIZNATOR DASHBOARD -->
     <div class="quiznator-dashboard"></div>
 
+    <!-- BROWSER SUPPORT WARNING -->
+    <div class="browser-support-warning">
+      Some parts of this page might not work on your current browser. Consider switching to either <a href="https://www.google.com/chrome/browser/desktop/" target="_blank">Chrome</a> or <a href="https://www.mozilla.org/en-US/firefox/new/" target="_blank">Firefox</a>.
+      <a class="pull-right browser-support-warning__close">Got it!</a>
+    </div>
+
     <script src="https://quiznator.herokuapp.com/javascripts/plugin-loader.min.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
@@ -340,6 +351,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <script src="js/tmc-client-js/dist/tmc-client.min.js"></script>
+    <script src="js/bowser/bowser.js"></script>
     <script src="js/csa.js"></script>
 
     <script>

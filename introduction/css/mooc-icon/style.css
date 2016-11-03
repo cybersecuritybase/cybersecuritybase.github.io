@@ -1,0 +1,30 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?wvlc9k');
+  src:  url('fonts/icomoon.eot?wvlc9k#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?wvlc9k') format('truetype'),
+    url('fonts/icomoon.woff?wvlc9k') format('woff'),
+    url('fonts/icomoon.svg?wvlc9k#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-mooc:before {
+  content: "\e900";
+}
+

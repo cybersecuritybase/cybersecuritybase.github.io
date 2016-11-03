@@ -10,6 +10,22 @@ var SITE = {
         SITE.initMaterialLinks();
         SITE.initLogin();
         SITE.initProgress();
+        SITE.initBrowserSupport();
+    },
+    initBrowserSupport: function() {
+      var $warning = $('.browser-support-warning');
+      var $closeWarning = $('.browser-support-warning__close');
+      var chromeOrFirefox = bowser.firefox || bowser.chrome;
+
+      if(!chromeOrFirefox) {
+        $warning.show();
+      }
+
+      $closeWarning
+        .on('click', function(e) {
+          e.preventDefault();
+          $warning.hide();
+        });
     },
     initMaterialLinks: function() {
       var $links = $('.table-of-contents a');
@@ -33,7 +49,7 @@ var SITE = {
 
       $(window)
         .on('scroll', function() {
-          if($(window).scrollTop() + $(window).height() >= $(document).height()) {
+          if($(window).scrollTop() + $(window).height() >= $(document).height() || $(window).scrollTop() === 0) {
             $progress.hide();
 
             return;
