@@ -22,6 +22,12 @@ header > h1 a span {
   top: 3px;
 }
 
+@media(max-width: 960px) {
+  .side-nav {
+    float: none !important;
+  }
+}
+
 .browser-support-warning {
   position: fixed;
   z-index: 9999;
@@ -163,6 +169,7 @@ body {
 
     body > header > h1 > button {
       border-color: #528bff;
+      background-color: white !important;
       color: #528bff;
     }
 
