@@ -9,7 +9,7 @@
   border: 0px none;
 }
 
-header > h1 a {
+header[role="navigation"] > h1 a {
   color: #FFAB0E !important;
   font-size: 40px !important;
   padding: 0px 15px !important;
