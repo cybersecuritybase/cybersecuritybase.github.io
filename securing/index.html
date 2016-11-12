@@ -179,9 +179,7 @@ Scanner reader = new Scanner(socket.getInputStream());</code></pre>
 
 	  <p>In order to be able to work on the programming assignments, you will need a programming environment that supports Java and Maven. NetBeans and IntelliJ -- among others -- tend to do this out of the box.</p>
 
-	  <p>We suggest that you use NetBeans with Java (e.g. at <a href="http://www.oracle.com/technetwork/articles/javase/jdk-netbeans-jsp-142931.html" target="_blank">http://www.oracle.com/technetwork/articles/javase/jdk-netbeans-jsp-142931.html</a> and download the Test My Code plugin to it. The Test My Code plugin is used for downloading and submitting assignments directly from the programming environment. If you choose not to use it, you can retrieve the assignments from the <a href="https://tmc.mooc.fi/org/mooc/courses/173" target="_blank">TMC course page</a> as well, and submitting them means sending them to the server as a zip.</p>
-
-	  <p>Once you have NetBeans installed, you can follow the guidelines at <a href="https://github.com/UniversityHelsinkiTKTL/tmc-plugin-installation-guide/blob/master/TmcPluginToExistingNetBeans.md" target="_blank">https://github.com/UniversityHelsinkiTKTL/tmc-plugin-installation-guide/blob/master/TmcPluginToExistingNetBeans.md</a>. Use the URL <code>http://update.testmycode.net/tmc-netbeans_hy/updates.xml</code> as the plugin URL and <code>https://tmc.mooc.fi/org/mooc</code> as the server address.</p>
+	  <p>We suggest that you use NetBeans with Java (e.g. at <a href="http://www.oracle.com/technetwork/articles/javase/jdk-netbeans-jsp-142931.html" target="_blank">http://www.oracle.com/technetwork/articles/javase/jdk-netbeans-jsp-142931.html</a> and download the Test My Code plugin to it. The Test My Code plugin is used for downloading and submitting assignments directly from the programming environment. Once you have NetBeans installed, you can follow the guidelines at <a href="https://github.com/UniversityHelsinkiTKTL/tmc-plugin-installation-guide/blob/master/TmcPluginToExistingNetBeans.md" target="_blank">https://github.com/UniversityHelsinkiTKTL/tmc-plugin-installation-guide/blob/master/TmcPluginToExistingNetBeans.md</a>. Use the URL <code>http://update.testmycode.net/tmc-netbeans_hy/updates.xml</code> as the plugin URL and <code>https://tmc.mooc.fi/org/mooc</code> as the server address.</p>
 
 	  <p>Once installed, the settings should look as follows:</p>
 
@@ -191,11 +189,34 @@ Scanner reader = new Scanner(socket.getInputStream());</code></pre>
 
 	  <p>Once this is done, you will receive a pop up that lists the assignments that you may download. Note that if you leave the checkmark "Send snapshots of your progress for study" enabled, data from your problem solving process will be stored for research purposes.</p>
 
-	  <p>If the assignments are listed as <em>unloadable</em> in NetBeans, select the projects and choose "Clean and build". This should resolve the issue. If not, let us know!</p>
+	  <h5>Possible issues:</h5>
 
-	  <p>There are also other clients for Test My Code such as the <a href="https://github.com/testmycode/tmc-cli" target="_blank">TMC command line client</a> and the <a href="https://plugins.jetbrains.com/plugin/8551" target="_blank">TMC IntelliJ plugin</a>. Both of these are in beta though.</p>
+	  <ul>
+	    <li>No Maven support</li>
 
-	  <p>Note that if you have previously worked on our courses offered at <code>mooc.fi</code> using the old TMC Server at <code>https://tmc.mooc.fi/mooc</code>, make sure that you use the address <code>https://tmc.mooc.fi/org/mooc</code>.</p>
+	    <p>Note that some NetBeans downloads may have Maven support disabled by default. If you do not have Maven support in NetBeans, see <a href="https://github.com/UniversityHelsinkiTKTL/tmc-plugin-installation-guide/blob/master/FixingMavenInNetbeans.md" target="_blank">Fixing Maven in NetBeans</a> to address this issue.</p>
+
+	    <li>Assignments listed as <em>unloadable</em> in NetBeans</li>
+
+	    <p>If the assignments are listed as <em>unloadable</em> in NetBeans and NetBeans has Maven support, select the projects and choose "Clean and build". This should resolve the issue. If not, let us know at mooc@cs.helsinki.fi!</p>
+
+	    <li>Unable to login to TMC</li>
+
+	    <p>Verify that you are using <code>https://tmc.mooc.fi/org/mooc</code> as the server address and that you are using the same username and password in TMC as you are using for this site. We have a separate TMC server instance at <code>https://tmc.mooc.fi/mooc</code>, which is used in some of the courses offered at <code>mooc.fi</code> -- it is not used in this course.</p>
+
+	  </ul>
+
+
+	  <p>If you choose not to use the NetBeans + TMC combination, there are also other options:</p>
+
+	  <ul>
+	    <li>You may use other clients for Test My Code such as the <a href="https://github.com/testmycode/tmc-cli" target="_blank">TMC command line client</a> and the <a href="https://plugins.jetbrains.com/plugin/8551" target="_blank">TMC IntelliJ plugin</a>. Both of these are in beta though.</li>
+	    
+	    <li>You can retrieve the assignment templates from the <a href="https://tmc.mooc.fi/org/mooc/courses/173" target="_blank">TMC course page</a>, complete them locally, and submit them to TMC as a zip using the previous site. Note that you must retain the original folder structure. </li>
+	  </ul>
+
+
+	
 
 	</aside>
 

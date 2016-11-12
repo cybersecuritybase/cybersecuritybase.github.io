@@ -138,6 +138,11 @@
 
 	  <p>For the purposes of this course, we use the <a href="http://vanilla-js.com/" target="_blank">VanillaJS</a> framework. It is one of the most used Javascript frameworks, requires no downloading or installing, and is crucial for an in-depth understanding of most of the other Javascript components and frameworks.</p>
 
+	  <p>(VanillaJS is not actually a framework, just plain Javascript. <em>Understanding</em> it will likely help you immensely, and likely also reduce the possibility of writing code with plenty of holes that others must fix...)</p> 
+
+	  <blockquote class="twitter-tweet" data-lang="fi"><p lang="en" dir="ltr">“Maybe switching to [insert new JS framework] will compensate for my lack of actual JavaScript knowledge” - front-end developers in 2015.</p>&mdash; I Am Devloper (@iamdevloper) <a href="https://twitter.com/iamdevloper/status/610191865216786432">14. kesäkuuta 2015</a></blockquote>
+	  <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 	</aside>
 
 
@@ -319,6 +324,18 @@ xmlHttp.open("GET", "http://api.icndb.com/jokes/random/", true);
 xmlHttp.send(null);</code></pre>
 
 	<p>In the example above, a query is made to the address "http://api.icndb.com/jokes/random/". When a response is received, it is processed and content from the response is shown to a user in an element with the id "content".</p>
+
+	<aside class="info">
+	  <br/>
+	  <h1>On debugging Javascript applications</h1>
+
+	  <p>When building and analyzing Javascript applications, being able to debug them is crucial. Up to date browsers such as Google Chrome provide quite good tools for analyzing the application. See <a href="https://developers.google.com/web/tools/chrome-devtools/" target="_blank">Chrome DevTools</a> for a start.</p>
+
+	  <p>When debugging your own applications, the very basic command is <code>console.log()</code>, which can be used to print out variable details and other information to the developer tools console. When the command <code>console.log("Hello world!");</code> is inserted into your Javascript code, the text "Hello world!" will be printed to the Developer tools console. When looking for problems in code, debugging using the console log is a good start.</p>
+
+	  <p>If you are familiar with debuggers and breakpoints in IDEs, similar functionality is available for browsers as well. See <a href="https://developers.google.com/web/tools/chrome-devtools/javascript/add-breakpoints" target="_blank">Inspect and Debug Javascript</a> at Google Developers.</p>
+
+	</aside>
 
 
 	<h2>Returning JSON Data from the Web Application</h2>
