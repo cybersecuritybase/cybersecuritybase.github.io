@@ -789,6 +789,9 @@ public void bankTransfer(Long fromAccount, Long toAccount, Integer amount) {
 
     from.setBalance(from.getBalance() - amount);
     to.setBalance(to.getBalance() + amount);
+    
+    accountRepository.save(accountFrom);
+    accountRepository.save(accountTo);
 }</code></pre>
 
 	<p>The annotation <code>@Transactional</code> also indicates that the entities are managed within the method. That is, the entities that have been loaded from the database are tracked, and the changes that are made to them are written to the database at the end of the method.</p>
@@ -803,6 +806,9 @@ public void bankTransfer(Long fromAccount, Long toAccount, Integer amount) {
 
     from.setBalance(from.getBalance() - amount);
     to.setBalance(to.getBalance() + amount);
+    
+    accountRepository.save(accountFrom);
+    accountRepository.save(accountTo);
 }</code></pre>
 
 	<p></p>
