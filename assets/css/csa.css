@@ -3305,8 +3305,11 @@ aside {
     .assignment > div > .pisteytys {
       list-style-type: none; }
 
-.naytto {
+.naytto, .view {
   margin: 2em;
+  padding: 1em;
+  border: 2px solid; }
+.view-nopadding {
   padding: 1em;
   border: 2px solid; }
 
