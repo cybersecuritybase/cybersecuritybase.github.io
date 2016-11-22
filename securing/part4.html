@@ -104,7 +104,7 @@
 
 	<p>This part of the course is devoted into further discovery of defects in software.</p>
 
-	<p>Software is secure if the software keeps behaving correctly even in unexpected situations (one may argue what the correct is). However, in order to make secure software one needs to know how the software breaks. When you understand how it breaks you know its weaknessess. These weaknesses could be used to make an exploit against the software. One way to fix the situation is to fix the weaknessess but sometimes the fix may take you back to the drawing board and force you to redesign the software.</p>
+	<p>Software is secure if the software keeps behaving correctly even in unexpected situations (one may argue what the correct is). However, in order to make secure software one needs to know how the software breaks. When you understand how it breaks you know its weaknesses. These weaknesses could be used to make an exploit against the software. One way to fix the situation is to fix the weaknesses but sometimes the fix may take you back to the drawing board and force you to redesign the software.</p>
 
 	<p>The weakness may be a bug that manifests itself on the implementation level. However, some of the more serious flaws in software are design flaws on the design level which are harder to find. Moreover, some security related flaws come from the business logic level. Sometimes the security flaw may be caused by all of the above together.</p>
 
@@ -116,11 +116,11 @@
 
 	  <h1>Flaws are good at hiding</h1>
 
-	  <p>Ross Andersson wrote an article on how this works. Flaws have have many good hiding places in large pieces of software.</p>
+	  <p>Ross Andersson wrote an article on how this works. Flaws have many good hiding places in large pieces of software.</p>
 
 	  <p>Anderson, R. (2001). Why information security is hard - An economic perspective. Proceedings - Annual Computer Security Applications Conference, ACSAC, 2001-January, 358–365. <a href="https://www.acsac.org/2001/papers/110.pdf" target="_blank">https://www.acsac.org/2001/papers/110.pdf</a></p>
 
-	  <p>Our material actually has plenty of flaws. Every time a link is opened from this page, the <a href="https://www.w3.org/Bugs/Public/show_bug.cgi?id=28821" target="_blank">target page could also influece this page</a>.</p>
+	  <p>Our material actually has plenty of flaws. Every time a link is opened from this page, the <a href="https://www.w3.org/Bugs/Public/show_bug.cgi?id=28821" target="_blank">target page could also influence this page</a>.</p>
 	</aside>
 
 	<h2>Binary Exploit</h2>
@@ -192,7 +192,7 @@
 	  </p>
 	</aside>
 
-  <p>One source of potential binary exploits is unproper memory management. In some languages, like C, dynamic memory is manually managed by the progammer. Undesired behaviour can occur for example when the programmer forgets to allocate (reserve) memory, allocates the wrong amount of memory, forgets to deallocate memory (results in a memory leak), or tries to use memory that has already been deallocated.</p>
+  <p>One source of potential binary exploits is improper memory management. In some languages, like C, dynamic memory is manually managed by the programmer. Undesired behaviour can occur for example when the programmer forgets to allocate (reserve) memory, allocates the wrong amount of memory, forgets to deallocate memory (results in a memory leak), or tries to use memory that has already been deallocated.</p>
 
   <aside class="info">
 
@@ -250,7 +250,7 @@
 	  <li>Large values</li>
 	  <li>Maximum divided by 2, 3, and 4 and near values</li>
 	  <li>null</li>
-	  <li>New line charaters</li>
+	  <li>New line characters</li>
 	  <li>Semicolons and other separators
 	  <li>Format string values (%s)</li>
 	  <li>Keywords</li>
@@ -279,7 +279,7 @@
 
 	<h3>Blind fuzzing</h3>
 
-	<p>The simplest way to fuzz is to create inputs randomly without any knowledge of valid inputs or of context. This is called blind fuzzing. The simplest way to implement this would be to pipe /dev/random in Linux as the input. This is efficien as it takes very little effort in creating the fuzz. This kind of fuzzing could be used against, e.g., compression algorithms. Then again the total randomness of it is also its weakness. Many applications expect some structure in their inputs. Let's consider image manipulation applications, they expect that the read file (input) starts the certain way, e.g., the JPEG File Interchange Format (JFIF) says that the file starts with FF D8 in hexadecimal. If the first bytes are not recognized the application should inform the user of incorrect file format. As another example, network protocols expect the data to be presented as with some structure containing key value pairs and even field lengths. These kind of applications need more intelligent fuzzing than just blind fuzzing. The fuzzer should at least have rudimentary knowledge of what makes the input valid which makes creating the fuzz harder and it becomes a balancing act of how much work you put into creating the fuzz and how complete coverage of inputs you want it to have on the targeted application.</p>
+	<p>The simplest way to fuzz is to create inputs randomly without any knowledge of valid inputs or of context. This is called blind fuzzing. The simplest way to implement this would be to pipe /dev/random in Linux as the input. This is efficient as it takes very little effort in creating the fuzz. This kind of fuzzing could be used against, e.g., compression algorithms. Then again the total randomness of it is also its weakness. Many applications expect some structure in their inputs. Let's consider image manipulation applications, they expect that the read file (input) starts the certain way, e.g., the JPEG File Interchange Format (JFIF) says that the file starts with FF D8 in hexadecimal. If the first bytes are not recognized the application should inform the user of incorrect file format. As another example, network protocols expect the data to be presented as with some structure containing key value pairs and even field lengths. These kind of applications need more intelligent fuzzing than just blind fuzzing. The fuzzer should at least have rudimentary knowledge of what makes the input valid which makes creating the fuzz harder and it becomes a balancing act of how much work you put into creating the fuzz and how complete coverage of inputs you want it to have on the targeted application.</p>
 
 	<p>First step towards the smarter fuzzing is the mutation-based fuzzing in which a large number of valid inputs are taken and then mutated in various ways. Some parts of the valid inputs may experience bit flips, some parts of them might be repeated, deleted, replaced, shuffled. Although mutation-based fuzzing takes the valid inputs as its input the mutations are still random by nature. and no coverage of the inputs is not guaranteed. These simple mutation-based methods are good start for fuzzing simple network protocols, e.g., the fuzzers acts as the man-in-the-middle and intercepts valid messages from the client, mutates the messages, and gives them to the server. However, complex protocols need more intelligence from the fuzzer.</p>
 
@@ -287,7 +287,7 @@
 
 	<h3>Smart fuzzers</h3>
 
-	<p>If mutation-based fuzzing was called dumb-fuzzing, the generation-based fuzzing is called the intelligent fuzzing. In generation-based fuzzing the input is created from scratch based on the used specification or input format of the targeted application or protocol. The input creation is then split into chunks, which are built in order and independetly. Randomness is introduced inside the chunks. This way the inputs are not completely groken but contain some fuzzed parts. How to split the inputs into chunks is usually defined by the input format, e.g, fields such as key-value pairs etc. make good split points for chunks.</p>
+	<p>If mutation-based fuzzing was called dumb-fuzzing, the generation-based fuzzing is called the intelligent fuzzing. In generation-based fuzzing the input is created from scratch based on the used specification or input format of the targeted application or protocol. The input creation is then split into chunks, which are built in order and independently. Randomness is introduced inside the chunks. This way the inputs are not completely groken but contain some fuzzed parts. How to split the inputs into chunks is usually defined by the input format, e.g, fields such as key-value pairs etc. make good split points for chunks.</p>
 
 	<p>Evolutionary-based fuzzing is basically the same as the mutation-based above but it adds heuristics to the fuzzing which change the fuzzing on every iteration. These fuzzer would look what the previous attempts did and change the behaviour so that more parts of the code would be covered. These kinds of fuzzers need compile-time instrumentation which adds instructions to the source code of the targeted application that will allow monitoring of how the input changed the execution path inside the application. Sometimes this kind of fuzzing is called Instrumented fuzzing.</p>
 
@@ -323,7 +323,7 @@
 
 	<h3>Fuzzing</h3>
 
-	<p>The previous sections have talked about fuzzing and it should now be clear that for a successfull fuzz the work flow is similar to the following.</p>
+	<p>The previous sections have talked about fuzzing and it should now be clear that for a successful fuzz the work flow is similar to the following.</p>
 
 	<ul>
 	  <li>Gather input samples</li>
@@ -333,7 +333,7 @@
 	  <li>Start over again</li>
 	</ul>
 
-	<p>About the gathering of the sample file set, one could get by with generating the samples out of thin air randomly. However, better results can be gotten with a set of sampels to start from. The samples should represent the features of the format to be fuzzed. In case of network protocols captures of the real traffic are goof starting points (with tools such as <a href="http://wwww.wireshark.org">wireshark</a> or <a href="http://www.tcpdump.org">tcpdump</a>). Sometimes just random files from the web will do. For example, bunch of available PDFs from the web for testing PDF tools or images of corn from the web to test image conversion tools.</p>
+	<p>About the gathering of the sample file set, one could get by with generating the samples out of thin air randomly. However, better results can be gotten with a set of samples to start from. The samples should represent the features of the format to be fuzzed. In case of network protocols captures of the real traffic are goof starting points (with tools such as <a href="http://wwww.wireshark.org">wireshark</a> or <a href="http://www.tcpdump.org">tcpdump</a>). Sometimes just random files from the web will do. For example, bunch of available PDFs from the web for testing PDF tools or images of corn from the web to test image conversion tools.</p>
 
 	<p>There are many and many more fuzzers in existense. They basically do the same thing but under the hood they differ from each other. Some mutate the inputs using Burrows-Wheeler transformation and others permutate the content around the edges of common substrings, etc.</p>
 
@@ -405,7 +405,7 @@ done</pre>
 
 
 
-	<h3>Test harnessess and debugging</h3>
+	<h3>Test harnesses and debugging</h3>
 
 	<p>The tools in the following list are more advanced and can be used to monitor the target application more closely. The list is by no means exchaustive.</p>
 
@@ -434,7 +434,7 @@ done</pre>
 
 	<h3>BURP suite</h3>
 
-	<p>This far this part of the course has concentrated on low level tools for application security testing. Now it is time to introduce the first security testing platform for security testing of web applications. It actually is a collection of tools that work together to creaete the tests. It covers tests for mapping and analysis of the vulnerabilities and even for exploiting them. Burp Suite can easily be extended with plugins such as Bradamsa (radamsa for burp Suite).</p>
+	<p>This far this part of the course has concentrated on low level tools for application security testing. Now it is time to introduce the first security testing platform for security testing of web applications. It actually is a collection of tools that work together to create the tests. It covers tests for mapping and analysis of the vulnerabilities and even for exploiting them. Burp Suite can easily be extended with plugins such as Bradamsa (radamsa for burp Suite).</p>
 
 	<p>Burp suite can act as a proxy between the browser and target application and intercept and modify the traffic between them. It also contains tools such as a spider for crawling content and functionality, scanner for automatic detection of known vulnerabilities, an intruder that can be used to perform customized attacks. Here we look a bit into the proxy tool and how it works. As the last thing in this tools section we look a little into the intruder tool and specifically its sniper mode with bradamsa.</p>
 
@@ -449,7 +449,7 @@ done</pre>
 	</aside>
 
 
-	<p>Burp proxy can be used to intercept the traffic between the browsser and the target application. It works really similarly than man-in-the-middle attack. To test this feature we have a simple log in page that asks your credentials. The intercept mode of the suite has to be on for it to capture the traffic. In the intercept mode you have option to forward or drop the packets.</p>
+	<p>Burp proxy can be used to intercept the traffic between the browser and the target application. It works really similarly than man-in-the-middle attack. To test this feature we have a simple log in page that asks your credentials. The intercept mode of the suite has to be on for it to capture the traffic. In the intercept mode you have option to forward or drop the packets.</p>
 
 	<figure class="view">
 	  <img src="img/login.png">
@@ -473,7 +473,7 @@ done</pre>
 
 	<p>&nbsp;</p>
 
-	<p>These positions are then replaced in the attack. With what are they replaced with depends on the attacker. Simplest way is to make a list of "good quesses" such as using a list of common passwords which are easily found from the net (small snippet below). Also tools such as <a href="https://github.com/ikkisoft/bradamsa">Bradamsa</a>, which is a Burp suite extension that uses Radamsa to generate the intruder payloads, can be used to create the payloads.</p>
+	<p>These positions are then replaced in the attack. With what are they replaced with depends on the attacker. Simplest way is to make a list of "good guesses" such as using a list of common passwords which are easily found from the net (small snippet below). Also tools such as <a href="https://github.com/ikkisoft/bradamsa">Bradamsa</a>, which is a Burp suite extension that uses Radamsa to generate the intruder payloads, can be used to create the payloads.</p>
 
 	<pre>123456
 password
