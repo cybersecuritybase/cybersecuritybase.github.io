@@ -407,7 +407,7 @@ done</pre>
 
 	<h3>Test harnesses and debugging</h3>
 
-	<p>The tools in the following list are more advanced and can be used to monitor the target application more closely. The list is by no means exchaustive.</p>
+	<p>The tools in the following list are more advanced and can be used to monitor the target application more closely. The list is by no means exhaustive.</p>
 
 	<ul>
 	  <li><a href="http://www.gnu.org/software/gdb/">GDB</a></li>
@@ -442,14 +442,14 @@ done</pre>
 	  <br/>
 	  <h1>Getting Burp</h1>
 
-	  <p>Can be obtained from <a href="https://portswigger.net/burp/download.html">Portswigger</a>. To run it simple command as the following is enough and gives the burp enough memory to play with. Also the browser has to be configured to use a proxy. Burp suite's default proxy address is 127.0.0.1:8080.
+	  <p>Can be obtained from <a href="https://portswigger.net/burp/download.html">Portswigger</a>. To run it, the following simple command is enough and gives the burp enough memory to play with. Also the browser has to be configured to use a proxy. Burp suite's default proxy address is 127.0.0.1:8080.
 	  </p>
 
 	  <pre>java -jar -Xmx1024m /path/to/burpsuite.jar</pre>
 	</aside>
 
 
-	<p>Burp proxy can be used to intercept the traffic between the browser and the target application. It works really similarly than man-in-the-middle attack. To test this feature we have a simple log in page that asks your credentials. The intercept mode of the suite has to be on for it to capture the traffic. In the intercept mode you have option to forward or drop the packets.</p>
+	<p>Burp proxy can be used to intercept the traffic between the browser and the target application. It works really similar to man-in-the-middle attacks. To test this feature we have a simple log in page that asks your credentials. The intercept mode of the suite has to be on for it to capture the traffic. In the intercept mode you have option to forward or drop the packets.</p>
 
 	<figure class="view">
 	  <img src="img/login.png">
@@ -465,7 +465,7 @@ done</pre>
 
 	<p>&nbsp;</p>
 
-	<p>The intruder tool is used to automize attacks against web applications. This tool consists of four types of attacks: sniper, battering ram, pitchfor, and cluster bomb. For these attacks to work the tool automatically searches all the payload positions from the captured packets (see below in the image highlighs enclosed with &sect; signs). These positions are used by the attacks.</p>
+	<p>The intruder tool is used to automize attacks against web applications. This tool consists of four types of attacks: sniper, battering ram, pitchfor, and cluster bomb. For these attacks to work the tool automatically searches all the payload positions from the captured packets (see below in the image highlights enclosed with &sect; signs). These positions are used by the attacks.</p>
 
 	<figure class="view-nopadding">
 	  <img src="img/sniper.png">
@@ -541,7 +541,7 @@ qwertyuiop
 	<aside>
 	  <br/>
 	  <h1>Just password hacking?</h1>
-	  <p>Whilst the previous practical example was about hacking a password, you can use Burp Suite (or OWASP Zap) to scan web applications for any vulnerabilities. Whilst there are no explicitly outlined assignments for this in this material, we recommend and expect that you try out those tools with the WebGoat server from last week!</p>
+	  <p>Whilst the previous practical example was about hacking a password, you can use Burp Suite (or OWASP Zap) to scan web applications for any vulnerabilities. Even though there are no explicitly outlined assignments for this in this material we still recommend and expect that you try out those tools with the WebGoat server from last week!</p>
 	</aside>
 
 
