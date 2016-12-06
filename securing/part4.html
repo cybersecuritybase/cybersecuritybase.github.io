@@ -24,7 +24,7 @@
     <!-- BEGIN NAV -->
     <header role="navigation">
       <h1>
-        <a href="http://mooc.fi" alt="MOOC" target="_blank">
+        <a href="https://mooc.fi" alt="MOOC" target="_blank">
           <span class="icon-mooc"></span>
         </a>
 
@@ -162,7 +162,7 @@
 	<p>One of the most common weaknesses gives an attacker the possibility to run code on your system, which may have severe consequences. Here, the attacker will abuse a flaw in the software in order to make it do something it was not designed to do. As an example, you may have heard of the Heartbleed bug:</p>
 
 	<figure>
-	  <img src="http://imgs.xkcd.com/comics/heartbleed_explanation.png" />
+	  <img src="https://imgs.xkcd.com/comics/heartbleed_explanation.png" />
 	  <figcaption>(source <a href="https://xkcd.com/1354/" target="_blank">xkcd: How the heartbleed bug works.</a>)</figcaption>
 	</figure>
 
@@ -227,7 +227,7 @@
 
 	  <p>So, what could one do to avoid binary exploits? -- plenty!</p>
 
-	  <p>See some examples of what <a href="https://www.microsoft.com/security/sir/strategy/default.aspx#!section_3_3" target="_blank">Microsoft</a> (if the link does not work, click it again :D) and <a href="http://7h3ram.blogspot.fi/2012/07/exploit-mitigation-techniques-on-linux.html" target="_blank" rel="noopener noreferrer">Linux</a> do.</p>
+	  <p>See some examples of what <a href="https://www.microsoft.com/security/sir/strategy/default.aspx#!section_3_3" target="_blank">Microsoft</a> (if the link does not work, click it again :D) and <a href="https://7h3ram.blogspot.fi/2012/07/exploit-mitigation-techniques-on-linux.html" target="_blank" rel="noopener noreferrer">Linux</a> do.</p>
 
 	</aside>
 
@@ -338,7 +338,7 @@
 	  <li>Start over again</li>
 	</ul>
 
-	<p>About the gathering of the sample file set, one could get by with generating the samples out of thin air randomly. However, better results can be gotten with a set of samples to start from. The samples should represent the features of the format to be fuzzed. In case of network protocols captures of the real traffic are goof starting points (with tools such as <a href="http://wwww.wireshark.org">wireshark</a> or <a href="http://www.tcpdump.org">tcpdump</a>). Sometimes just random files from the web will do. For example, bunch of available PDFs from the web for testing PDF tools or images of corn from the web to test image conversion tools.</p>
+	<p>About the gathering of the sample file set, one could get by with generating the samples out of thin air randomly. However, better results can be gotten with a set of samples to start from. The samples should represent the features of the format to be fuzzed. In case of network protocols captures of the real traffic are goof starting points (with tools such as <a href="https://wwww.wireshark.org">wireshark</a> or <a href="https://www.tcpdump.org">tcpdump</a>). Sometimes just random files from the web will do. For example, bunch of available PDFs from the web for testing PDF tools or images of corn from the web to test image conversion tools.</p>
 
 	<p>There are many and many more fuzzers in existense. They basically do the same thing but under the hood they differ from each other. Some mutate the inputs using Burrows-Wheeler transformation and others permutate the content around the edges of common substrings, etc.</p>
 
@@ -346,7 +346,7 @@
 	  <br/>
 	  <h1>Shell</h1>
 
-	  <p>In order to attempt the following examples yourself, you need access to a Unix shell. If you have not used shell before, see this <a href="http://www.shellscript.sh/" target="_blank">tutorial</a> as a starting point.</p>
+	  <p>In order to attempt the following examples yourself, you need access to a Unix shell. If you have not used shell before, see this <a href="https://www.shellscript.sh/" target="_blank">tutorial</a> as a starting point.</p>
 
 	  <p>We recommend -- if you are not using Linux or Mac -- that you install VirtualBox and a Linux distribution such as Ubuntu on your computer. If you are not familiar with how this could be done, follow the tutorial at <a href="https://www.lifewire.com/run-ubuntu-within-windows-virtualbox-2202098" target="_blank">https://www.lifewire.com/run-ubuntu-within-windows-virtualbox-2202098</a>. </p>
 
@@ -415,9 +415,9 @@ done</pre>
 	<p>The tools in the following list are more advanced and can be used to monitor the target application more closely. The list is by no means exhaustive.</p>
 
 	<ul>
-	  <li><a href="http://www.gnu.org/software/gdb/">GDB</a></li>
+	  <li><a href="https://www.gnu.org/software/gdb/">GDB</a></li>
 	  <li><a href="http://valgrind.org/">Valgrind</a></li>
-	  <li><a href="http://sourceforge.net/projects/strace/">strace</a></li>
+	  <li><a href="https://sourceforge.net/projects/strace/">strace</a></li>
 	  <li><a href="https://linux.die.net/man/1/ltrace">ltrace</a></li>
 	</ul>
 
@@ -535,7 +535,7 @@ qwertyuiop
 
 	      <p>Your "friend" forgot his password, and you need to "retrieve it". You have figured out that his username is "ted". Using burp suite and a suitable list of passwords (pick the top 10000 passwords from <a href="https://github.com/danielmiessler/SecLists/tree/master/Passwords" target="_blank">https://github.com/danielmiessler/SecLists/tree/master/Passwords</a>), determine the password for your "friend".</p>
 
-	      <p>(You may also choose another tool instead of burp suite such as <a href="https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project" target="_blank">OWASP Zap</a>)</p>
+	      <p>Note that if you do not own the license for Burp Suite, we highly recommend that you choose <a href="https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project" target="_blank">OWASP Zap</a>. Doing this assignment with the free version of Burp Suite will take very long.</p>
 
 	      <p>Once you find out the password, change the return value of the method <code>thePassword</code> in the class <code>IFiguredItOut</code> to match the correct password and submit the assignment to the server.</p>
 
