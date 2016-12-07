@@ -298,7 +298,7 @@
 
 	<p>An alternative way for the randomness is to locate a large set of sample inputs. Which are then fed to the instrumented application and out of those runs the coverage of the execution path is recorded. Based on the execution paths minimal set of inputs are collected that cover the most execution paths inside the target. This is commonly called the corpus distillation, which aims to calculate a set of inputs that is manageable in size and covers lots of unusual execution paths in the target. The problem here might be how to get big enough set of sample inputs.</p>
 
-	<p>Maybe the most complicated and time consuming is the Model-based fuzzing, also known as syntax testing. In Model-based fuzzing the inputs are modeled using context free languages. The commonly used languages include such as Backus-Naur Form or Backus Normal Form (BNF), Abstract Syntax Notation (ASN.1) or an Extensible Markup Language (XML) doctype). With these languages fields in the syntax are modeled, manipulated and given as input to the target application. The modeling can be time consuming and hard with the context free languages but complex protocols such as Transport Layer security (TLS) would be hard to fuzz with other methods.</p>
+	<p>Maybe the most complicated and time consuming is the Model-based fuzzing, also known as syntax testing. In Model-based fuzzing the inputs are modeled using context free languages. The commonly used languages include such as Backus-Naur Form or Backus Normal Form (BNF), Abstract Syntax Notation (ASN.1) or an Extensible Markup Language (XML) doctype. With these languages fields in the syntax are modeled, manipulated and given as input to the target application. The modeling can be time consuming and hard with the context free languages but complex protocols such as Transport Layer security (TLS) would be hard to fuzz with other methods.</p>
 
 
 
@@ -359,7 +359,7 @@
 cd radamsa; make
 bin/radamsa --help</pre>
 
-	<p>To get the radamsa to produce fuzzed output is rather simple. In the following example a string is piped to radamsa and radamsa prints out the mutated version. Creating the samples one by one is daunting. Lookily radamsa gives <i>-n</i> option so one can define how many samples it should create.</p>
+	<p>To get the radamsa to produce fuzzed output is rather simple. In the following example a string is piped to radamsa and radamsa prints out the mutated version. Creating the samples one by one is daunting. Luckily radamsa gives <i>-n</i> option so one can define how many samples it should create.</p>
 
 <pre>[user@laptop ~]$ echo "Cyber Security Base 101" | ./radamsa
 Cyber Sectrity Base 1701 1
@@ -396,7 +396,7 @@ do
    convert "$f" -resize 99% imgmgck-output/$(basename "$f" | cut -d . -f1).png
 done</pre>
 
-	<p>ImageMagick will complain about malformed images etc (roughly half of the mutated images where corrupt). But how do we know if something went really wrong and the program crashed. One way is to check what the convert returned to the $PIPESTATUS (or shortly $?). With classic test command you can test if the result was 127 or larger (success is 0) and break the execution of the loop.</p>
+	<p>ImageMagick will complain about malformed images etc (roughly half of the mutated images were corrupt). But how do we know if something went really wrong and the program crashed? One way is to check what the convert returned using $?, which gives the return value of the last command. With classic test command you can test if the result was larger than 127 (indication of fatal program termination) and break the execution of the loop.</p>
 
 <pre>#!/bin/bash
 for f in output-samples/*
@@ -470,7 +470,7 @@ done</pre>
 
 	<p>&nbsp;</p>
 
-	<p>The intruder tool is used to automize attacks against web applications. This tool consists of four types of attacks: sniper, battering ram, pitchfor, and cluster bomb. For these attacks to work the tool automatically searches all the payload positions from the captured packets (see below in the image highlights enclosed with &sect; signs). These positions are used by the attacks.</p>
+	<p>The intruder tool is used to automize attacks against web applications. This tool consists of four types of attacks: sniper, battering ram, pitchfork, and cluster bomb. For these attacks to work the tool automatically searches all the payload positions from the captured packets (see below in the image highlights enclosed with &sect; signs). These positions are used by the attacks.</p>
 
 	<figure class="view-nopadding">
 	  <img src="img/sniper.png">
@@ -550,7 +550,7 @@ qwertyuiop
 	</aside>
 
 
-	<p>Here, we looked at a few methods for finding vulnerabilities. In the <a href="part5.html">part</a>, we will look into security issues in up to date web applications as well as study the culture related to fixing such issues in a rapid fashion.</p>
+	<p>Here, we looked at a few methods for finding vulnerabilities. In the <a href="part5.html">next part</a>, we will look into security issues in up to date web applications as well as study the culture related to fixing such issues in a rapid fashion.</p>
 
       </section>
 
