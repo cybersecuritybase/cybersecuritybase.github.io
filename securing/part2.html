@@ -121,16 +121,6 @@
     &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;
 &lt;/dependency&gt;</code></pre>
 
-
-	<p>Now, the application can be restarted from the command line using the command <code>mvn spring-boot:run</code> (when in the same folder with the <code>pom.xml</code> file). This launches the application. As the program is developed in NetBeans, changes will trigger reloads.</p>
-
-	<p>When the above plugins are in use, it is possible to also use <a href="http://livereload.com/" target="_blank">LiveReload</a> to trigger a site refresh in the browser. Chrome plugin for LiveReload can be found at <a href="https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei" target="_blank">https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei</a>.</p>
-
-
-	<h2>Dynamic Content in the Browser</h2>
-
-
-	<p>The pages that are shown to the user are defined using the HTML language. A single HTML document consists o
 	<p>When the developer tools are in use, changes in the code trigger an automatic restart of the web application. This depends on the used programming environment. In NetBeans, one may need to additionally take the Spring Boot Maven plugin into use. This can be done by adding the following snippet to the <code>pom.xml</code>.</p>
 
 <pre><code class="xml">&lt;build&gt;
@@ -143,8 +133,18 @@
             &lt;/configuration&gt;
         &lt;/plugin&gt;
     &lt;/plugins&gt;
-&lt;/build&gt;</code></pre>f nested and sequential elements that define the structure and the content of the page.</p>
+&lt;/build&gt;</code></pre>
 
+	<p>Now, the application can be restarted from the command line using the command <code>mvn spring-boot:run</code> (when in the same folder with the <code>pom.xml</code> file). This launches the application. As the program is developed in NetBeans, changes will trigger reloads.</p>      
+	
+	<p>When the above plugins are in use, it is possible to also use <a href="http://livereload.com/" target="_blank">LiveReload</a> to trigger a site refresh in the browser. Chrome plugin for LiveReload can be found at <a href="https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei" target="_blank">https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei</a>.</p> 	
+
+	      
+	<h2>Dynamic Content in the Browser</h2> 
+	
+	      
+	<p>The pages that are shown to the user are defined using the HTML language. A single HTML document consists of nested and sequential elements that define the structure and the content of the page.</p> 
+	 
 	<p>Each element may contain attributes that may have one or more values. For example, an input element typically has the attribute <code>name</code>, and the value of that attribute is then used to identify the data from that input element as it is being sent to the server. Other common attribute names include <code>id</code> that is used to define a unique identifier for the element and <code>class</code> that is used to define a classification for that element.</p>
 
 	<h3>Javascript</h3>
