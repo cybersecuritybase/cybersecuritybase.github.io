@@ -321,7 +321,7 @@
 	
 	<p>DevOps is an increasingly popular set of development practices that aims to bridge the gap between development and system administration. This goal is achieved by increasing the collaboration between the administrators and developers. This involves placing administrators and developers to same teams, creating workflows for quickly iterating and releasing features. Moreover, developers are given access to systems and the opportunity to perform administrave tasks on them in order to make problem solving easier.</p>
 
-	<p>DevOps is about minimizing unnecessary delays and maximixing efficiency with small, continuous and iterative changes. It usually relies on automatic testing, continuous integration and deployment that were mentioned above. New changes are pushed to production frequently, which also leads to the need for the automatization, optimization, and simplification of the deployment process. This also makes the whole process more transparent and auditable.</p>
+	<p>DevOps is about minimizing unnecessary delays and maximizing efficiency with small, continuous and iterative changes. It usually relies on automatic testing, continuous integration and deployment that were mentioned above. New changes are pushed to production frequently, which also leads to the need for the automatization, optimization, and simplification of the deployment process. This also makes the whole process more transparent and auditable.</p>
 	
 	<div class="quiznator-plugin" data-quiz-id="584592aa3e657c0004d15836"></div>
 
@@ -330,7 +330,7 @@
 	<div class="quiznator-plugin" data-quiz-id="5845939b3e657c0004d15839"></div>
 
 	
-	<p>Automating the deployment of new changes can be benefitical when patching the system(s) against common security flaws. When new security flaws are published, staying secure is often about being able to patch systems faster than they can be exploited. If the deployment is an automatic and frequent operation, patching will also likely be very quick.</p>
+	<p>Automating the deployment of new changes can be beneficial when patching the system(s) against common security flaws. When new security flaws are published, staying secure is often about being able to patch systems faster than they can be exploited. If the deployment is an automatic and frequent operation, patching will also likely be very quick.</p>
 	
 	<p>One might perceive all deployments as a risk because it might break something. One way to mitigate the risk of new deployments are so-called <a href="http://martinfowler.com/bliki/CanaryRelease.html" target="_blank">canary releases</a>. If one has multiple machines that have to be updated, changes can be pushed only to a small percentage of the nodes. Then one can observe the nodes that have the newer code in place, and see if the work as intended. If everything is ok, the changes can be deployed to the rest of the network.</p>
 	
@@ -348,7 +348,7 @@
 
 	</aside>
 	
-	<p>It is important that security is a part of the DevOps workflow. The continuos integration system should run automatic security checks in each commit so that the easy-to-find vulnerabilities are spotted right away. These checks could include for example finding obsolete dependencies, static code analysis and fuzz testing.</p>
+	<p>It is important that security is a part of the DevOps workflow. The continuous integration system should run automatic security checks in each commit so that the easy-to-find vulnerabilities are spotted right away. These checks could include for example finding obsolete dependencies, static code analysis and fuzz testing.</p>
 	
 	<p>DevOps workflows often take advantage of <a href="https://en.wikipedia.org/wiki/Microservices">microservices</a>, <a href="https://en.wikipedia.org/wiki/Hardware_virtualization">virtualization</a>, and <a href="https://en.wikipedia.org/wiki/Operating-system-level_virtualization">containerization</a>. While the systems created with these practices often have only a minimal set of dependencies, the dependencies can be a security risk. These components are commonly forgotten with no easy way to deploy security patches to them. This is an especially big problem with containers where it is common that there are a lot of containers, and the only way to patch them is to build them again.</p>
 	
