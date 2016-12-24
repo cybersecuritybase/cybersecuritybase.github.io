@@ -185,7 +185,7 @@ Steps to reproduce:
 
 	<p>Cross-site scripting (XSS) vulnerabilities make it possible for the user to include malicious content to a site that will then be executed on the machine of another user. The malicious content may be permanently stored on the web application (e.g. in a database if the input and output is not sanitized), or it may be included temporarily (e.g. as a part of a query parameter).</p>
 
-	<p>Such attacks make it possible to -- among other things -- hijack users' sessions and as a consequense impersonate another user. For example, the cookies that are related to the current document may be accessible through the variable <code>document.cookie</code>, and sent to the server of a malicious user through a simple XMLHttpRequest.</p>
+	<p>Such attacks make it possible to -- among other things -- hijack users' sessions and as a consequance impersonate another user. For example, the cookies that are related to the current document may be accessible through the variable <code>document.cookie</code>, and sent to the server of a malicious user through a simple XMLHttpRequest.</p>
 
 	<pre><code class="html">&lt;script&gt;alert(document.cookie);&lt;/script&gt;</code></pre>
 
