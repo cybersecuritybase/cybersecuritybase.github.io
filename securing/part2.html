@@ -135,16 +135,16 @@
     &lt;/plugins&gt;
 &lt;/build&gt;</code></pre>
 
-	<p>Now, the application can be restarted from the command line using the command <code>mvn spring-boot:run</code> (when in the same folder with the <code>pom.xml</code> file. This launches the application. As the program is developed in NetBeans, changes will trigger reloads.</p>
+	<p>Now, the application can be restarted from the command line using the command <code>mvn spring-boot:run</code> (when in the same folder with the <code>pom.xml</code> file). This launches the application. As the program is developed in NetBeans, changes will trigger reloads.</p>
 
 	<p>When the above plugins are in use, it is possible to also use <a href="http://livereload.com/" target="_blank">LiveReload</a> to trigger a site refresh in the browser. Chrome plugin for LiveReload can be found at <a href="https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei" target="_blank">https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei</a>.</p>
+	
 
+	<h2>Dynamic Content in the Browser</h2> 
 
-	<h2>Dynamic Content in the Browser</h2>
-
-
-	<p>The pages that are shown to the user are defined using the HTML language. A single HTML document consists of nested and sequential elements that define the structure and the content of the page.</p>
-
+	
+	<p>The pages that are shown to the user are defined using the HTML language. A single HTML document consists of nested and sequential elements that define the structure and the content of the page.</p> 
+	 
 	<p>Each element may contain attributes that may have one or more values. For example, an input element typically has the attribute <code>name</code>, and the value of that attribute is then used to identify the data from that input element as it is being sent to the server. Other common attribute names include <code>id</code> that is used to define a unique identifier for the element and <code>class</code> that is used to define a classification for that element.</p>
 
 	<h3>Javascript</h3>
@@ -898,7 +898,7 @@ public class Order extends AbstractPersistable&lt;Long&gt; {
 
 	<aside class="info">
 	  <br/>
-	  <h1>@OneToMany ja @ManyToMany annotations in practice</h1>
+	  <h1>@OneToMany and @ManyToMany annotations in practice</h1>
 
 	  <p>In practice, when you write a reference from one entity class to another (e.g. a list), the IDE will ask you for the type of relationship between the entities. Getting familiar with the programming environment always helps!</p>
 
@@ -977,7 +977,7 @@ Content-Length: 10
 
 	<h2>HTTP is stateless</h2>
 
-	<p>HTTP is a stateless protocol which means that each request that is sent to a server is processed invidually, and from the point of view of the server, the requests are not linked with each others. This design decision was made to make it straightforward to retrieve content from multiple servers and to increase the performance of the HTTP protocol (<a href="https://www.w3.org/Protocols/HTTP/HTTP2.html" target="_blank">Basic HTTP as defined in 1992</a>). The decision was initially solid as most of the web traffic was related to transmitting static content.</p>
+	<p>HTTP is a stateless protocol which means that each request that is sent to a server is processed individually, and from the point of view of the server, the requests are not linked with each others. This design decision was made to make it straightforward to retrieve content from multiple servers and to increase the performance of the HTTP protocol (<a href="https://www.w3.org/Protocols/HTTP/HTTP2.html" target="_blank">Basic HTTP as defined in 1992</a>). The decision was initially solid as most of the web traffic was related to transmitting static content.</p>
 
 	<p>Identifying users is however needed. For example, web shops and other services that identify users require means to maintain knowledge of the user. A classic -- but rather poor -- way to maintain knowledge of the user was to use parameters in the GET request that could be used to identify the user. This is not recommended however, as these parameters can also be modified or tampered with.</p>
 

@@ -297,7 +297,7 @@
 
 	<h3>Smart fuzzers</h3>
 
-	<p>If mutation-based fuzzing was called dumb-fuzzing, the generation-based fuzzing is called the intelligent fuzzing. In generation-based fuzzing the input is created from scratch based on the used specification or input format of the targeted application or protocol. The input creation is then split into chunks, which are built in order and independently. Randomness is introduced inside the chunks. This way the inputs are not completely groken but contain some fuzzed parts. How to split the inputs into chunks is usually defined by the input format, e.g, fields such as key-value pairs etc. make good split points for chunks.</p>
+	<p>If mutation-based fuzzing was called dumb-fuzzing, the generation-based fuzzing is called the intelligent fuzzing. In generation-based fuzzing the input is created from scratch based on the used specification or input format of the targeted application or protocol. The input creation is then split into chunks, which are built in order and independently. Randomness is introduced inside the chunks. This way the inputs are not completely broken but contain some fuzzed parts. How to split the inputs into chunks is usually defined by the input format, e.g, fields such as key-value pairs etc. make good split points for chunks.</p>
 
 	<p>Evolutionary-based fuzzing is basically the same as the mutation-based above but it adds heuristics to the fuzzing which change the fuzzing on every iteration. These fuzzer would look what the previous attempts did and change the behaviour so that more parts of the code would be covered. These kinds of fuzzers need compile-time instrumentation which adds instructions to the source code of the targeted application that will allow monitoring of how the input changed the execution path inside the application. Sometimes this kind of fuzzing is called Instrumented fuzzing.</p>
 
@@ -345,7 +345,7 @@
 
 	<p>About the gathering of the sample file set, one could get by with generating the samples out of thin air randomly. However, better results can be gotten with a set of samples to start from. The samples should represent the features of the format to be fuzzed. In case of network protocols captures of the real traffic are goof starting points (with tools such as <a href="https://wwww.wireshark.org">wireshark</a> or <a href="https://www.tcpdump.org">tcpdump</a>). Sometimes just random files from the web will do. For example, bunch of available PDFs from the web for testing PDF tools or images of corn from the web to test image conversion tools.</p>
 
-	<p>There are many and many more fuzzers in existense. They basically do the same thing but under the hood they differ from each other. Some mutate the inputs using Burrows-Wheeler transformation and others permutate the content around the edges of common substrings, etc.</p>
+	<p>There are many and many more fuzzers in existence. They basically do the same thing but under the hood they differ from each other. Some mutate the inputs using Burrows-Wheeler transformation and others permutate the content around the edges of common substrings, etc.</p>
 
 	<aside class="info">
 	  <br/>
