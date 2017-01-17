@@ -113,16 +113,16 @@
 
     	<p>However, some DREAD ratings can be argued over. For instance, reproducibility is not very useful in cases where you would drop a table and it would not work again (on that same table). This would result in low number in the rating as it can be done only once but the effects would still be great. Or discoverability is hard to rate as you would have to know what the attacker knows and this leads to the case where this rating is commonly set to 10 on the grounds that any threat will eventually be discovered and the smart attacker is out there. Similarly can be argued over with the discovery, there has been a fair amount of discussion concerning discoverability, and whether encouraging security professionals to minimize discoverability would in turn favor the deprecated approach of security through obscurity.</p>
 
-    	<aside class=”info”>
+    	<aside class="info">
     	  <br />
     	  <h1>Straying away from DREAD</h1>
 
-    	  <p>Adam Shostack, who was involved in security design analysis techniques at Microsoft, has said on the Microsoft Security Development Lifecycle (SDL) <a href=”https://social.msdn.microsoft.com/Forums/en-US/c601e0ca-5f38-4a07-8a46-40e4adcbc293/do-you-use-dread-as-it-is?forum=sdlprocess”>forum</a> that even Microsoft which invented the ratings are now using different methods evaluating the threats. However, DREAD is still in wide use and useful as a starting point. However, this is all we are talking about DREAD at this point.</p>
+    	  <p>Adam Shostack, who was involved in security design analysis techniques at Microsoft, has said on the Microsoft Security Development Lifecycle (SDL) <a href="https://social.msdn.microsoft.com/Forums/en-US/c601e0ca-5f38-4a07-8a46-40e4adcbc293/do-you-use-dread-as-it-is?forum=sdlprocess">forum</a> that even Microsoft which invented the ratings are now using different methods evaluating the threats. However, DREAD is still in wide use and useful as a starting point. However, this is all we are talking about DREAD at this point.</p>
     	</aside>
 
     	<h2>The STRIDE Threat Model</h2>
 
-    	<p>The STRIDE Threat Model is a useful checklist of questions that can help in the threat-modelling of an application. “STRIDE” is an acronym for the following threat categories: <i>Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service,</i> and <I>Elevation of Privilege</i>.</p>
+    	<p>The STRIDE Threat Model is a useful checklist of questions that can help in the threat-modelling of an application. “STRIDE" is an acronym for the following threat categories: <i>Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service,</i> and <I>Elevation of Privilege</i>.</p>
 
 
     	<p>As in the start we hinted on the fact that the mnemonic threat lists such as STRIDE are good starting points and they work as good starting points in the discussions for the data flow analysis. If you consider that in the last part dissected the application to its data flows and identified what protocols are used and what data content is in the flow you should be ready for technical discussion about the series of questions the STRIDE stands for for all of the identified flows.</p>
@@ -131,7 +131,7 @@
 
     	<p>The more experience the team has the less you need these mnemonics. But here we still give a brief examples of what the STRIDE stands for:</p>
 
-    	<p><i>Spoofing</i> covers cases where someone is illegally accessing a system using another user’s authentication information. The main question here is that how the components can ensure that the other end of the data flow is the “correct” end or how to know where did that end get that data. For example, websites seldomly care about the user, but for the user it may make a difference that the website is the “correct” website and not a spoofed one.</p>
+    	<p><i>Spoofing</i> covers cases where someone is illegally accessing a system using another user’s authentication information. The main question here is that how the components can ensure that the other end of the data flow is the “correct" end or how to know where did that end get that data. For example, websites seldomly care about the user, but for the user it may make a difference that the website is the “correct" website and not a spoofed one.</p>
 
     	<p><i>Tampering</i> covers cases such as unauthorized changes made to persistent data, whether inside a machine or in the transport. For example, does it matter if the data comes in out of sequence or as incomplete?</p>
 
@@ -165,7 +165,7 @@
 
     	<h2>Gamification of the security analysis</h2>
 
-    	<p>Analysis can be tedious work but it does not have to be. What about if it was a game and the participants where the developers, architects, testers, etc in the company. Reserve a room, some catering and get prizes. Oh, and have some fun while doing the analysis.  There are at least two major contestants on this field and they are both card games. These games encourage the participants to think creatively and out-of-the-box about the threats. First, there is the Microsoft Elevation of Privilege (EoP) Card <a href=”https://www.microsoft.com/en-us/SDL/adopt/eop.aspx”>game</a>  which is based on STRIDE. Second, there is the OWASP Cornucopia card<a href=”https://www.owasp.org/index.php/OWASP_Cornucopia”>game</a> which is based mostly on OWASP Secure Coding Practices - Quick Reference Guide (<a href=”https://www.owasp.org/index.php/OWASP_Secure_Coding_Practices_-_Quick_Reference_Guide”>SCP</a>). Cornucopia has more relevance to the web applications than EoP.</p>
+    	<p>Analysis can be tedious work but it does not have to be. What about if it was a game and the participants where the developers, architects, testers, etc in the company. Reserve a room, some catering and get prizes. Oh, and have some fun while doing the analysis.  There are at least two major contestants on this field and they are both card games. These games encourage the participants to think creatively and out-of-the-box about the threats. First, there is the Microsoft Elevation of Privilege (EoP) Card <a href="https://www.microsoft.com/en-us/SDL/adopt/eop.aspx">game</a>  which is based on STRIDE. Second, there is the OWASP Cornucopia card<a href="https://www.owasp.org/index.php/OWASP_Cornucopia">game</a> which is based mostly on OWASP Secure Coding Practices - Quick Reference Guide (<a href="https://www.owasp.org/index.php/OWASP_Secure_Coding_Practices_-_Quick_Reference_Guide">SCP</a>). Cornucopia has more relevance to the web applications than EoP.</p>
 
     	<img src="img/deckofcards.png" />
 
