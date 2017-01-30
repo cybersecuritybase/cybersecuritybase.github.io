@@ -1,0 +1,286 @@
+<!-- BEGIN HEADER -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cyber Security Base with F-Secure</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Twitter Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/assets/css/mooc-icon/style.css"/>
+    <link rel="stylesheet" href="/assets/css/csa.css"/>
+    <link rel="stylesheet" href="/assets/css/csa-mooc.css"/>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/xcode.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+  </head>
+  <body>
+
+    <!-- BEGIN NAV -->
+    <header role="navigation">
+      <h1>
+        <a href="http://mooc.fi" alt="MOOC" target="_blank">
+          <span class="icon-mooc"></span>
+        </a>
+        <button type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </h1>
+
+      <nav class="collapse bs-navbar-collapse" role="navigation">
+        <ul>
+          <li>
+            <a href="#" class="table-of-contents-trigger">
+	      Table of contents
+            </a>
+          </li>
+          <li>
+      	    <a href="index.html">
+                    Part I
+                  </a>
+      	  </li>
+          <li>
+            <a href="part2.html">Part II</a>
+          </li>
+          <li>
+            <a href="part3.html">Part III</a>
+          </li>
+        </ul>
+        <ul class="pull-right">
+          <li>
+            <a href="#" class="navbar-link--highlighted login-trigger">
+              Log in
+            </a>
+          </li>
+        </ul>
+
+      </nav>
+
+    </header>
+    <!-- // END NAV -->
+
+    <article>
+      <!-- END HEADER -->
+
+      <!-- BEGIN CONTENT -->
+      <section class="no-toc weeklimit hidden" data-week-id="0">
+
+        <h1>Assignments</h1>
+
+        <ul class="nav nav-pills nav-pills-fixed-width nav-pills--no-border" id="assignments-toc"></ul>
+
+      </section>
+      <!-- END CONTENT -->
+
+
+      <!-- BEGIN WEB DEVELOPMENT -->
+      <section class="weeklimit" data-week-id="3">
+
+        <p>In the last part we discussed about logs and little about the intrusion detection and its future. In this part we are taking this a bit further with discussion on intrusion tolerant architectures. </p>
+
+      	<h1>Intrusion Tolerant Architectures</h1>
+
+      	<p>As we have already mentioned in the earlier parts, a perfect system cannot be implemented – at least in the sense that it has no holes. Even systems which have received considerable amount of effort and developer resources tend to contain many faults and vulnerabilities. This also applies to the detection systems. One can try to build the perfect intrusion detection system but it could still miss something. One way to counter the elusive perfect system is to concentrate more on the tolerance of the attacks. What does this tolerance then mean? The tolerant systems are able to self-diagnose and repair themselves. Moreover, they will be able to do this while keeping up the appearance that nothing has happened and all the legitimate clients are provided with service. How is this done?</p>
+
+      	<p>The intrusion tolerance is based on a system lifecycle in which one starts by avoiding the introduction of new vulnerabilities, removal of known vulnerabilities and/or blocking of known vulnerabilities and as last to tolerate unknown vulnerabilities (unknown or vulnerabilities that cannot be blocked or removed). This is achieved with firewalls, anti-virus software, up-to-date software, Intrusion detection systems, and redundancy with diversity.</p>
+
+      	<div class="quiznator-plugin" data-quiz-id="588c5fa9d8c1550004361908"></div>
+
+      	<h2>Intrusion detection</h2>
+
+      	<p>Intrusion detection can be defined as actions that aim to detect attempts to compromise a system. These attempts can be attacks against confidentiality, integrity or availability of the system. The goal of the detection is to identify the attempts that try to circumvent the security controls in use and to notify relevant people of these attempts as fast as possible.</p>
+
+      	<p>Preliminary IDS concept consisted of set of tools intended to help administrators review access logs and system event logs, which were discussed in the previous part of the course. Logs are timestamped entries that can be considered as fingerprint of what happened. These logs are used for detection and for reconstruction of the breach. Log mining is a vital tool for forensics analysis and auditing systems.</p>
+
+      	<p>Intrusion detection can be divided into three common types: physical, network, and host-based. Physical includes for example Security guards, cameras, motion sensors, etc.  Firewalls also fall into this type, especially when discussing about a dedicated hardware firewall which is the preferred choice when there is need to protect network of hosts. The main purpose of physical intrusion detection is to deny the attacker the physical access to the devices. One should also be on the lookout for rogue wireless access points and "forgotten" USB sticks. Just saying that unknown devices should be handled with caution. For example, if you do not implement MAC filtering or any access control in your network and have a network socket conveniently behind a sofa in the lobby of your office, nothing prevents the attackers from putting their own AP into your network and getting their own convenient wireless access to your network. Or if the attacker plants a USB drive in your office and unsuspecting worker plugs it in, just to see whose it is, and infects the machine the stick was attached to.</p>
+
+      	<p>Network based detection tries to identify anomalous behaviour solely from the network traffic. This is usually implemented with captures of data which are then used to identify suspicious traffic. The role of network intrusion detection is not actively to block the traffic but rather to log, and alert.</p>
+
+      	<aside class="info">
+      	  <br />
+      	  <h1>Network packet captures</h1>
+      	  <p>It might be a good idea to implement a ring buffer like tcpdump capture that is running on a strategically placed machine (config a switch to make a copy of all packets and send them to the machine doing the capturing).</p>
+
+      	  <pre class="sample-output">root@host:~# tcpdump -pni eth0 -s65535 -C 100 -W 10 -w capture</pre>
+
+      	  <p>The above command would start capturing packets and and storing them into 100MB files naming them capture1, capture2, etc. When this reaches capture10 (W option) it will start overwriting the capture1. In this manner it is easy to have a log of what has happened in the last GB of traffic. Which then can be used to figure out what happened.</p>
+      	</aside>
+
+      	<p>The host based intrusion detection is used to identify anomalous behaviour on a specific device. This involves a monitoring agent to be installed on all the monitored device. These agents use combinations of signatures and rules to identify anomalies. The role of host IDS is also passive and it is used to identify, log, and alert of problems.</p>
+
+      	<div class="quiznator-plugin" data-quiz-id="588c607fd8c1550004361909"></div>
+
+      	<h2>Intrusion tolerance</h2>
+
+      	<p>Dependability can be seen as one of the primary goals of an intrusion tolerant architecture. What constitutes as dependability? Dependability is a sum of: the availability to work correctly, the continuing reliability of correct service, and the integrity of the service meaning no malicious alteration of data or state of the system.</p>
+
+      	<p>The classic techniques from fault-tolerant systems can be used to implement intrusion tolerant systems. The fault here is the intentional malicious intrusion against the system and not just a bug in the calculation or a conversion error between metric and imperial. These faults are implemented by attackers whose main goal could be, for example, to render the system unreliable or unusable.</p>
+
+      	<p>The intrusion tolerant architectures can be divided into operational parts such as detection, replication and diversity, and recovery. First, the systems rely on multiple levels of detection, such as intrusion detection, vulnerability analysis, and monitoring proxies. Second, the system are comprised out of diversified and redundant software and hardware components, Third, the systems implement a periodic restoration of the system components. Fourth, the systems use voting algorithms, threshold cryptography (you need several participants to encrypt and decrypt), and challenge-responses to calculate a trust rating for the components. Out of the proposed intrusion tolerant architectures most of the newer ones are hybrids of some sort and emphasize the above sections more or less.</p>
+
+      	<aside class="info">
+      	  <br />
+      	  <h1>Intrusion is a fault</h1>
+      	  <p>When looking at fault tolerant systems it is somewhat similar to the intrusion tolerant systems. If you think about a vulnerability, it requires a fault to work. This fault can be a bug, design problem, or a simple configuration problem (although it could also be a complicated configuration problem too). So intrusion cannot be a fault by itself, but rather it is a complementary to the existing fault.</p>
+      	</aside>
+
+      	<h3>Diversity and redundancy</h3>
+
+      	<p>Replication of the nodes and diversification of the software and hardware is really popular among the architectures proposed in the literature. The increased redundancy is here to increase the system's availability. The redundancy is not just adding replicas of the same parts.  For load balancing this works but for intrusion tolerance it does not. Think about a set of servers that are running on the same OS. If that OS has a vulnerability then all of the servers have the vulnerability. This is a simple reason to diversify the redundant  parts of the system. Diversifying can be started from the hardware level (Spark, Pentium) to OS level (Windows, Linux), to software level (If webservers, Apache, IIS, Nginx). Then if one of the combination of used hardware and OS is breached other should be able to continue serving the clients without problems.</p>
+
+      	<p>The replication can be handled statically or by dynamically adding computing power based on the need. Similarly as in load balancing but here the need would decided by the attack rate rather than purely the load. In practice this would mean that based on the density of the attacks when only part of the available servers are able to process requests the system should servers to diminish the effects of the ongoing attack. By doing so improve the performance to some point and let the performance degrade more gracefully than just rendering the system inoperable. How effective is this? This works to some extent against attacks, that target the availability, like DDoS but eventually becomes an arms race between the attacker and the defender and is settled based on the amount of resources used by the participants. For attacks that target the reliability this works better as one can use voting algorithms or threshold cryptography with the redundancy. For example, all requests could go to three different application servers and majority of answers would win, so the attacker would at least have to hack two machines instead of one.</p>
+
+      	<aside class="info">
+      	  <br />
+      	  <h1>How far we go with the replication</h1>
+      	  <p>Application servers, proxies etc. have been already discussed in the text above but what about the administrators. Could they be made redundant? Yes, but in most cases the redundancy of the administrators is thought from the viewpoint of availability rather than from security. In some cases it could be useful that an administrator does not have a complete access to the system but only to the parts that are necessary for the tasks the administrator is responsible. For example, malicious administrator could not bring the system down completely.</p>
+      	</aside>
+
+      	<h3>Recovery</h3>
+
+      	<p>It might sound pessimistic when one says that once the system is online it is already breached. Some of the intrusion detection systems in use rely on self-cleaning of the system, i.e., restoration to a known safe condition of the system. This can be done on basis of detection or simply by rebooting the servers periodically in a round-robin manner. Although, one has to make sure that the attacker cannot get his hands on the system image storage. This can simply be a read-only storage containing a copy of the server's system image.</p>
+
+      	<h3>Trust</h3>
+
+      	<p>Intrusion tolerant architectures use adjectives like <i>trust</i> and <i>trustworthiness</i> to describe dependence and dependability. Trust is the accepted dependence into something, be it then a system, part of a system or a component. Trustworthiness is a metric to measure how something meets a property, for example, functionality. If a component trusts another component, it is making an assumption about that component and that components trustworthiness is measured by the coverage of that assumption. This would mean that the components in the system are trusted to the extent of their trustworthiness.</p>
+
+      	<p>How for example an application server gets trust or shows its trustworthiness? How do we know if some of the application servers in the system are behaving maliciously? Intrusion tolerant architectures can use mechanisms such as challenge/response to notice that there are problems with a given server. This can be seen as a livelines check of the  servers. If the challenger does not receive an answer within some period of time it can either lower the nodes trust rating (which in turn might mean reduced bandwidth or less request for the duration of some extra monitoring) or if the response is incorrect the server can be rebooted and recovered. The intrusion tolerant architectures use this mechanism periodically to check the integrity of the files and directories located on remote servers. This is usually called the content agreement. The challenge here is a changing seed value which is then used in combination with the to be checked files to create a hash. For example, the seed concatenated with a configuration files and SHA-1 hash over that would result in a 160 bit value which would differ if the configuration files would differ from the expected ones. The seed in this mechanism is there to prevent the attacker from pre-calculating the responses. Similar checks can and should also be implemented against directory listings as the attacker might have created the spare copies of the original files and response using them (using host based intrusion detection system can also notice sudden changes in the file structures).</p>
+
+      	<p>The intrusion tolerant architectures have a number of proxies that manage the application servers. They act somewhat similarly to load balancers but the decision of who is getting the next request is made based on the integrity of the challenge/response mechanisms responses. Moreover, these proxies try to randomize the load rather than sharing it in round-robin manner.</p>
+
+      	<div class="quiznator-plugin" data-quiz-id="588c612ad8c155000436190c"></div>
+
+      	<h2>What to do with alerts?</h2>
+
+      	<p>All systems that are connected to the Internet are going to be targets of attacks on regular basis. Most of these are automated attacks that just try monotonously some easy to protect against attacks. For example, look at how <a href="https://www.malwaretech.com/2016/10/mapping-mirai-a-botnet-case-study.html">far</a> did the Mirai botnet get by with just trying out <a href="http://www.csoonline.com/article/3126924/security/here-are-the-61-passwords-that-powered-the-mirai-iot-botnet.html">default</a> passwords. <i>Using default passwords is a terrible idea</i>. One must also remember that not everything is an attack as intrusion detection can generate huge numbers of alerts that are valid but do not necessarily mean that there is an attack going on (even false alarms are possible). If the challenge/response mechanism produces an alert for an application server it most certainly is an alert from an attack that has happened. It is more like looking at the symptoms of an breach and not looking for the attack.</p>
+
+      	<div class="quiznator-plugin" data-quiz-id="588c61c7d8c1550004361910"></div>
+
+      	<p>We can go all out and block the application server and go to the rejuvenation protocol. Other possibilities include monitoring the situation and considering to reduce the bandwidth of the server or filtering suspicious client traffic to the server. It really depends on the level of the alert. Is it just a warning of someone probing on the edges of your network? Or is it real evidence of a compromise?</p>
+
+      	<aside class="info">
+      	  <br/>
+      	  <h1>Faults and NASA</h1>
+      	  <p>Already in the early How did NASA handle the fault detection in their spacecrafts? There are many similarities to current day ITAs. Replication, diversification of hardware/software, "voting" or asking from multiple replicas at a time. For the interested here is a <a href="https://history.nasa.gov/computers/Ch4-4.html">section</a> of NASA's "Computers in Spaceflight: The NASA Experience" article about the shuttle Computer synchronization and redundancy management.</p>
+      	</aside>
+
+      	<div class="quiznator-plugin" data-quiz-id="588c6306d8c155000436191b"></div>
+      	<div class="quiznator-plugin" data-quiz-id="588c6375d8c155000436191d"></div>
+      	<div class="quiznator-plugin" data-quiz-id="588c63acd8c155000436191f"></div>
+      	<div class="quiznator-plugin" data-quiz-id="588c63cfd8c1550004361921"></div>
+
+      	<p>In the next part of this course we are discussing about the relevant cryptography concepts and protocols, such as HTTPS.</p>.
+
+    </article>
+
+
+    <!-- LOGIN MODAL -->
+    <div class="modal fade" id="tmc-login-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Log into your TestMyCode account</h4>
+          </div>
+          <div class="modal-body">
+            <div class="alert alert-info">
+              Don't have a TestMyCode account? <a href="https://tmc.mooc.fi/user/new" target="_blank">Sign up</a>.
+            </div>
+
+            <div class="alert alert-danger" id="tmc-login-error" style="display: none">
+            </div>
+
+            <div class="form-group">
+              <label>Username</label>
+              <input type="text" id="tmc-login-username" class="form-control" placeholder="Username"/>
+            </div>
+
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" id="tmc-login-password" class="form-control" placeholder="Password"/>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="tmc-login-submit">Log in</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="table-of-contents-layer">
+    </div>
+
+    <div class="table-of-contents">
+      <h1 class="table-of-contents__heading">
+        Table of contents
+      </h1>
+
+      <div class="table-of-contents__content">
+        <ul class="nav" id="material-toc"></ul>
+      </div>
+    </div>
+
+    <!-- PROGRESS -->
+    <div class="content-progress">
+      <div class="content-progress__label">
+      </div>
+
+      <div class="content-progress__bar">
+      </div>
+    </div>
+
+    <!-- QUIZNATOR DASHBOARD -->
+    <div class="quiznator-dashboard"></div>
+
+    <!-- BROWSER SUPPORT WARNING -->
+    <div class="browser-support-warning">
+      Some parts of this page might not work on your current browser. Consider switching to either <a href="https://www.google.com/chrome/browser/desktop/" target="_blank">Chrome</a> or <a href="https://www.mozilla.org/en-US/firefox/new/" target="_blank">Firefox</a>.
+      <a class="pull-right browser-support-warning__close">Got it!</a>
+    </div>
+
+    <script src="https://quiznator.herokuapp.com/javascripts/plugin-loader.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+	    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+	    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/tmc-client-js/dist/tmc-client.min.js"></script>
+    <script src="/assets/js/csa.js"></script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-86250620-1', 'auto');
+      ga('require', 'linkid');
+      ga('send', 'pageview');
+
+      var trackOutbound = function(url) {
+        ga('send', 'event', 'outbound', 'click', url, {
+         'transport': 'beacon',
+         'hitCallback': function(){ window.open(url); }
+        });
+      }
+    </script>
+
+    <!-- COOKIES -->
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.1/cookieconsent.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.1/cookieconsent.min.js"></script>
+    <script>window.cookieconsent.initialise({"palette":{"popup":{"background":"#000"},"button":{"background":"#f1d600"}}});</script>
+  </body>
+</html>
