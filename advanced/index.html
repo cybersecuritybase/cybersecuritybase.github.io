@@ -131,7 +131,7 @@
 
     	<h2>The STRIDE Threat Model</h2>
 
-    	<p>The STRIDE Threat Model is a useful checklist of questions that can help in the threat-modelling of an application. “STRIDE" is an acronym for the following threat categories: <i>Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service,</i> and <I>Elevation of Privilege</i>.</p>
+    	<p>The STRIDE Threat Model is a useful checklist of questions that can help in the threat-modelling of an application. "STRIDE" is an acronym for the following threat categories: <i>Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service,</i> and <I>Elevation of Privilege</i>.</p>
 
 
     	<p>As in the start we hinted on the fact that the mnemonic threat lists such as STRIDE are good starting points and they work as good starting points in the discussions for the data flow analysis. If you consider that in the last part dissected the application to its data flows and identified what protocols are used and what data content is in the flow you should be ready for technical discussion about the series of questions the STRIDE stands for for all of the identified flows.</p>
@@ -140,7 +140,7 @@
 
     	<p>The more experience the team has the less you need these mnemonics. But here we still give a brief examples of what the STRIDE stands for:</p>
 
-    	<p><i>Spoofing</i> covers cases where someone is illegally accessing a system using another user’s authentication information. The main question here is that how the components can ensure that the other end of the data flow is the “correct" end or how to know where did that end get that data. For example, websites seldomly care about the user, but for the user it may make a difference that the website is the “correct" website and not a spoofed one.</p>
+    	<p><i>Spoofing</i> covers cases where someone is illegally accessing a system using another user’s authentication information. The main question here is that how the components can ensure that the other end of the data flow is the "correct" end or how to know where did that end get that data. For example, websites seldomly care about the user, but for the user it may make a difference that the website is the "correct" website and not a spoofed one.</p>
 
     	<p><i>Tampering</i> covers cases such as unauthorized changes made to persistent data, whether inside a machine or in the transport. For example, does it matter if the data comes in out of sequence or as incomplete?</p>
 
