@@ -88,7 +88,7 @@
       <section class="weeklimit" data-week-id="3">
 
 
-	<p>In the last part we discussed about intrusion tolerant architectures. In this part we are giving a rudimentary introduction to relevant crytptography concepts.</p>
+	<p>In the last part we discussed about intrusion tolerant architectures. In this part we are giving a rudimentary introduction to relevant cryptography concepts.</p>
 
 	<H1>Cryptography</H1>
 
@@ -141,7 +141,7 @@
 
 	<P>The output of different variants of SHA-3 are of different length. However, there are no variants with a very short output length.</P>
 
-	<P>Q: Why a cryptographic hash function cannot have an output lenght of 3 bits?</P>
+	<P>Q: Why a cryptographic hash function cannot have an output length of 3 bits?</P>
 
 	<P>All details of hash functions are publicly known and, in principle, anybody can calculate the hash value of any input. Sometimes it is useful that only a person who knows a secret key is able to calculate the hash value. Functions like this are called <EM>message authentication codes</EM> (MAC) and the value of the function is called the MAC value.</P>
 
@@ -249,13 +249,13 @@
 
 	<p>A <EM>key agreement protocol</EM> is a method for two parties, say Alice and Bob, to agree on a shared secret key over an insecure channel, but still in such way that nobody else who is eavesdropping on the channel is able to learn the shared secret. An example of such method is <EM>Diffie-Hellman </EM><EM>key agreement protocol</EM>.</P>
 
-	<P>The Diffie-Hellman key exhange begins by Alice and Bob agreeing on a modulus <I>p</I> and a number <I>g</I>. Then Alice picks a random number <I>a</I> and sends Bob the number <I>g<SUP>a</SUP> mod p = u.</I> Similarly, Bob picks a random number <I>b</I> and sends Alice the number <I>g<SUP>b</SUP> mod p = v</I>. Now Alice can calculate <I>v<SUP>a</SUP> mod p</I> and Bob can calculate <I>u<SUP>b</SUP></I> mod p. These two values are both equal to <I>g<SUP>ab</SUP> mod p</I> and that value can now be used as the new shared secret key.</P>
+	<P>The Diffie-Hellman key exchange begins by Alice and Bob agreeing on a modulus <I>p</I> and a number <I>g</I>. Then Alice picks a random number <I>a</I> and sends Bob the number <I>g<SUP>a</SUP> mod p = u.</I> Similarly, Bob picks a random number <I>b</I> and sends Alice the number <I>g<SUP>b</SUP> mod p = v</I>. Now Alice can calculate <I>v<SUP>a</SUP> mod p</I> and Bob can calculate <I>u<SUP>b</SUP></I> mod p. These two values are both equal to <I>g<SUP>ab</SUP> mod p</I> and that value can now be used as the new shared secret key.</P>
 
 	<P>Our HTTPS example (TLS_<B>ECDHE</B>_RSA_WITH_AES_256_GCM_SHA384_256 bit keys,TLS 1.2)  makes use of a certain variant of the Diffie-Hellman key exchange.</P>
 
 	<H2>RSA</H2>
 
-	<P>Next we take a look at how public-key cryptosystems look like. The most used system is called <A HREF="https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29" TARGET="_blank">RSA</A>. It is based on the following mathemattical fact:</P>
+	<P>Next we take a look at how public-key cryptosystems look like. The most used system is called <A HREF="https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29" TARGET="_blank">RSA</A>. It is based on the following mathematical fact:</P>
 
 	<P style="background-color:lightgrey; padding-top: 15px;padding-right: 15px;padding-bottom: 15px;padding-left: 15px;"><B>if</B> <I>p</I> and <I>q</I> are primes, <I>n = p&middot;q</I> and <I>e&middot;d mod</I> (<I>p</I>-1)(<I>q</I>-1) = 1<br/><br/><B>then</B> <I>x<SUP>e&middot;d</SUP> mod n = x</I> for all values of <I>x</I>.</P>
 
