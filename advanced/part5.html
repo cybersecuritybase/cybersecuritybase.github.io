@@ -1,0 +1,331 @@
+<!-- BEGIN HEADER -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cyber Security Base with F-Secure</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Twitter Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/assets/css/mooc-icon/style.css"/>
+    <link rel="stylesheet" href="/assets/css/csa.css"/>
+    <link rel="stylesheet" href="/assets/css/csa-mooc.css"/>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/xcode.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+  </head>
+  <body>
+
+    <!-- BEGIN NAV -->
+    <header role="navigation">
+      <h1>
+        <a href="http://mooc.fi" alt="MOOC" target="_blank">
+          <span class="icon-mooc"></span>
+        </a>
+        <button type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </h1>
+
+      <nav class="collapse bs-navbar-collapse" role="navigation">
+        <ul>
+          <li>
+            <a href="#" class="table-of-contents-trigger">
+	      Table of contents
+            </a>
+          </li>
+          <li>
+      	    <a href="index.html">
+                    Part I
+                  </a>
+      	  </li>
+          <li>
+            <a href="part2.html">Part II</a>
+          </li>
+          <li>
+            <a href="part3.html">Part III</a>
+          </li>
+          <li>
+            <a href="part4.html">Part IV</a>
+          </li>
+          <li>
+            <a href="part5.html">Part V</a>
+          </li>
+        </ul>
+        <ul class="pull-right">
+          <li>
+            <a href="#" class="navbar-link--highlighted login-trigger">
+              Log in
+            </a>
+          </li>
+        </ul>
+
+      </nav>
+
+    </header>
+    <!-- // END NAV -->
+
+    <article>
+      <!-- END HEADER -->
+
+      <!-- BEGIN CONTENT -->
+      <section class="no-toc weeklimit hidden" data-week-id="0">
+
+        <h1>Assignments</h1>
+
+        <ul class="nav nav-pills nav-pills-fixed-width nav-pills--no-border" id="assignments-toc"></ul>
+
+      </section>
+      <!-- END CONTENT -->
+
+
+      <!-- BEGIN WEB DEVELOPMENT -->
+      <section class="weeklimit" data-week-id="3">
+
+	<p>In the last part we discussed about cryptography. In this part we are giving a rudimentary introduction to the cellular security.</p>
+
+	<H1>Cellular security</H1>
+
+	<H2>Introduction to cellular networks</H2>
+
+	<p>Cellular networks are intended for providing connectivity for users everywhere and everytime, regardless of whether the user is moving or not. The first cellular technology with a global footprint was GSM that spread with phenomenal speed during the last decade of the last century.</p>
+
+	<p>The GSM system was originally designed for voice calls but support for data connections was added later, in the form of GPRS (General Packet Radio Service).</p>
+
+	<p>In a cellular network, a <I>mobile device</I>, e.g., mobile phone or tablet, connects to a <I>base station</I> over a <I>radio interface.</I> The base station connects to the <I>core network</I> that manages the whole system. Functions of the core network include tasks such as</p>
+
+	<UL>
+	  <LI>Keeping track of where the mobile devices are (<I>mobility management</I>)</LI>
+	  <LI>Providing Internet connectivity for mobile devices (<I>session management</I>)</LI>
+	  <LI>Setting up calls between different mobile devices (<I>call control</I>)</LI>
+	  <LI>Authenticating the mobile devices (<I>security</I>)</LI>
+	</UL>
+
+	<p>The next generation of cellular technology was introduced during the first decade of the millennium. This technology is called 3G (3<SUP>rd</SUP> generation) and support for both voice calls and data connections was included from the beginning.</p>
+
+	<p>Soon it turned out that the amount of data traffic increased much faster than the amount of voice traffic in the cellular networks. Consequently, the 4<SUP>th</SUP> generation of cellular technology was exclusively designed for data connections. Voice call service was simply seen as one of the many services that could be offered in the data network. An alternative name for the 4G technology is LTE. The LTE network is completely optimized for the purpose of carrying IP packets.</p>
+
+	<H2>Encryption</H2>
+
+	<p>Because connections are provided over the radio, it is in principle very easy to eavesdrop them. This can even be done in a way that is very difficult to observe. To protect <I>confidentiality</I> of voice calls, support for encryption was applied in the radio interface already in the GSM system, and the same practice has been carried over to the later generations.</p>
+
+	<p>During the time when GSM system was designed the general viewpoint was that it would provide <I>complementary</I> means for phone calls when users are on the move, e.g., in a car. The vast majority of phone calls were still expected to happen over <I>fixed</I> telephone cables. Therefore, the requirements for confidentiality, and security in general, were defined in relation to the fixed networks: the GSM should be <I>at least as secure as</I> the fixed networks.</p>
+
+	<p>Following this logic a step further the designers of GSM security concluded that it was the radio interface that made the biggest difference between the mobile network and the fixed network. An attacker could always <I>wiretap</I> the fixed cables but that would require physical access to these cables. On the other hand, an attacker could listen to the radio traffic almost from any physical location.</p>
+
+	<p>Because the communication traffic was expected to be carried over fixed cables after the base station, it seemed sufficient to protect the voice traffic by encryption between the mobile device and the base station. Luckily, the voice traffic was designed to be carried over the radio interface in <I>digital</I> form: The speech is <I>encoded</I> into a stream of bits. This was a new thing in the GSM technology compared to its regional predecessors for mobile telephony. Now it was, at least in principle, to turn the encoded bit stream into <I>encrypted</I> bit stream that was then sent over the radio interface. Please note the difference between <I>encoding</I> and <I>encryption</I> here.</p>
+
+	<div class="quiznator-plugin" data-quiz-id="58a1ae8415d684000425da6f"></div>
+
+	<p>During the design of 3G security, some limitations of the GSM encryption have become evident. Sometimes the base stations were communicating with the rest of the network also over radio. This implied that it would be better to use encryption also for that communication link.</p>
+
+	<p>In 3G the encryption happens between the mobile device and the <I>radio network controller</I>. This is an element in the 3G network that a base station connects to. Communication content is encrypted in the mobile device, then it passes through the base station in encrypted form and gets decrypted in the radio network controller. This arrangement has an impact on the choice of the <I>communication layer</I> that provides encryption and decryption.</p>
+
+	<p>The two lowest layers of communication, the <I>physical</I> layer and the <I>link</I> layer, terminate in the base station. This implies control information shared between the mobile station and the base station on these low layers cannot be kept confidential in 3G. Fortunately, all this information deals with the radio conditions rather than individual users.</p>
+
+	<p>Another limitation of the GSM encryption that had become evident already at the time when 3G was designed was that the actual encryption algorithms were too weak. First, the secret key had only 64 bits. Secondly, the algorithm specifications were kept confidential which fact did not increase confidence on their security level.</p>
+
+	<p>3G encryption algorithms were made public from the beginning. The shared key that is used for encryption is 128 bits long. This key length is seen as sufficient, at least until a true <A HREF="https://en.wikipedia.org/wiki/Quantum_computing" TARGET="_blank">Quantum computer</A> becomes a feasible tool for the attackers. The algorithms used for 3G are <A HREF="https://en.wikipedia.org/wiki/KASUMI" TARGET="_blank">KASUMI</A> and <A HREF="https://en.wikipedia.org/wiki/SNOW" TARGET="_blank">SNOW3G</A>.</p>
+
+	<p>When it was time to develop 4G no significant limitations had been observed with the 3G encryption. However, it was not straight-forward to use the 3G encryption as a model for 4G encryption. This was due to the fact that in 4G network the base station takes over many duties carried out in 3G by the radio network controller. In the end, it was decided that encryption would terminate in the base station. This decision was complemented by using a separate encryption between the base station and the rest of the network. This arrangement implies that, in opposite to 3G, the user data is available inside the base station in cleartext form.</p>
+
+	<p>In the year 2017, the development of 5G is progressing fast. One of the key questions of the 5G security is whether the user data should be decrypted inside the base station. What makes this question even more critical, compared to the situation with 4G, is that parts of 5G networks are expected to be dense, i.e., there will be many base stations in <I>vulnerable</I> locations.</p>
+
+	<p>The 4G encryption algorithms are <A HREF="https://en.wikipedia.org/wiki/SNOW" TARGET="_blank">SNOW3G</A>, <A HREF="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard" TARGET="_blank">AES</A> and <A HREF="https://en.wikipedia.org/wiki/Zuc_stream_cipher" TARGET="_blank">ZUC</A>. The 5G encryption algorithms have not yet been chosen at the year 2017. All encryption functions in all generations of mobile communications technology are <A HREF="https://en.wikipedia.org/wiki/Stream_cipher" TARGET="_blank">stream ciphers</A>. Both AES and KASUMI are actually <A HREF="https://en.wikipedia.org/wiki/Block_cipher" TARGET="_blank">block ciphers</A> but they are used in stream <A HREF="https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation" TARGET="_blank">cipher mode</A>. Stream cipher is suitable for high-speed communication scenarios because major part of encryption/decryption can be done already before the plaintext/ciphertext is even available.</p>
+
+	<div class="quiznator-plugin" data-quiz-id="58a1b0e815d684000425da74"></div>
+
+	<H2>Authentication</H2>
+
+	<p>Customers of mobile operators typically pay for getting access to the cellular network. Therefore, it is important to verify identities of users when they attach to the network. Of course, the network operator needs to know where users are to be able to deliver received calls and messages to the right place. Furthermore, calls and messages should be delivered to the correct user.</p>
+
+	<p>These are the main reasons why <I>authentication</I> is a cornerstone of cellular security.</p>
+
+	<p>Authentication of a human user is typically based on one of the following:</p>
+
+	<UL>
+	  <LI>Something that the user <I>knows</I>, like a <I>password;</I></LI>
+	  <LI>Something that the user <I>has</I>, like a physical <I>token;</I></LI>
+	  <LI>Something that the user <I>is</I>, like a <I>fingerprint</I></LI>
+	</UL>
+
+	<p>Cellular authentication is based on the middle option. The user gets a <I>smart card</I> from the operator and the card is inserted into the mobile device. The main purpose of the card is to serve as an authentication token. In GSM, the card was called <I>SIM</I> (<A HREF="https://en.wikipedia.org/wiki/Subscriber_identity_module" TARGET="_blank">Subscriber identity module</A>) while in later generations a more advanced card, called <I>UICC</I> (<A HREF="https://en.wikipedia.org/wiki/Universal_Integrated_Circuit_Card" TARGET="_blank">Universal_Integrated_Circuit_Card</A>), is in use.</p>
+
+	<p>The smart card contains a permanent <I>master key</I> that is specific to the particular card and user. Another copy of the key is stored in the mobile operator&rsquo;s Home Subscriber Server (HSS). Based on the master key, the operator can prepare a <I>challenge</I> for the user. A random bit string is generated and sent to the user, or more accurately, to the user&rsquo;s mobile device. To be able to pass the authentication the mobile device has to send a correct <I>response</I> to the network. The response is generated by a <I>one-way function </I>using the random challenge bit string and the master key as inputs. Both the challenge bit string and the response bit string are sent over the radio interface. Therefore, a potential eavesdropper could collect correct <I>challenge-response pairs. </I>If the operator would re-use the challenge bit string later then the eavesdropper would be able to masquerade as the user and pass the authentication successfully. However, the random challenge is so long (=128 bits) that chances for that ever happening are extremely small, provided that the operator really creates a <I>fresh</I> random bit string for each challenge.</p>
+
+	<p>Often authentication is accompanied by the process of generating a temporary <I>session</I> key. This is how encryption keys are generated  also in cellular systems. Based on the same random challenge bit string, both the mobile device and the network generate another bit string, using the same method as explained above for the response string. The difference is that this another bit string is not sent over to the network but, instead, each party keeps it for further use in encrypting communications.</p>
+
+	<H2>Mutual authentication</H2>
+
+	<p>What was described above is how authentication is arranged in GSM networks. During the first years of GSM operations it was observed that the authentication has one big shortcoming. The mobile device has no means to authenticate the network. It is possible to build a <I>fake base station</I> that transmits with sufficiently high power to lure mobile devices to try to attach to it. Of course, the fake base station would not know the master key of the user because it cannot connect to the HSS of the real operator. But this does not prevent the fake base station from inventing a random bit string and sending it as a challenge to the mobile device. The mobile device computes the correct response and sends it to the fake network who just accepts the authentication without checking the response in any way. Developers of the GSM security were aware of such an attack scenario but it was finally concluded that the attack would require such a sophisticated machinery that such attacks would not create a significant problem in practice.</p>
+
+	<p>At the time when 3G technology was developed it had already become clear that fake base stations were indeed used against real users. Therefore, a mechanism was included with which the mobile device can verify that it is connected to a legitimate network. One possible mechanism for that purpose is to simply change roles. The mobile device would send a random string as a challenge, and the network would compute a correct response with the shared master key. However, in <I>roaming</I> situations this would be quite impractical. If a user has travelled to the other side of the world, the challenge bit string would need to sent all the way to the home country of the user. Another solution would be to send the master key to the operator who is serving the travelling user. This latter solution would be problematic from security point of view. Indeed, keeping the master key always in the two original locations (the smart card on the user side and HSS on the network side) is a cornerstone of the cellular security.</p>
+
+	<p>How to get around this difficulty? The solution was the following. Instead of waiting for a challenge from the mobile device the HSS would compute a response bit string against its own challenge. Then this response would be sent to the mobile device with the random challenge string, as a proof that the sender has had access to the shared master key.</p>
+
+	<p>But wait a minute... if the network adds the correct response to the challenge wouldn&rsquo;t that nullify authentication of the mobile device? The solution to this problem is to use <I>different</I> one-way function for computing the response that is attached to the random challenge instead of the one-way function that is used to compute the response from the mobile device to the same challenge.</p>
+
+	<p>But there is still another problem. An attacker could record the random challenge and the corresponding response, and use those two later in a fake base station attack. Such an attack is called a<I> replay attack. </I>The solution to this problem is to include a <I>sequence number </I>in the computation of the response that is attached to the challenge. Then the mobile device is able to check that the random challenge is not a replayed one.</p>
+
+	<p>We have now discussed how <I>mutual uthentication</I> works in 3G. It is worth noting that the mobile device does not explicitly verify the identity of the network that it is connected to. Instead, the mobile device just gets confirmation that it is connected to a legitimate network.</p>
+
+	<p>In the 4G network the actual identity of the visited network was added as another input to the computations. Then the mobile device knows in a roaming situation that it is connected to the same network to which the HSS has delivered the random challenge and the related parameters.</p>
+
+	<p>For the 5G networks, it is an on-going discussion during the year 2017, whether the shared key -based authentication should be replaced or complemented by an authentication mechanism based on public-key cryptography.</p>
+
+	<H2>Key agreement</H2>
+
+	<p>In all generations, key generation happens as a by-product of authentication. Different one-way functions are used to derive keys for different purposes, using the shared master key and the randomly generated challenge bit string as inputs.</p>
+
+	<p>In the GSM networks, the encryption key is the only key that is needed. In the 3G networks, another key was needed for the purpose of protecting <I>integrity</I> of control communications. In the 4G networks, there is a whole <I>hierarchy </I>of cryptographic keys intended for different purposes.</p>
+
+	<p>It is expected that 5G networks would have at least as complex key hierarchy than the one used in 4G</p>
+
+	<div class="quiznator-plugin" data-quiz-id="58a1b1b915d684000425da76"></div>
+
+	<H2>Integrity protection</H2>
+
+	<p>In all generations of cellular technology, encryption is provided by a stream cipher. This kind of cipher has the following property. If one bit of the ciphertext is flipped (from zero to one or vice versa) then the impact to the decryption is that the corresponding bit of the plaintext is also flipped. One consequence of this property is that an attacker who is able to guess correctly the contents of the plaintext would be able to modify the ciphertext in such manner that the decryption of the modified ciphertext would result into any plaintext of attacker&rsquo;s choice.</p>
+
+	<p>A separate cryptographic protection mechanism was introduced in 3G networks in order to protect against such an attack. It is especially the control communication whose contents may be easily guessable at least in some situations. Therefore, a <I>message authentication code</I> was added to the <I>control plane</I> messages. These messages contain the data that needs to be exchanged between the mobile device and the network to guarantee correct functioning of the network. The message authentication code is computed based on the message itself, an integrity key and a time-varying counter. The shared integrity key is derived during the authentication and key agreement procedure. The time-varying counter is needed to protect against a replay attack where a previously recorded genuine control message is sent at time chosen by the attacker.</p>
+
+	<p>One of the good properties of a stream cipher is that it does not increase the size of the message at all. In contrast to that, a message authentication code makes the message longer. This was one of the main reasons why message authentication code is <I>not</I> added to <I>user plane</I> messages. This is the case for both 3G and 4G networks. In the beginning of the year 2017, it is still open whether the user plane would be protected with message authentication codes in 5G technology.</p>
+
+	<div class="quiznator-plugin" data-quiz-id="58a1b24015d684000425da77"></div>
+
+	<H2>Identity privacy</H2>
+
+	<p>Let us return to the fake base station attack scenario. It is the duty of the network to decide which encryption algorithm is going to be applied in the communication between the mobile device and itself. It is also in principle possible to choose not to apply encryption at all. This possibility enables the fake GSM base station to establish a connection with the victim mobile device even if it cannot derive the encryption key.</p>
+
+	<p>Starting from 3G, this kind of attack is prevented in cellular networks by the mutual authentication. But this does not mean that fake base stations would be useless against 3G or 4G networks. They can still be used as <I>IMSI catchers</I>. These are devices used for just collecting identities of the victim devices instead of data sent from them,</p>
+
+	<p>The goal of the attack is to request the user to send its permanent identity IMSI (International Mobile Subscriber Identity). After the user has been identified the IMSI catcher may, for example, simply reject the user without even starting the authentication procedure. After this the mobile device would try to attach to another base station which in this case typically belongs to the legitimate network. The human user would then have a very limited chance to even notice that something unusual has happened.</p>
+
+	<p>There is a serious effort of trying to prevent IMSI catchers in 5G technology. One possibility to achieve this is to encrypt the IMSI by a <I>public key</I> of the network whenever it is sent over the radio interface. Of course, the mobile device should get the public key in some other way than transmitted from the base station.</p>
+
+	<div class="quiznator-plugin" data-quiz-id="58a1b2fa15d684000425da79"></div>
+
+	<div class="quiznator-plugin" data-quiz-id="58a1f13ff7867100048de188"></div>
+
+	<div class="quiznator-plugin" data-quiz-id="58a1f1d2f7867100048de189"></div>
+
+	<div class="quiznator-plugin" data-quiz-id="58a1f22af7867100048de18b"></div>
+
+	<div class="quiznator-plugin" data-quiz-id="58a1f27df7867100048de18c"></div>
+
+
+	<p>During this course, we have taken a tour on some of the more advanced topics of security. In the course project, some of this knowledge is taken into use. Stay tuned.</p>
+
+    </article>
+
+
+    <!-- LOGIN MODAL -->
+    <div class="modal fade" id="tmc-login-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Log into your TestMyCode account</h4>
+          </div>
+          <div class="modal-body">
+            <div class="alert alert-info">
+              Don't have a TestMyCode account? <a href="https://tmc.mooc.fi/user/new" target="_blank">Sign up</a>.
+            </div>
+
+            <div class="alert alert-danger" id="tmc-login-error" style="display: none">
+            </div>
+
+            <div class="form-group">
+              <label>Username</label>
+              <input type="text" id="tmc-login-username" class="form-control" placeholder="Username"/>
+            </div>
+
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" id="tmc-login-password" class="form-control" placeholder="Password"/>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="tmc-login-submit">Log in</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="table-of-contents-layer">
+    </div>
+
+    <div class="table-of-contents">
+      <h1 class="table-of-contents__heading">
+        Table of contents
+      </h1>
+
+      <div class="table-of-contents__content">
+        <ul class="nav" id="material-toc"></ul>
+      </div>
+    </div>
+
+    <!-- PROGRESS -->
+    <div class="content-progress">
+      <div class="content-progress__label">
+      </div>
+
+      <div class="content-progress__bar">
+      </div>
+    </div>
+
+    <!-- QUIZNATOR DASHBOARD -->
+    <div class="quiznator-dashboard"></div>
+
+    <!-- BROWSER SUPPORT WARNING -->
+    <div class="browser-support-warning">
+      Some parts of this page might not work on your current browser. Consider switching to either <a href="https://www.google.com/chrome/browser/desktop/" target="_blank">Chrome</a> or <a href="https://www.mozilla.org/en-US/firefox/new/" target="_blank">Firefox</a>.
+      <a class="pull-right browser-support-warning__close">Got it!</a>
+    </div>
+
+    <script src="https://quiznator.herokuapp.com/javascripts/plugin-loader.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+	    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+	    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/tmc-client-js/dist/tmc-client.min.js"></script>
+    <script src="/assets/js/csa.js"></script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-86250620-1', 'auto');
+      ga('require', 'linkid');
+      ga('send', 'pageview');
+
+      var trackOutbound = function(url) {
+        ga('send', 'event', 'outbound', 'click', url, {
+         'transport': 'beacon',
+         'hitCallback': function(){ window.open(url); }
+        });
+      }
+    </script>
+
+    <!-- COOKIES -->
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.1/cookieconsent.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.1/cookieconsent.min.js"></script>
+    <script>window.cookieconsent.initialise({"palette":{"popup":{"background":"#000"},"button":{"background":"#f1d600"}}});</script>
+  </body>
+</html>
