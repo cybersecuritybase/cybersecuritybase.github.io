@@ -268,3 +268,14 @@ aside h1:before {
   .assignment > div h2 {
     font-weight: normal;
     }
+
+/*
+  TODO FIXME: Missing Newlines in quiznator
+  https://github.com/rage/quiznator/blob/master/client/plugin/components/quiz/peer-review-quiz/_index.scss
+*/
+
+div.quiznator-peer-review-wrapper .quiznator-peer-review-container div.quiznator-peer-review > div.quiznator-peer-review__body {
+  white-space: pre-wrap !important;
+  word-break: keep-all  !important;
+  margin-bottom:1.25rem;
+}
