@@ -133,7 +133,7 @@
 <aside class="info">
   <br />
   <h1>Logs. Where are they stored?</h1>
-  <p>Traditionally, logs in Linux systems have been stored as text files in the <i>/var/log/</i> directory. However, most newest Linux distributions have switched to binary logging for performance reasons and the same logs are available with the <a href="https://www.freedesktop.org/software/systemd/man/journalctl.html">journalctl</a> command. Some of those newer systems also forward the logs to the /var/log directory for compatibilty with legacy software.</p>
+  <p>Traditionally, logs in Linux systems have been stored as text files in the <i>/var/log/</i> directory. However, most newest Linux distributions have switched to binary logging for performance reasons and the same logs are available with the <a href="https://www.freedesktop.org/software/systemd/man/journalctl.html">journalctl</a> command. Some of those newer systems also forward the logs to the /var/log directory for compatibility with legacy software.</p>
 </aside>
 
   <p>A typical log directory in Linux-based systems contains many types of logs. First, there is the auth.log that contains the authentication events, such as sudos, remote logins, etc. Second, the daemon logs that log the information about the running application daemons. Third, the kernel log and the kernel ring buffer that are useful for kernel troubleshooting, Fourth, the debug log which collects the debug level information if enabled. Fifth, the system log itself that contains the greatest amount of data. It is usually the place where to look if other logs do not contain the looked for data. After this there are the application logs, out of which we will briefly introduce the Apache logs.</p>
@@ -155,7 +155,7 @@
 
 <h3>Remote logging</h3>
 
-<p>It is not wise to store the only copies of the logs on the machine that might be hacked. It is a good idea to set up a central logging server to collect all the logs (possibly from multiple machines). This way one will have redundant copies of the logs in case they are lost or tampered with. Remote collection of logs into central server is also a good place to run analytics and identify and present security anomalies.  WIth multiple machines sending their logs one must be certain that their perception of time is the same. Otherwise, interleaving what happened where and when can be difficult. One can setup a remote logging in such a way that it is secured by TLS and one could possibly send the logs via the public Internet, but it might be a better idea to send them to another machine via a dedicated control network not attached to the Internet (Although even then it should be encrypted, as it could be a mere oversight later when changing routes and suddenly the control network is accessible from the Internet. This is also one of the reason why even machines in the “inside" networks should have access control).</p>
+<p>It is not wise to store the only copies of the logs on the machine that might be hacked. It is a good idea to set up a central logging server to collect all the logs (possibly from multiple machines). This way one will have redundant copies of the logs in case they are lost or tampered with. Remote collection of logs into central server is also a good place to run analytics and identify and present security anomalies.  WIth multiple machines sending their logs one must be certain that their perception of time is the same. Otherwise, interleaving what happened where and when can be difficult. One can setup a remote logging in such a way that it is secured by TLS and one could possibly send the logs via the public Internet, but it might be a better idea to send them to another machine via a dedicated control network not attached to the Internet (Although even then it should be encrypted, as it could be a mere oversight later when changing routes and suddenly the control network is accessible from the Internet. This is also one of the reason why even machines in the "inside" networks should have access control).</p>
 
 <aside class="info">
   <br />
@@ -167,7 +167,7 @@
 
 <h2>Analysing the log files</h2>
 
-<p>The logs are quite huge and can easily be over a GB. Remembering that one line is an action that has happened and it does not take that many bytes so giga byte files contain “many" events and going through them is a massive task. You can manage the task with bash, grep, cat, cut, awk, less, etc. but other purpose built tools also exist.</p>
+<p>The logs are quite huge and can easily be over a GB. Remembering that one line is an action that has happened and it does not take that many bytes so giga byte files contain "many" events and going through them is a massive task. You can manage the task with bash, grep, cat, cut, awk, less, etc. but other purpose built tools also exist.</p>
 
 <h3>What to look for in a log</h3>
 
@@ -210,7 +210,7 @@
 
 <pre class="sample-output">%3cscript%20src=%22http%3a%2f%2fwww.malicious.com%2fcode.js%22%3e%3c%2fscript%3e</pre>
 
-<p>If you see an error code 404 it is actually a good thing as the server just said “I did not find the file askedi". But then again if you start having loads of 404 codes it could mean that someone is searching for something that they should not be looking. On the other hand the success message 200 OK can be much more than an OK. Especially if when 200 OK is a result of, for example, either of the previous. 302 Redirect messages can be a sign that something has happened that should not have happened.</p>
+<p>If you see an error code 404 it is actually a good thing as the server just said "I did not find the requested file". But then again if you start having loads of 404 codes it could mean that someone is searching for something that they should not be looking. On the other hand the success message 200 OK can be much more than an OK. Especially if when 200 OK is a result of, for example, either of the previous. 302 Redirect messages can be a sign that something has happened that should not have happened.</p>
 
 <p>File paths and extensions is also something that one should look. Executable files are something that you might not want to see in the logs.  Moreover,  system paths, such as <i>/var/log</i> or <i>/etc/shadow</i> are not a good thing if found from web server’s log on a Linux box. It is also wise to remove backup and old files from the production site (.bak .old) as they are good source to look for changes in the system and they could reveal that the developer is lazy and makes mistakes etc.</p>
 
