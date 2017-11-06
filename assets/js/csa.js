@@ -154,7 +154,11 @@ var SITE = {
                 SITE.initQuiznator();
               })
               .catch(function() {
-                showError('Invalid username or password');
+                var error = 'Invalid username or password.';
+                if (username.indexOf("@") != -1) {
+                  error = error + " Note that you're supposed to log in with your username and NOT with your email."
+                }
+                showError(error);
               });
           }
         });
