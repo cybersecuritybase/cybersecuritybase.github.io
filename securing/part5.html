@@ -1,0 +1,462 @@
+<!-- BEGIN HEADER -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cyber Security Base with F-Secure</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Twitter Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/assets/css/mooc-icon/style.css"/>
+    <link rel="stylesheet" href="/assets/css/csa.css"/>
+    <link rel="stylesheet" href="/assets/css/csa-mooc.css"/>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/xcode.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+  </head>
+  <body>
+
+    <!-- BEGIN NAV -->
+    <header role="navigation">
+      <h1>
+        <a href="http://mooc.fi" alt="MOOC" target="_blank">
+          <span class="icon-mooc"></span>
+        </a>
+
+        <button type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </h1>
+
+      <nav class="collapse bs-navbar-collapse" role="navigation">
+        <ul>
+          <li>
+            <a href="#" class="table-of-contents-trigger">
+	      Table of contents
+            </a>
+          </li>
+          <li>
+            <a href="index.html">Part I</a>
+          </li>
+          <li>
+            <a href="part2.html">Part II</a>
+          </li>
+          <li>
+            <a href="part3.html">Part III</a>
+          </li>
+          <li>
+            <a href="part4.html">Part IV</a>
+					</li>
+					<li>
+						<a href="part5.html">Part V</a>
+					</li>
+        </ul>
+        <ul class="pull-right">
+          <li>
+            <a href="#" class="navbar-link--highlighted login-trigger">
+              Log in
+            </a>
+          </li>
+        </ul>
+
+      </nav>
+
+    </header>
+    <!-- // END NAV -->
+
+    <article>
+      <!-- END HEADER -->
+
+      <!-- BEGIN CONTENT -->
+      <section class="no-toc weeklimit hidden" data-week-id="0">
+
+        <h1>Assignments</h1>
+
+        <ul class="nav nav-pills nav-pills-fixed-width nav-pills--no-border" id="assignments-toc"></ul>
+
+      </section>
+      <!-- END CONTENT -->
+
+
+
+      <section class="weeklimit" data-week-id="5">
+
+	<header class="hidden">
+          <h1>Making Mistakes is (not) Harder with Modern Frameworks</h1>
+	</header>
+
+        <h1>Making Mistakes is (not) Harder with Modern Frameworks</h1>
+
+	<p>This part of the course is devoted into (security) issues that developers make when working with modern frameworks as well as ways how software developers can mitigate such issues in a rapid fashion. </p>
+
+
+	<h2>Typical Security Issues Are (almost) Resolved</h2>
+
+	<p>In the <a href="part3.html">third part</a> of this course, we visited most common security issues in software. These are listed in the OWASP <a href="https://www.owasp.org/index.php/OWASP_Top_Ten_Cheat_Sheet" target="_blank">top ten list</a>, which contains the ten most common security flaws in software. They are as follows:</p>
+
+	<ul>
+	  <li>Injection</li>
+	  <li>Weak Authentication and Session Management</li>
+	  <li>XSS</li>
+	  <li>Insecure Direct Object References</li>
+	  <li>Security Misconfiguration</li>
+	  <li>Sensitive Data Exposure</li>
+	  <li>Missing Function Level Access Control</li>
+	  <li>Cross Site Request Forgery</li>
+	  <li>Using Components with Known Vulnerabilities</li>
+	  <li>Unvalidated Redirects and Forwards</li>
+	</ul>
+
+	<p>Modern frameworks seek to provide tools to combat these issues out of the box. For example, many of the injection flaws are related to dynamic SQL queries that do not use parameterized queries (or do not use e.g. existing ORM libraries). Similarly, weak authentication and session management is often related to developers creating their own session management functionality that end up containing bugs, and many of the XSS issues are related to being able to render user inputted HTML content directly to the page -- this is something that view templates often take care of.</p>
+
+	<p>Functionality for adding function level access control exist in frameworks, and they also tend to provide facilities for avoiding cross site request forgery attempts by transparently creating hidden tokens for each query that has to do with form data.</p>
+
+
+
+        <div class="assignments">
+          <div class="assignment">
+            <header>
+              <h1 class="panel-title">
+                <a data-toggle="collapse" class="collapsed" href="#t-csrf">
+                  CSRF (Click to Open!)
+                </a>
+              </h1>
+            </header>
+            <div id="t-csrf" class="collapse">
+
+	      <p>The assignment template contains an application that provides the opportunity to change the password of the user. Currently, if the user is logged in, the user can potentially be forced to change his or her password through a CSRF attack.</p>
+
+	      <p>Look into the security configuration of the application and fix the situation. Once fixed, a CSRF token should be added to the requests that are handling data.</p>
+
+	      <p>Once you believe that you have solved the issue(s), return your solution to TMC.</p>
+
+            </div>
+          </div>
+        </div>
+
+	<aside class="info">
+	  <br/>
+	  <h1>Should not Take This for Granted</h1>
+
+	  <p>Note that the level of built-in security in existing frameworks depends highly on the framework. Some take security more seriously, and some do not. When starting to work with a framework, one should always look for the up to date version and investigate the security features that the framework (or some of its dependencies) currently provide.</p>
+
+	</aside>
+
+
+	<h2>..but Problems tend to Reside in Business Logic</h2>
+
+
+	<p>Whilst frameworks provide ample support against the most common security issues, they do not provide protection against flaws in the business logic of the application. A security consultant does not only look for vulnerabilities that are related to a user breaking into a system. She also looks for vulnerabilities that are related to the user being able to do something that he or she should not be able to do from the start. </p>
+
+        <div class="assignments">
+          <div class="assignment">
+            <header>
+              <h1 class="panel-title">
+                <a data-toggle="collapse" class="collapsed" href="#t-millionaire">
+                  Millionaire (Click to Open!)
+                </a>
+              </h1>
+            </header>
+            <div id="t-millionaire" class="collapse">
+
+	      <p>The assignment template contains the core elements of the "Who wants to be a millionaire?"-game that we looked into earlier in the course. In this template, you can observe that the link that is used to input details after finishing the game can be accessed by anyone -- although it should be hidden.</p>
+
+	      <p>Change the application so that only those who finished the game can enter their details -- everyone with the link should not be able to do so. Do not change the address though, but do it in the business logic of the application.</p>
+
+	      <p>Once you believe that you have solved the issue(s), return your solution to TMC.</p>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="assignments">
+          <div class="assignment">
+            <header>
+              <h1 class="panel-title">
+                <a data-toggle="collapse" class="collapsed" href="#t-onlinewebshop">
+                  Online Webshop (Click to Open!)
+                </a>
+              </h1>
+            </header>
+            <div id="t-onlinewebshop" class="collapse">
+
+	      <p>The assignment template contains a version of the previously seen application "EuroShopper". There are some issues in the code that -- although not direct security issues -- may influence how profitable the online web shop will eventually be. Look into the application code and try the webshop out.</p>
+
+	      <p>You should be able to identify at least one type of issue that potentially makes it possible to pay less than expected to the webshop. Identify the issue and fix it.</p>
+
+	      <p>Once you believe that you have solved the issue(s), return your solution to TMC. This assignment has no tests.</p>
+
+            </div>
+          </div>
+        </div>
+
+	<aside class="info">
+	  <br/>
+	  <h1>Business Logic Security Cheat Sheet</h1>
+
+	  <p>OWASP has been working on a draft that contains typical vulnerabilities in business logic. See the draft at <a href="https://www.owasp.org/index.php/Business_Logic_Security_Cheat_Sheet" target="_blank">https://www.owasp.org/index.php/Business_Logic_Security_Cheat_Sheet</a>.</p>
+	</aside>
+
+
+	<h2>Software Development Cycle</h2>
+
+
+	<p>The software development process contains requirements engineering, planning, implementation, testing and maintenance of software. During requirements engineering, developers and stakeholders define and document requirements related to the software component that is being developed. This is followed by a planning phase, where the developers decide how the requirements are implemented into the software. The implementation phase involves programming as well as integrating existing components to the software, and during testing the software is tested both manually and automatically. Once the software or parts of it are in production, maintaining the software becomes a part of the process as well -- here, developers keep the software up to date, fix issues that have been discovered, and add new features to the software.</p>
+
+	<p>A natural part of the software development process is the continuous search for solutions that fulfill some parts of the requirements. In essence, problems are solved by planning and trying out different solutions until a suitable solution is found. If a problem and the solution for it is previously known, there is no need for an exhaustive search, and the developer is in essence guided by a heuristic that has been learned while working on tasks in the past.</p>
+
+	<p><a href="https://en.wikipedia.org/wiki/Agile_software_development" target="_blank">Agile software development methodologies</a> such as <a href="https://en.wikipedia.org/wiki/Scrumban" target="_blank">ScrumBan</a> are essentially about making the software development process visible to stakeholders, which makes it more straightforward to improve the working process. Emphasis is put on interaction and individuals, creating value (i.e. working software), collaborating with the customers to understand their needs, and responding to changes as the expectations and needs of the customers evolve over time. See the <a href="http://agilemanifesto.org/" target="_blank">Manifesto for Agile Software Development</a>.</p>
+
+
+	<h3>Defining Requirements</h3>
+
+	<p>The requirements are identified in collaboration with the customer and the end users. The requirements are written down for future reference, for example in form of features or "user stories". Good <a href="http://xp123.com/articles/invest-in-good-stories-and-smart-tasks/" target="_blank">user stories</a> are something that one can INVEST into, and they can be used to create SMART tasks.</p>
+	<aside class="info">
+	  <br/>
+	  <h1>INVEST and SMART</h1>
+
+	  <p>INVEST and SMART are acronyms that outline good characteristics of user stories and tasks. See the article by <a href="http://xp123.com/articles/invest-in-good-stories-and-smart-tasks/" target="_blank">Bill Wake</a>.</p>
+
+	  <p>INVEST:</p>
+
+	  <ul>
+	    <li><strong>I</strong>ndependent</li>
+	    <li><strong>N</strong>egotiable</li>
+	    <li><strong>V</strong>aluable</li>
+	    <li><strong>E</strong>stimable</li>
+	    <li><strong>S</strong>mall</li>
+	    <li><strong>T</strong>estable</li>
+	  </ul>
+
+	  <p>SMART:</p>
+
+	  <ul>
+	    <li><strong>S</strong>pecific</li>
+	    <li><strong>M</strong>easurable</li>
+	    <li><strong>A</strong>chievable</li>
+	    <li><strong>R</strong>elevant</li>
+	    <li><strong>T</strong>ime-boxed</li>
+	  </ul>
+
+	</aside>
+
+	<p>User stories are typically written down from the view point of a user who expects a specific functionality from the software. The typical way to formulate these stories follows a "As a, I want, So that"-pattern, that includes the stakeholder, the functionality, and the reason why the functionality is needed. For example, "As a restaurant owner, I want to be able to view the daily sales of different menu items, so that I can determine which menu items are profitable and which are not."</p>
+
+	<p>Once the user stories have been identified and written down -- or at least a part of them have been written down -- they are prioritized in collaboration with the stakeholders (including the customer). Once a rough prioritization has been performed, a few of the user stories can be taken under development. As the developers work on the user stories, they slowly become familiar with the problem domain, and can ask the customer for further clarifications regarding the software. Once the user stories have been finished, they are shown to the customer, and the customer can request new features, re-prioritize the existing user stories, and also clarify his or her points about the software.</p>
+
+
+	<aside class="info">
+	  <br/>
+	  <h1>Evil User Stories</h1>
+
+	  <p>User stories are used to justify the development cost to the customer. If the requirements do not include security-related user stories, it is possible that the development team does not pay attention to security. If the customer does not pay for such functionality, is it the fault of the customer if data is breached? What if the development team had not suggested such requirements to the customer?</p>
+
+	  <p>Adding <a href="https://www.owasp.org/index.php/Agile_Software_Development:_Don't_Forget_EVIL_User_Stories" target="_blank">evil user stories</a> to the requirements is a start. Evil user stories outline functionality that an evil user expects to be available, which may lead to unwanted results. For example, "As a hacker, I can modify the sales of different menu items, so that the daily sales reports no longer are accurate."</p>
+
+	  <p>A good starting point for thinking about evil user stories is the OWASP <a href="https://www.owasp.org/index.php/OWASP_Proactive_Controls" target="_blank">Top Ten Proactive Controls list</a>.</p>
+
+	</aside>
+
+
+
+	<h3>Version control systems</h3>
+
+	<p>The source code of the software and the documentation is typically stored in a version control system, which is used to maintain the changes to the software as well as distribute it if needed. In practice, every developer has their own "sandbox" in which they can develop the software and try out things. When a new change is sent to the version control system, other developers can download the change, <a href="https://en.wikipedia.org/wiki/Code_review" target="_blank">review it</a>, and see how it reacts with their current version of the system.</p>
+
+	<p>One of the most commonly used version control systems is <a href="https://en.wikipedia.org/wiki/Git" target="_blank">Git</a>, which is also used by <a href="https://github.com/" target="_blank">Github</a>. If you are not familiar with them, see the <a href="https://guides.github.com/activities/hello-world/" target="_blank">Hello World tutorial provided by Github</a> -- more advanced users may benefit from the <a href="https://git-scm.com/book/en/v2" target="_blank">Pro Git book</a>.</p>
+
+
+	<h3>Continuous integration</h3>
+
+	<p>Version control systems are often connected to continuous integration servers that runs automated tests on the software after every change in the version control system. When the tests are run on both the local sandbox of the developer as well as in a continuous integration server, issues that are not discovered during local testing appear. These may be related to for example the used operating system, browser, configuration etc. It is also possible that the local sandbox does not include all the components of the software, which makes it impossible to test the changes properly locally. If the tests do not pass in the continuous integration server, the changes are either reverted or fixed as soon as possible.</p>
+
+	<aside class="info">
+	  <br/>
+	  <h1>Notes on testing software</h1>
+
+	  <p>Software is not like good wine: it does not get better over time. On the contrary, software has a habit of breaking down over time due to deprecated dependencies, software bugs, as well as security issues. People who have worked on it also tend to disappear and move on over time.</p>
+
+	  <p>Creating automated tests for a software component is a way of documenting the functionality of the component. It provides an outline of the expected functionality and a way to test whether the software currently fulfills the expectations. If a new developer starts to work on the project, she can change parts of the functionality and see whether the changes broke something. Writing tests for a project is also a good way of getting familiar with the component.</p>
+
+	  <p>For different types of testing, see a list provided by <a href="http://www.testingexcellence.com/types-of-software-testing-complete-list/" target="_blank">testingexcellence.com</a>. Frameworks typically provide a set of tools that one can use to test the written functionalities, see e.g. <a href="http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-testing.html" target="_blank">Spring Boot Testing</a> and <a href="http://guides.rubyonrails.org/testing.html" target="_blank">A Guide to Testing Rails Applications</a>.</p>
+
+	</aside>
+
+	<p>Examples of tools that are used for continuous integration include <a href="https://travis-ci.org/" target="_blank">Travis CI</a> and <a href="https://coveralls.io/" target="_blank">Coveralls</a>. Travis verifies that the software compiles and that the tests pass after the latest change, and coveralls provides functionality to assess the <a href="https://en.wikipedia.org/wiki/Code_coverage" target="_blank">Code Coverage</a> of the tests. Code coverage is essentially a measure that reflects the amount of code lines that the tests touch. Here, <a href="http://cobertura.github.io/cobertura/" target="_blank">Cobertura</a> is also useful.</p>
+
+	<p>Both Travis CI and Coveralls are free for open source projects.</p>
+
+
+	<h3>Continuous Deployment</h3>
+
+	<p>Once a new feature has been completed and the automated tests for it pass, the new version of the software is deployed to a server. This makes it possible for the end users to try out new features and to give feedback. The new version can be either deployed to a staging server that is used mostly for testing, or it can be also deployed into production. Different variations of this deployment are also possible; if there are plenty of servers in which the software is hosted, the software may e.g. be deployed only into a small part of the servers.</p>
+
+	<p>One possibility for hosting the software is cloud services such as <a href="https://www.heroku.com/" target="_blank">Heroku</a>. See e.g. <a href="https://devcenter.heroku.com/articles/github-integration" target="_blank">Heroku Github Integration</a> and <a href="https://docs.travis-ci.com/user/deployment/heroku/" target="_blank">Travis Heroku integration</a>. The first link also has functionality for Travis CI integration.</p>
+
+
+	<h2>DevOps</h2>
+
+	<p>DevOps is an increasingly popular set of development practices that aims to bridge the gap between development and system administration. This goal is achieved by increasing the collaboration between the administrators and developers. This involves placing administrators and developers to same teams, creating workflows for quickly iterating and releasing features. Moreover, developers are given access to systems and the opportunity to perform administrave tasks on them in order to make problem solving easier.</p>
+
+	<p>DevOps is about minimizing unnecessary delays and maximizing efficiency with small, continuous and iterative changes. It usually relies on automatic testing, continuous integration and deployment that were mentioned above. New changes are pushed to production frequently, which also leads to the need for the automatization, optimization, and simplification of the deployment process. This also makes the whole process more transparent and auditable.</p>
+
+	<div class="quiznator-plugin" data-quiz-id="5a25b2d8f47d35966278d492"></div>
+
+  <div class="quiznator-plugin" data-quiz-id="5a25b350f47d35966278d493"></div>
+
+  <div class="quiznator-plugin" data-quiz-id="5a25b37df47d35966278d494"></div>
+
+  <div class="quiznator-plugin" data-quiz-id="5a25b391f47d35966278d495"></div>
+
+	<div class="quiznator-plugin" data-quiz-id="5a25b3e1f47d35966278d496"></div>
+
+
+	<p>Automating the deployment of new changes can be beneficial when patching the system(s) against common security flaws. When new security flaws are published, staying secure is often about being able to patch systems faster than they can be exploited. If the deployment is an automatic and frequent operation, patching will also likely be very quick.</p>
+
+	<p>One might perceive all deployments as a risk because it might break something. One way to mitigate the risk of new deployments are so-called <a href="http://martinfowler.com/bliki/CanaryRelease.html" target="_blank">canary releases</a>. If one has multiple machines that have to be updated, changes can be pushed only to a small percentage of the nodes. Then one can observe the nodes that have the newer code in place, and see if the work as intended. If everything is ok, the changes can be deployed to the rest of the network.</p>
+
+
+	<aside class="info">
+	  <br/>
+
+	  <h1>Quick iterations -- why is security often neglected?</h1>
+
+	  <p>With quick iterations, how much time does one invest in securing code? There is a risk that developers and customers see security as something that gets in the way of delivering new features. If the features that have been produced in the iteration are likely to be thrown away quickly, does it make sense to invest hours and money into securing the features?</p>
+
+	  <p>Securing a feature post-release is almost always more cumbersome than securing the feature during the development process. This "cumbersomeness" or cost can be compared to bugs and the need of fixing them, see e.g. <a href="http://blog.celerity.com/the-true-cost-of-a-software-bug" target="_blank">the true cost of a software bug</a>.</p>
+
+	  <p>Moreover, it is challenging to estimate which features are such that will remain in the software and which ones will not. Whilst the goal of agile software development is to prioritize those features that bring the most value to the customer, the needs of the customer may change during the software process. Simply securing all may not be a cost-effective option, and, securing none is also likely not cost-effective. Go figure.</p>
+
+	</aside>
+
+	<p>It is important that security is a part of the DevOps workflow. The continuous integration system should run automatic security checks in each commit so that the easy-to-find vulnerabilities are spotted right away. These checks could include for example finding obsolete dependencies, static code analysis and fuzz testing.</p>
+
+	<p>DevOps workflows often take advantage of <a href="https://en.wikipedia.org/wiki/Microservices">microservices</a>, <a href="https://en.wikipedia.org/wiki/Hardware_virtualization">virtualization</a>, and <a href="https://en.wikipedia.org/wiki/Operating-system-level_virtualization">containerization</a>. While the systems created with these practices often have only a minimal set of dependencies, the dependencies can be a security risk. These components are commonly forgotten with no easy way to deploy security patches to them. This is an especially big problem with containers where it is common that there are a lot of containers, and the only way to patch them is to build them again.</p>
+
+	<p>In addition to making the developed software secure, it is essential that the servers the software is running on is secure as well. A common way to solve the problem is to use configuration management tools like <a href="https://www.ansible.com/">Ansible</a> and <a href="https://puppet.com/">Puppet</a>. These tools automatically make sure the correct packages are installed and configured on the server. This increases the awareness of what is actually running on the systems so that all of the components can be audited and verified. These tools can also monitor that the software on the servers will stay correctly configured. If something changes in the configuration, stakeholders can be alerted or the tool can sometimes even correct the problem.</p>
+
+	<aside class="info">
+	  <br/>
+	  <h1>DevOps.com</h1>
+
+	  <p>For further resources on the DevOps culture, see e.g. <a href="https://devops.com/downloads/" target="_blank">DevOps.com</a>.</p>
+
+	</aside>
+
+	<p>In this part of the course series, we looked at the business logic of software as well as the software development cycle. During the next part, which is the final part in the Securing Software course, we will study secure architectures using data flow analysis.</p>
+
+      </section>
+
+    </article>
+
+
+    <!-- LOGIN MODAL -->
+    <div class="modal fade" id="tmc-login-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Log into your TestMyCode account</h4>
+          </div>
+          <div class="modal-body">
+            <div class="alert alert-info">
+              Don't have a TestMyCode account? <a href="https://tmc.mooc.fi/user/new" target="_blank">Sign up</a>.
+            </div>
+
+            <div class="alert alert-danger" id="tmc-login-error" style="display: none">
+            </div>
+
+            <div class="form-group">
+              <label>Username</label>
+              <input type="text" id="tmc-login-username" class="form-control" placeholder="Username"/>
+            </div>
+
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" id="tmc-login-password" class="form-control" placeholder="Password"/>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="tmc-login-submit">Log in</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="table-of-contents-layer">
+    </div>
+
+    <div class="table-of-contents">
+      <h1 class="table-of-contents__heading">
+        Table of contents
+      </h1>
+
+      <div class="table-of-contents__content">
+        <ul class="nav" id="material-toc"></ul>
+      </div>
+    </div>
+
+    <!-- PROGRESS -->
+    <div class="content-progress">
+      <div class="content-progress__label">
+      </div>
+
+      <div class="content-progress__bar">
+      </div>
+    </div>
+
+    <!-- QUIZNATOR DASHBOARD -->
+    <div class="quiznator-dashboard"></div>
+
+    <!-- BROWSER SUPPORT WARNING -->
+    <div class="browser-support-warning">
+      Some parts of this page might not work on your current browser. Consider switching to either <a href="https://www.google.com/chrome/browser/desktop/" target="_blank">Chrome</a> or <a href="https://www.mozilla.org/en-US/firefox/new/" target="_blank">Firefox</a>.
+      <a class="pull-right browser-support-warning__close">Got it!</a>
+    </div>
+
+    <script src="https://quiznator.herokuapp.com/javascripts/plugin-loader.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+	    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+	    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/tmc-client-js/dist/tmc-client.min.js"></script>
+    <script src="/assets/js/csa.js"></script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-86250620-1', 'auto');
+      ga('require', 'linkid');
+      ga('send', 'pageview');
+
+      var trackOutbound = function(url) {
+        ga('send', 'event', 'outbound', 'click', url, {
+         'transport': 'beacon',
+         'hitCallback': function(){ window.open(url); }
+        });
+      }
+    </script>
+
+    <!-- COOKIES -->
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.1/cookieconsent.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.1/cookieconsent.min.js"></script>
+    <script>window.cookieconsent.initialise({"palette":{"popup":{"background":"#000"},"button":{"background":"#f1d600"}}});</script>
+  </body>
+</html>
