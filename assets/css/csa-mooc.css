@@ -268,3 +268,8 @@ aside h1:before {
   .assignment > div h2 {
     font-weight: normal;
     }
+
+.disabled-nav-link {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
