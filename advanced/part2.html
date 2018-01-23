@@ -1,0 +1,386 @@
+<!-- BEGIN HEADER -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cyber Security Base with F-Secure</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Twitter Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/assets/css/mooc-icon/style.css" />
+    <link rel="stylesheet" href="/assets/css/csa.css" />
+    <link rel="stylesheet" href="/assets/css/csa-mooc.css" />
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/xcode.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+</head>
+
+<body>
+
+    <!-- BEGIN NAV -->
+    <header role="navigation">
+        <h1>
+      <a href="http://mooc.fi" alt="MOOC" target="_blank">
+        <span class="icon-mooc"></span>
+      </a>
+      <button type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </h1>
+
+        <nav class="collapse bs-navbar-collapse" role="navigation">
+            <ul>
+                <li>
+                    <a href="#" class="table-of-contents-trigger">
+            Table of contents
+          </a>
+                </li>
+                <li>
+                    <a href="index.html">Part I</a>
+                </li>
+                <li>
+                    <a href="part2.html">Part II</a>
+                </li>
+                <!--<li>
+                    <a href="part3.html">Part III</a>
+                </li>
+                <li>
+                    <a href="part4.html">Part IV</a>
+                </li>
+                <li>
+                    <a href="part5.html">Part V</a>
+                </li>
+                <li>
+                    <a href="part6.html">Part VI</a>
+                </li> -->
+            </ul>
+            <ul class="pull-right">
+                <li>
+                    <a href="#" class="navbar-link--highlighted login-trigger">
+            Log in
+          </a>
+                </li>
+            </ul>
+
+        </nav>
+
+    </header>
+    <!-- // END NAV -->
+
+    <article>
+        <!-- END HEADER -->
+
+        <!-- BEGIN CONTENT -->
+        <section class="no-toc weeklimit hidden" data-week-id="0">
+
+            <h1>Assignments</h1>
+
+            <ul class="nav nav-pills nav-pills-fixed-width nav-pills--no-border" id="assignments-toc"></ul>
+
+        </section>
+        <!-- END CONTENT -->
+
+        <!-- BEGIN WEB DEVELOPMENT -->
+        <section class="weeklimit" data-week-id="2">
+            <aside class="warning">
+                <br />
+                <h1>How to pass the course</h1>
+                <p>In order to pass the course you'll need to complete and pass 85% of the quizzes, 85% of the essays, and 85% of the programming assignments. In order to pass an essay you must also do <i>all</i> the peer reviews we offer for it (usually it is 3 peer reviews).
+                </p>
+                <p>
+                    Essays must be within 20% of the proposed length. If they're not within this limit you will not get any points for your answer. We also may reject your answer if it's flagged too many times as spam or if it doesn't contain deep enough discussion. Also, we may reject your peer reviews if you haven't put genuine effort into them. All essays must be written in english. Other languages are not acceptable.</p>
+
+                <p>If you want ECTS credits you will need to register here AFTER completing the course:
+                    <b>To be announced after the deadline of the course.</b> This applies to everyone wanting the credits, there is no other registration. This is not the same registration as the registration for the introduction credits. Join the mailing list for updates!
+                </p>
+
+                <p>
+                    Also check out the Frequently asked questions:
+                    <a href="http://mooc.fi/courses/2017/cybersecurity/faq.html">http://mooc.fi/courses/2017/cybersecurity/faq.html</a>.
+                </p>
+            </aside>
+
+                <br/>
+
+                <p>This part discusses about how we can notice that something is going on in the system we are administrating. After this we are moving towards cryptography and cellular network security.</p>
+
+                <h1>Your system is the target</h1>
+
+                <p>You can try and then try some more but it is impossible to protect your network against every kind of attack. It would be nice to know if something fishy is happening or in the worst case if the system is already breached that you would have data that can be used to identify the cause of it. Well, how to achieve this. One word, LOGS. They contain the digital trail of what happens in your system.</p>
+
+                <h2>Purpose of logs</h2>
+
+                <p>According to OWASP the log always contains four basic types of information: <i>when</i>, <i>where</i>, <i>who</i>, and <i>what</i> and security events should always be included. So logs are files that contain information of all activities that happen in the system. The timestamped entries can be considered as fingerprint of what happened. Which can be used to reconstruct the breach. One should be able to figure out what happened and in what order. Mining logs is a vital method of doing forensics analysis. Managing the logs has to be done properly in such a manner that the intruder shouldn’t be able to modify them. Properly managed logs can also be used as evidence in prosecution.</p>
+
+                <p>In addition, to the obvious reasons such as identifying security incidents, or assisting non-repudiation controls, logs are vital source of information to establishing the baseline behaviour for the day-to-day business and with that baseline it is easier to use techniques such as anomaly detection to be warned when something out of the ordinary is going on. For example if something is about to break.</p>
+
+                <h2>Managing Logs</h2>
+
+                <p>For all of the system it is not necessary to keep everything. Instead one could categorize parts of the systems into groups based on their vitality to the system (the architecture analysis, which was discussed earlier, can be used as a guide of figuring out what parts are the vital ones). Based on those groups one can then decide how much information is stored on the actions. This is a balancing act between the storage and the knowledge of what happened. For example if you store few short messages your log does not require large storage but then again you do not have much knowledge what actually happened. Or on the other end of the spectrum you store basically everything you need lots of storage but you know exactly what happened.</p>
+
+                <aside class="info">
+                  <br />
+                  <h1>Too much is too much</h1>
+                  <p>You might be tempted to store everything. You can but consider the following. If you store everything you will also create more work for the system to handle besides the normal operations it has to do. This will slow down the system and is not what you want.</p>
+                </aside>
+
+                <p>Moreover, there are other things, such as law, that the log collector has to remember. Depending on the content of what is logged from the machine you might bump into situation that you need to have a privacy policy for people to read and take extra precautions on the data integrity and storage (even storage times). For example if you log the site's usernames or emails you are actually gathering personal information which then makes the log a person register. Other example is any other data in the log about the communications that can be associated with a certain user and so identifying who did what. As a reminder, soon we are going to have even stricter regulations (General Data Protection Regulation (GDPR) (Regulation (EU) <a href="http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679#d1e6226-1-1">2016/679</a>)) on how we have to handle the personal data.</p>
+
+
+
+                <div class="quiznator-plugin" data-quiz-id="5a676dbc776f171741d0f513"></div>
+
+                <aside class="info">
+                  <br />
+                  <h1>Further reading</h1>
+                  <p>OWASP has gathered a good <a href="https://www.owasp.org/index.php/Logging_Cheat_Sheet">cheat sheet</a> for what to log and how</p>
+                </aside>
+
+                <h2>Logging in Linux systems</h2>
+
+                <p>Here we are going to give you a very brief introduction to logging on Linux system. For other *nix and flavors of Linux there might be some differences, such as filenames auth.log vs. auth_log, but the basics remain the same. Why Linux? Well, according to <a href="https://w3techs.com/technologies/overview/operating_system/all">W3tech</a> and <a href="https://news.netcraft.com/archives/2016/02/22/february-2016-web-server-survey.html">Netcraft</a> the Linux as OS and Apache as the web server are holding the market share of the used options for setting up a webserver to serve the clients.</p>
+
+                <h2>Linux Log Files</h2>
+
+                <aside class="info">
+                  <br />
+                  <h1>Logs. Where are they stored?</h1>
+                  <p>Traditionally, logs in Linux systems have been stored as text files in the <i>/var/log/</i> directory. However, most newest Linux distributions have switched to binary logging for performance reasons and the same logs are available with the <a href="https://www.freedesktop.org/software/systemd/man/journalctl.html">journalctl</a> command. Some of those newer systems also forward the logs to the /var/log directory for compatibility with legacy software.</p>
+                </aside>
+
+                  <p>A typical log directory in Linux-based systems contains many types of logs. First, there is the auth.log that contains the authentication events, such as sudos, remote logins, etc. Second, the daemon logs that log the information about the running application daemons. Third, the kernel log and the kernel ring buffer that are useful for kernel troubleshooting, Fourth, the debug log which collects the debug level information if enabled. Fifth, the system log itself that contains the greatest amount of data. It is usually the place where to look if other logs do not contain the looked for data. After this there are the application logs, out of which we will briefly introduce the Apache logs.</p>
+
+                <p>As an example below are couple of lines from different logs. The first is an example of auth log line and the second is an example of a system log line. They are similar in format. First the time stamp, hostname, who reported and what.</p>
+
+                <pre class="sample-output">Jan 18 19:24:59 examplehost sudo: pam_unix(sudo:auth): authentication failure; logname= uid=1073634 euid=0 tty=/dev/pts/0 ruser=username rhost=  user=username</pre>
+
+                <pre class="sample-output">Jan 23 18:05:24 examplehost dnsmasq[1536]: using nameserver 8.8.8.8#53</pre>
+
+
+                <h3>Apache logs</h3>
+
+                <p>Apache creates two logs under the <i>/var/log/apache2/</i> (may vary depending on the system) and it contains an error log and an access log. The error log contains diagnostic information and any records of errors encountered. The access log contains everything else. It is highly customizable but can contain something like the following.</p>
+
+                <pre class="sample-output">127.0.0.1 ­- frank [10/Oct/2007:13:55:36 ­0700] "GET /index.html HTTP/1.0" 200 2326</pre>
+
+                <p>The first in the line is the host, followed by the identity reported by the client (here dash as it is not found) and the userid (usually the REMOTE_USER environment variables contents). After this there is the timestamp and the request line used followed by the return code and transferred object size.</p>
+
+                <h3>Remote logging</h3>
+
+                <p>It is not wise to store the only copies of the logs on the machine that might be hacked. It is a good idea to set up a central logging server to collect all the logs (possibly from multiple machines). This way one will have redundant copies of the logs in case they are lost or tampered with. Remote collection of logs into central server is also a good place to run analytics and identify and present security anomalies.  WIth multiple machines sending their logs one must be certain that their perception of time is the same. Otherwise, interleaving what happened where and when can be difficult. One can setup a remote logging in such a way that it is secured by TLS and one could possibly send the logs via the public Internet, but it might be a better idea to send them to another machine via a dedicated control network not attached to the Internet (Although even then it should be encrypted, as it could be a mere oversight later when changing routes and suddenly the control network is accessible from the Internet. This is also one of the reason why even machines in the "inside" networks should have access control).</p>
+
+                <aside class="info">
+                  <br />
+                  <h1>Only a small intro</h1>
+                  <p>This was only a small intro that scratched the surface and for more details one should consult the respective sites for the mentioned software. <a href="https://help.ubuntu.com/community/LinuxLogFiles">Ubuntu logfiles</a>, <a href="https://httpd.apache.org/docs/1.3/logs.html">Apache</a>, and <a href="http://www.rsyslog.com/">rsyslogd</a> (<a href="http://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html">securing</a>)</p>
+                </aside>
+
+                <div class="quiznator-plugin" data-quiz-id="5a676e0a776f171741d0f514"></div>
+
+                <h2>Analysing the log files</h2>
+
+                <p>The logs are quite huge and can easily be over a GB. Remembering that one line is an action that has happened and it does not take that many bytes so giga byte files contain "many" events and going through them is a massive task. You can manage the task with bash, grep, cat, cut, awk, less, etc. but other purpose built tools also exist.</p>
+
+                <h3>What to look for in a log</h3>
+
+                <p>If you start seeing error messages of device drivers that you have not plugged in. If for example the parallel port driver starts to send error messages and there is no actual device using it. The conclusion would be that something fishy is going on.</p>
+
+                <p>Successful user logins, i.e., <i>Accepted password</i>, <i>Accepted publickey</i>, or <i>Session opened</i>. These keywords can be valid actions but what if you know that none of your workers are abroad and the IP addresses attached to these messages are from a far away place. Or what if you see thousands of failed attempts before these. Although, everything is working correctly when you see failed user logins, i.e. <i>authentication failure</i> or <i>failed password</i>, you should have something to slow them down like a <i>iptables</i> rule to drop too frequent connections from the same IP or use the script, such as authfail <a href="http://freecode.com/projects/authfail/">script</a> to ban the IP for some period of time.</p>
+
+                <p>Changes on the user are also a point of interest. Things, such as user account additions,  changes or deletions, and password changes, are really interesting along with failed sudo commands (<i>FAILED su</i>).</p>
+
+                <p>As last but not least when something starts sending failures. It is usually something that should be checked out. It could be a faulty device, a bug, or someone trying to figure out if there is a whole in the system.</p>
+
+                <aside class="info">
+                  <br/>
+                  <h1>Don’t panic</h1>
+                  <p>So you got hacked. What to do when you notice it. Here is a short <a href="https://business.f-secure.com/what-you-actually-need-to-do-if-youre-hacked/">procedure</a> of what to do.</p>
+                </aside>
+
+                <p>So you have the logs for the web server and you are wondering what you should be looking from them. Below is a small list of points where you can start (the list is not complete but can be used to start to look for something going wrong).</p>
+
+                <ul>
+                  <li>Executable file requests</li>
+                  <li>Excessive access attempts to non-existent files</li>
+                  <li>Code seen as part of the URL (urlencoded etc.)</li>
+                  <li>Access to extensions you have not implemented</li>
+                  <li>Access to pages that accept user input</li>
+                  <li>Oddly large transferred bits size</li>
+                  <li>System paths</li>
+                  <li>Web service stopped/started/failed messages</li>
+                  <li>SQL injection attempts, such as SELECT</li>
+                  <li>Lots of failed logins</li>
+                  <li>Large numbers of  of not found error (404) or internal server error (500) codes
+                  <li>Error code 200 on files that are not yours</li>
+                </ul>
+
+                <p>For example, in the request line one could see something like the following that could result in XSS attack.</p>
+
+                <pre class="sample-output">’\"--&gt;&lt;/style&gt;&lt;/script&gt;&lt;script&gt;MALICIOUS CODE&lt;/script&gt;</pre>
+
+                <p>Or you could be seeing strings with many urlencoded characters when you are not supposed to see them. For example the following might be something you do not want to see.</p>
+
+                <pre class="sample-output">%3cscript%20src=%22http%3a%2f%2fwww.malicious.com%2fcode.js%22%3e%3c%2fscript%3e</pre>
+
+                <p>If you see an error code 404 it is actually a good thing as the server just said "I did not find the requested file". But then again if you start having loads of 404 codes it could mean that someone is searching for something that they should not be looking. On the other hand the success message 200 OK can be much more than an OK. Especially if when 200 OK is a result of, for example, either of the previous. 302 Redirect messages can be a sign that something has happened that should not have happened.</p>
+
+                <p>File paths and extensions is also something that one should look. Executable files are something that you might not want to see in the logs.  Moreover,  system paths, such as <i>/var/log</i> or <i>/etc/shadow</i> are not a good thing if found from web server’s log on a Linux box. It is also wise to remove backup and old files from the production site (.bak .old) as they are good source to look for changes in the system and they could reveal that the developer is lazy and makes mistakes etc.</p>
+
+                <aside class="info">
+                  <br />
+                  <h1>Serious security Warning from the Apache manual</h1>
+
+                  <p>Anyone who can write to the directory where Apache is writing a log file can almost certainly gain access to the uid that the server is started as, which is normally root. Do NOT give people write access to the directory the logs are stored in without being aware of the consequences; see the <a href="https://httpd.apache.org/docs/1.3/misc/security_tips.html">security tips</a> document for details.</p>
+
+                  <p>In addition, log files may contain information supplied directly by the client, without escaping. Therefore, it is possible for malicious clients to insert control-characters in the log files, so care must be taken in dealing with raw logs.</p>
+
+                </aside>
+
+                <aside class="info">
+                  <br />
+                  <h1>Knocking on SSH’s Door</h1>
+                  <p>Although, one has configured their SSH correctly and closed all the unnecessary ports one should still expect to see numbers of failed attempts. The do not use a weak password for <i>root</i> and other real life stories about logs can be found from this <a href="http://searchsecurity.techtarget.com/tip/An-inside-look-at-security-log-management-forensics-investigations">article</a>.</p>
+                </aside>
+
+                <div class="quiznator-plugin" data-quiz-id="5a676e4a776f171741d0f515"></div>
+                <div class="quiznator-plugin" data-quiz-id="5a676e9f776f171741d0f517"></div>
+                <div class="quiznator-plugin" data-quiz-id="5a676eb9776f171741d0f518"></div>
+                <div class="quiznator-plugin" data-quiz-id="5a676ed3776f171741d0f519"></div>
+                <div class="quiznator-plugin" data-quiz-id="5a676f1e776f171741d0f51a"></div>
+
+
+                <p>During this second part of the advanced topics course, we have taken the steps into understanding system and application logging and how it can be used for intrusion detection. We also briefly glanced about the future with machine learning. This can be considered as intrusion detection.</p>
+                    </article>
+
+    <!-- LOGIN MODAL -->
+    <div class="modal fade" id="tmc-login-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Log into your TestMyCode account</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-info">
+                        Don't have a TestMyCode account? <a href="https://tmc.mooc.fi/user/new" target="_blank">Sign up</a>.
+                    </div>
+
+                    <div class="alert alert-danger" id="tmc-login-error" style="display: none">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" id="tmc-login-username" class="form-control" placeholder="Username" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="tmc-login-password" class="form-control" placeholder="Password" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="tmc-login-submit">Log in</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="table-of-contents-layer">
+    </div>
+
+    <div class="table-of-contents">
+        <h1 class="table-of-contents__heading">
+                                      Table of contents
+                                    </h1>
+
+        <div class="table-of-contents__content">
+            <ul class="nav" id="material-toc"></ul>
+        </div>
+    </div>
+
+    <!-- PROGRESS -->
+    <div class="content-progress">
+        <div class="content-progress__label">
+        </div>
+
+        <div class="content-progress__bar">
+        </div>
+    </div>
+
+    <!-- QUIZNATOR DASHBOARD -->
+    <div class="quiznator-dashboard"></div>
+
+    <!-- BROWSER SUPPORT WARNING -->
+    <div class="browser-support-warning">
+        Some parts of this page might not work on your current browser. Consider switching to either <a href="https://www.google.com/chrome/browser/desktop/" target="_blank">Chrome</a> or <a href="https://www.mozilla.org/en-US/firefox/new/" target="_blank">Firefox</a>.
+        <a class="pull-right browser-support-warning__close">Got it!</a>
+    </div>
+
+    <script src="https://quiznator.herokuapp.com/javascripts/plugin-loader.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/tmc-client-js/dist/tmc-client.min.js"></script>
+    <script src="/assets/js/csa.js"></script>
+
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-86250620-1', 'auto');
+        ga('require', 'linkid');
+        ga('send', 'pageview');
+
+        var trackOutbound = function(url) {
+            ga('send', 'event', 'outbound', 'click', url, {
+                'transport': 'beacon',
+                'hitCallback': function() {
+                    window.open(url);
+                }
+            });
+        }
+    </script>
+
+    <!-- COOKIES -->
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.1/cookieconsent.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.1/cookieconsent.min.js"></script>
+    <script>
+        window.cookieconsent.initialise({
+            "palette": {
+                "popup": {
+                    "background": "#000"
+                },
+                "button": {
+                    "background": "#f1d600"
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
