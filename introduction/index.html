@@ -326,26 +326,32 @@ Fixes have been and are being developed to protect the systems from threats, but
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Log into your TestMyCode account</h4>
+                <h4 class="modal-title">Log in with your MOOC.fi account</h4>
               </div>
               <div class="modal-body">
                 <div class="alert alert-info">
-                  Don't have a TestMyCode account? <a href="https://tmc.mooc.fi/user/new" target="_blank">Sign up</a>.
+                  Don't have a MOOC.fi account? <a href="https://tmc.mooc.fi/user/new" target="_blank">Sign up</a>.
                 </div>
 
                 <div class="alert alert-danger" id="tmc-login-error" style="display: none">
                 </div>
 
                 <div class="form-group">
-                  <label>Username</label>
-                  <input type="text" id="tmc-login-username" class="form-control" placeholder="Username"/>
+                  <label>Username or email</label>
+                  <input type="text" id="tmc-login-username" class="form-control" placeholder="Username or email"/>
                 </div>
 
                 <div class="form-group">
                   <label>Password</label>
                   <input type="password" id="tmc-login-password" class="form-control" placeholder="Password"/>
                 </div>
+
+                <div class="form-group">
+                  <a href="https://tmc.mooc.fi/password_reset_keys/new">I forgot my password</a>
+                </div>
               </div>
+
+
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary" id="tmc-login-submit">Log in</button>

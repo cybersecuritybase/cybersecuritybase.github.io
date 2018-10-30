@@ -109,7 +109,7 @@ var SITE = {
         $loginError.show();
       }
 
-      var client = new window.TmcClient();
+      var client = new window.TmcClient("2d2084443754c26933fa53548177386c8210bff472e8bd157df84033f24cadd5", "34a49ed3d20b8a524889cc64a4668e9fced34ab41b7c74a11689a4602e906a12");
 
       if(client.getUser()) {
         $loginTrigger.text('Log out ' + client.getUser().username);
@@ -148,16 +148,15 @@ var SITE = {
           } else {
             client.authenticate({ username: username, password: password })
               .then(function(response) {
-                $loginTrigger.text('Log out ' + client.getUser().username);
+
+
+                $loginTrigger.text('Log out');
                 $loginModal.modal('hide');
 
                 SITE.initQuiznator();
               })
               .catch(function() {
                 var error = 'Invalid username or password.';
-                if (username.indexOf("@") != -1) {
-                  error = error + " Note that you're supposed to log in with your username and NOT with your email."
-                }
                 showError(error);
               });
           }
