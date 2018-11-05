@@ -1,0 +1,948 @@
+<!-- BEGIN HEADER -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Introduction to Cyber Security</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/assets/css/mooc-icon/style.css"/>
+  <link rel="stylesheet" href="/assets/css/csa.css"/>
+  <link rel="stylesheet" href="/assets/css/csa-mooc.css"/>
+
+</head>
+
+<body>
+  <!-- BEGIN NAV -->
+  <header role="navigation">
+    <h1>
+      <a href="http://mooc.fi" alt="MOOC" target="_blank">
+        <span class="icon-mooc"></span>
+      </a>
+      <button type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </h1>
+    <nav class="collapse bs-navbar-collapse" role="navigation">
+      <ul>
+        <li>
+          <a href="#" class="table-of-contents-trigger">
+            Table of contents
+          </a>
+        </li>
+        <li>
+          <a href="index.html">Part I</a>
+        </li>
+        <li>
+          <a href="#" class="disabled-nav-link">Part II <span class="new badge">12.11.2018</span></a>
+        </li>
+        <li>
+          <a href="#" class="disabled-nav-link">Part III <span class="new badge">19.11.2018</span></a>
+        </li>
+        <li>
+          <a href="#" class="disabled-nav-link">Part IV <span class="new badge">26.11.2018</span></a>
+        </li>
+        <li>
+          <a href="#" class="disabled-nav-link">Part V <span class="new badge">3.12.2018</span></a>
+        </li>
+        <li>
+          <a href="#" class="disabled-nav-link">Part VI <span class="new badge">10.12.2018</span></a>
+        </li>
+      </ul>
+
+      <ul class="pull-right side-nav">
+        <li>
+          <a href="#" class="login-trigger">
+            Log in
+          </a>
+        </li>
+      </ul>
+
+    </nav>
+
+  </header>
+  <!-- // END NAV -->
+
+  <article>
+    <!-- END HEADER -->
+
+    <!-- BEGIN CONTENT -->
+    <section class="no-toc weeklimit hidden" data-week-id="0">
+
+      <h1>Assignments</h1>
+
+      <ul class="nav nav-pills nav-pills-fixed-width nav-pills--no-border" id="assignments-toc"></ul>
+
+    </section>
+    <!-- END CONTENT -->
+
+    <!-- BEGIN WEB DEVELOPMENT -->
+    <section class="weeklimit" data-week-id="2">
+      <aside class="warning">
+        <br />
+        <h1>How to pass the course</h1>
+        <p>Securing software is a course consisting of six parts (which are released weekly). In order to pass the course you'll need to complete and pass 85% of the quizzes and essays, and 85% of the programming assignments. In order to pass an essay you must also do <i>all</i> the peer reviews we offer for it (usually it is 3 peer reviews).
+        </p>
+        <p>
+          Essays must be within 20% of the proposed length. If they're not within this limit you will not get any points for your answer.
+          We also may reject your answer if it's flagged too many times as spam or if it doesn't contain deep enough discussion. Also, we may reject your peer reviews if you haven't put genuine effort into them. All essays must be written in english. Other languages are not acceptable.</p>
+
+          <p>If you want ECTS credits you will need to register here AFTER completing the course:
+            <b>To be announced after the course.</b> Join the mailing list for updates!
+          </p>
+
+          <p>The course will be graded after the final deadline for this course and the results will be announced on the mailing list.</p>
+        </aside>
+
+        <aside class="info">
+          <br/>
+          <h1>On Securing Software</h1>
+
+          <p>This material contains the securing software part of the course series called <a href="https://cybersecuritybase.mooc.fi/" target="_blank">Cyber Security Base with F-Secure</a>. During this course, you will learn how web software works and is developed, the types of typical security flaws in such software, the vulnerabilities that these flaws cause, and how these flaws can be fixed.</p>
+
+          <p>By continuing, you agree to not to do any harm with this information or other similar information on the internet.</p>
+
+          <p>The first set in this course starts with a gentle introduction to how network applications can be communicated with, and how basic web applications work. Further content will be added weekly, and will delve deeper into the security issues.</p>
+
+          <p>In order to answer the questionnaires and essays, you will need a MOOC.fi account that you can create at <a href="https://tmc.mooc.fi/user/new" target="_blank" onclick="trackOutbound('https://tmc.mooc.fi/user/new'); return false;">https://tmc.mooc.fi/user/new</a>. The same account that you did for the introduction part works here as well. Once you've signed up, you can login to this page (click on the top right corner).</p>
+
+          <p>Please also answer a questionnaire on self-regulated online learning at <a href="https://elomake.helsinki.fi/lomakkeet/74563/lomake.html" target="_blank">https://elomake.helsinki.fi/lomakkeet/74563/lomake.html</a>. The questionnaire is different to the one in the introduction part of this course series. Answering the questionnaire should take less than 10 minutes and will be helpful for the research conducted on this course.</p>
+
+
+        </aside>
+
+        <header>
+          <h1 id="part-web">Structure and Development of Web Applications</h1>
+        </header>
+
+
+        <h1>Ports and Applications</h1>
+
+        <!--
+          <div class="image">
+            <img src="img/tba.png"/>
+            <div>Each computer has a series of communication endpoints. Kuva: laatikko, portteja. yhteen laatikkoon kiinnitettynä sovellus</div>
+          </div>
+        -->
+
+        <p>Each computer has a series of communication points that are called <em>ports</em>. If a computer has a software process -- a program -- running on it and the program has control of a port and listens to the data sent to it, then the program can be communicated with. The communication follows a <em>protocol</em>, which lists the commands that the program understands.</p>
+
+        <!--
+          <div class="image">
+            <img src="img/tba.png"/>
+            <div>Each computer has a series of communication endpoints. Kuva: laatikko, portteja. yhteen laatikkoon kiinnitettynä sovellus. toinen sovellus lähettää viestin, joka on jotain muotoa, sovellus käsittelee sen ja tekee jotain</div>
+          </div>
+        -->
+
+        <p>The other party of the communication can reside on the same machine -- another program on the same machine may be the source of a message -- or the message can originate from a separate computer. For this to happen, the computer must be connected to a network, which allows computers to exchange data using a data link. The most prominent example of such a network is the internet, which has essentially become ubiquitous during the last decade.</p>
+
+        <p>Computers use IP addresses to identify other computers. In principle, each computer that is connected to the internet has an IP address that associates to it. An IP Address is a set of four numbers between 0 and 255 separated by a period (e.g. 127.0.0.1 -- which corresponds to your own computer). As there are only 2<sup>32</sup> possible options for the address, these are slowly running short due to the emergence of coffee pots with IP addresses and accompanying software -- the internet of things. A more recent version called IPv6 also exists; it has 2<sup>128</sup> different address possibilities and essentially solves this issue.</p>
+
+        <aside class="info">
+          <br/>
+          <h1>Ports... really?</h1>
+
+          <p>In practice, a port is a concept in the <a href="https://en.wikipedia.org/wiki/Transport_layer" target="_blank">transport layer</a>. When a computer sends a message to another computer, the message has embedded information on the port that the message is supposed to be sent to on the target computer. When the message reaches the target computer, the embedded information is processed, and the port information is used to identify the specific program on the target computer that the message has been sent to.</p>
+
+        </aside>
+
+        <!--
+          <div class="image">
+            <img src="img/tba.png"/>
+            <div>Communication between two computers. Kuva: kaksi laatikkoa, verkko välissä, "töpseli"</div>
+          </div>
+        -->
+
+        <h2>Stepping up to the Task</h2>
+
+        <p>From the programmer's point of view, communication between two computers is done using a <a href="https://en.wikipedia.org/wiki/Network_socket" target="_blank">socket</a>. A socket is essentially a handle -- similar to a file handle -- that the programmer can use for both reading and writing. However, instead of working with a file, the "writing" is done to a given port at the remote machine, and "reading" is done from a stream of data that the remote machine sends.</p>
+
+        <aside class="info">
+          <br/>
+          <h1>Coding horror: they're asking me to do Java?!!</h1>
+
+          <p>From now on, the materials will include programming examples as well as programming assignments in Java. Whilst one may think that <a href="https://wiki.theory.org/index.php/YourLanguageSucks" target="_blank">Java sucks</a>, it can -- in the end -- be a decent language to work with due to, among other things, static typing, a good developer base, and an abundance of high-quality libraries and developer tools.</p>
+
+          <p>At F-Secure, there is no single or preferred programming language that one works with when developing software. Several of the smaller projects and scripts are written in languages like <a href="https://www.python.org/" target="_blank">Python</a>, and some of the larger software tend to be created with statically typed languages. This also naturally depends on whether the goal of the project is to be something that lives only for a few moments, or if it is supposed to be alive after five years.</p>
+
+          <p>Knowing more than a single language is definitely a good thing. The same thing goes for the courses offered at the University of Helsinki, where the first programming language that students start with is Java.</p>
+
+        </aside>
+
+        <p>Programming languages typically come with libraries which typically reduce the amount of code that a programmer must write to achieve a specific task. For example, accessing a remote computer in Java can be done using the <a href="https://docs.oracle.com/javase/8/docs/api/java/net/Socket.html" target="_blank">Socket</a> class from the Java API. In principle, the programmer only needs to create an instance of the Socket-class (the constructor takes the ip and the port of the target machine as parameters), and then -- for example -- read the data from the target machine. </p>
+
+        <pre><code class="java">String address = "127.0.0.1";
+int port = 12321;
+
+Socket socket = new Socket(address, port);
+Scanner reader = new Scanner(socket.getInputStream());</code></pre>
+
+          <p>The above example will -- depending on the target server -- throw an exception if the port cannot be connected to. See <a href="https://docs.oracle.com/javase/tutorial/essential/exceptions/index.html" target="_blank">Java<sup>TM</sup> Lesson on Exceptions</a> for how to handle exceptions.</p>
+
+          <p>Port scanners are a common tool that security researchers use to identify services available on a given machine. Port scanners work by iterating through a range of ports, and attempting to connect to each of the ports. If a connection is successful, something has responded to the request, and it can be investigated further.</p>
+
+
+          <aside class="info">
+            <br/>
+            <h1>Getting the tools ready</h1>
+
+            <p>In order to be able to work on the programming assignments, you will need a programming environment that supports Java and Maven. NetBeans and IntelliJ -- among others -- tend to do this out of the box.</p>
+
+            <p>We suggest that you use NetBeans with Java 8 (Netbeans unfortunately has problems with newer versions of Java at the moment) and the Test My Code plugin. The Test My Code plugin is used for downloading and submitting assignments directly from the programming environment. First install Java if you don't have it already from: <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a>. Then grab a Netbeans bundle that includes the Test My Code plugin from here: <a href="http://update.testmycode.net/installers/tmc-netbeans_org_mooc/">http://update.testmycode.net/installers/tmc-netbeans_org_mooc/</a>. Choose either an installer for your operating system or download the portable zip file that should work on all operating systems.</p>
+
+            <p>Once everything is istalled, select <code>MOOC</code> as your organization and select  <code>Securing Software 2018</code> as your course.</p>
+
+
+            <p>Once this is done, you will receive a pop up that lists the assignments that you may download. </p>
+
+            <h5>Possible issues:</h5>
+
+            <ul>
+              <li>No Maven support</li>
+
+              <p>Note that some NetBeans downloads may have Maven support disabled by default. If you do not have Maven support in NetBeans, see <a href="https://github.com/UniversityHelsinkiTKTL/tmc-plugin-installation-guide/blob/master/FixingMavenInNetbeans.md" target="_blank">Fixing Maven in NetBeans</a> to address this issue.</p>
+
+              <li>Assignments listed as <em>unloadable</em> in NetBeans</li>
+
+              <p>If the assignments are listed as <em>unloadable</em> in NetBeans and NetBeans has Maven support, select the projects and choose "Clean and build". This should resolve the issue. If not, let us know at mooc@cs.helsinki.fi!</p>
+
+            </ul>
+
+
+            <p>If you choose not to use the NetBeans + TMC combination, there are also other options:</p>
+
+            <ul>
+              <li>You may use other clients for Test My Code such as the <a href="https://github.com/testmycode/tmc-cli" target="_blank">TMC command line client</a> and the <a href="https://plugins.jetbrains.com/plugin/8551" target="_blank">TMC IntelliJ plugin</a>. Both of these are in <i>beta</i> though so they won't work as reliably as the Netbeans plugin.</li>
+
+              <li>You can retrieve the assignment templates from the <a href="https://tmc.mooc.fi/org/mooc/courses/267" target="_blank">TMC course page</a>, complete them locally, and submit them to TMC as a zip using the previous site. Note that you must retain the original folder structure. </li>
+            </ul>
+
+
+
+
+          </aside>
+
+
+          <div class="assignments">
+            <div class="assignment" id="t-port-scanner">
+
+              <header>
+                <h1>
+                  <a data-toggle="collapse" class="collapsed" href="#t-port-scanner">
+                    Port Scanner (Click to open!)
+                  </a>
+                </h1>
+              </header>
+
+              <div id="t-port-scanner" class="collapse">
+
+                <p>In this assignment, you will gain some hands-on experience on working with ports in Java and familiarize yourself with the tools used for some of the programming tasks in this course.</p>
+
+                <p>The assignment template that you can retrieve either using Test My Code (NetBeans plugin, experimental IntelliJ plugin) or the Test My Code web site contains the following code.</p>
+
+
+                <pre><code class="java">package sec.portscanner;
+
+import java.net.Socket;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class PortScanner {
+
+  final static int MIN_PORT = 1024;
+  final static int MAX_PORT = 49151;
+
+  public static void main(String[] args) throws Exception {
+    Scanner reader = new Scanner(System.in);
+
+    System.out.println("Which address should I scan?");
+    String address = reader.nextLine();
+    System.out.println("Start at port?");
+    int start = Integer.parseInt(reader.nextLine());
+    System.out.println("End at port?");
+    int end = Integer.parseInt(reader.nextLine());
+
+    Set&lt;Integer&gt; ports = getAccessiblePorts(address, start, end);
+    System.out.println("");
+
+    if (ports.isEmpty()) {
+      System.out.println("None found :(");
+    } else {
+      System.out.println("Found:");
+      ports.stream().forEach(p -> System.out.println("\t" + p));
+    }
+  }
+
+  public static Set&lt;Integer&gt; getAccessiblePorts(String address, int start, int end) {
+    Set&lt;Integer&gt; accessiblePorts = new TreeSet&lt;&gt;();
+    start = Math.max(start, MIN_PORT);
+    end = Math.min(end, MAX_PORT);
+
+    // write the code needed to scan the ports from
+    // start to end at the given address
+
+    return accessiblePorts;
+  }
+}</code>
+                </pre>
+
+                <p>For this assignment, you should write the code needed for the method <code>getAccessiblePorts</code> to scan the given range of ports. The method should scan the ports at a given address, and then return the list of ports that have a service listening for them.</p>
+
+                <p>Once completed, submit your solution to the TMC server for assessment.</p>
+
+                <p>Note that while we implement port scanners and other tools, we will later also look into existing software that have similar functionality.</p>
+
+              </div>
+            </div>
+          </div>
+
+
+          <p>Note that port scanning can be seen as a preparation for a cyber attack. It may be also that your internet service provider (ISP) has prohibited making port scans. Before participating in the following quizz, verify that you are allowed to do so.</p>
+
+          <div class="quiznator-plugin" data-quiz-id="5be0212ef9930d994cd8e654"></div>
+
+
+
+          <h2>Talking with the remote program</h2>
+
+          <p>If a computer has a port open, the program listening to that port can likely be talked with. One of the simplest approaches for trying out such discussion is the use of <a href="https://en.wikipedia.org/wiki/Telnet" target="_blank">Telnet</a>, which is available in most of the operating systems: if not, you can always download e.g. <a href="https://en.wikipedia.org/wiki/PuTTY" target="_blank">PuTTY</a>. Telnet connections are made to a specific address and to a specific port. For example, a connection to the F-Secure web server could be initiated through the address <code>f-secure.com</code> and the port <code>80</code>.</p>
+
+          <p>When discussing with an application, it is important to know the protocol -- discussion format -- that the application follows. One such example is the <a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol" target="_blank">HTTP</a>-protocol, which is used by web servers.</p>
+
+          <p>The basic command for retrieving the root content from a web-server is as follows.</p>
+
+          <pre>GET / HTTP/1.1
+Host: f-secure.com
+
+          </pre>
+
+          <p>In the above example, we first tell the server that we want to get the resource at "/", and that we are following version 1.1. of the HTTP. The next line describes the address we want to access -- this is entered as servers may host multiple web sites. An HTTP request is ended by two empty lines.</p>
+
+          <p>When launching telnet and retrieving the content from f-secure -site, we see something similar to the following.</p>
+
+          <pre>
+username@machine:~$ telnet f-secure.com 80
+Trying 104.126.172.25...
+Connected to f-secure.com.
+Escape character is '^]'.
+GET / HTTP/1.1
+Host: f-secure.com
+
+HTTP/1.1 302 Moved Temporarily
+Server: AkamaiGHost
+Content-Length: 0
+Location: http://f-secure.com/fi_FI/
+...</pre>
+
+          <p>In the above example, instead of returning the content of the page, the F-Secure web server asks us to look for the content from the address <a href="http://f-secure.com/fi_FI/" target="_blank">http://f-secure.com/fi_FI/</a>.</p>
+
+          <aside class="info">
+            <br/>
+            <h1>Ohh.. Some logic in that server?</h1>
+
+            <p>If you do not reside in Finland and make the same request as above, you are likely directed to another address.</p>
+
+          </aside>
+
+
+          <div class="quiznator-plugin" data-quiz-id="5be0212ef9930d994cd8e655"></div>
+
+
+          <h1>Web Servers and Web Applications</h1>
+
+
+          <p>Web servers are essentially programs that listen to incoming connections (typically, on port 80) and follow the <a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol" target="_blank">HTTP</a>-protocol. Whilst at first, web servers were mainly used to serve static content such as HTML pages and funny GIF images, they nowadays serve dynamic content that is often built separately for each user.</p>
+
+          <p>Web applications run on the web servers. Web servers listen for the incoming connections and forward the connections to the web applications. Developers who work with web applications very rarely implement functionality within the web servers.</p>
+
+          <p>Web applications include both client- and server-side functionality. Client-side functionality is executed in the browser of an user, i.e. you, whilst the server-side functionality is executed on the web server.</p>
+
+          <p>Whenever the user makes an action such as types in an URL and presses enter or clicks a link in the browser, the user's computer sends a request to the server. Once the server receives the request, it processes it and builds a corresponding response. The response may be, for example, HTML-code, JSON data, or an image that the browser should display to the user.</p>
+
+          <div class="image">
+            <img src="img/request-and-response.png"/>
+            <div>Flow of a typical request: (1) the user clicks a link on the browser, (2) the browser makes a request to the server, (3) the server receives the request and constructs a response, (4) the server returns the response, (5) the response is processed within the browser (and, e.g., shown to the user) -- not in the picture.</div>
+          </div>
+
+          <p>When constructing the functionality that is shown in the browser, development is typically focused on three separate and intertwined fronts. The structure of the view is constructed using <a href="http://en.wikipedia.org/wiki/HTML" target="_blank">HTML</a>, the layout and theme using <a href="http://en.wikipedia.org/wiki/CSS" target="_blank">CSS</a>, and possible dynamic functionality with <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a>.</p>
+
+          <p>On the other hand, when constructing the functionality that is executed on the backend -- i.e. the server --, the developer typically focuses on the functionality that is needed to retrieve and construct the response that needs to be sent back to the user. This often involves connecting to other software such as a database server, and retrieving data from there. The server may -- again -- run either locally or on a separate machine. Naturally, the client- and server-side development can be interlinked, and software developers typically work on tasks that are related to both sides. That is, these days it is rather rare that a developer focuses solely on e.g. maintaining a database.</p>
+
+          <p>When the user accesses an online page using a browser, a request is sent to the server. The server creates the content of the response and sends it back to the user. If the content has links to other resources such as images or scripts, each of these resources are retrieved separately by the browser (except for the <a href="https://en.wikipedia.org/wiki/HTTP/2_Server_Push" target="_blank" rel="noopener noreferrer">HTTP/2 Server Push</a>-model).</p>
+
+          <!--
+            <div class="image">
+              <img src="img/tba.png"/>
+              <div>Retrieving a single page can result in the retrieval of multiple resources. Each resource that is linked to from the original page will also be retrieved by the browser.</div>
+            </div>
+          -->
+
+          <aside class="info">
+            <br/>
+            <h1>It is not just about the requests, but..</h1>
+
+            <p>Each resource that the browser retrieves is also a potential security threat. For example, if a malicious user has found means to include his or her own Javascript as a part of a site, the Javascript will be executed on the users' machine.</p>
+
+            <p>Whilst this may not at first sound like such a bad deal, it can -- for example -- lead to each and every keypress you make being sent to the malicious user (hello passwords!). Or, you could be redirected to a replica of the page that you were supposed to be using, and -- again, for example -- end up ordering non-existing products and giving out your credit card details.</p>
+
+          </aside>
+
+
+          <h2>Building a Simple Web Application</h2>
+
+          <p>The main functionality of a web application is to create a response to each request. Developers do not typically implement the web-server functionality and the HTTP-protocol specifics, but use a framework that abstracts away many of the existing tasks. Here, we look at one such framework, called <a href="https://spring.io/" target="_blank" rel="noopener noreferrer">Spring</a>.</p>
+
+          <aside class="info">
+            <br/>
+            <h1>Java and Maven</h1>
+
+            <p>In the following examples, we use <a href="http://maven.apache.org/" target="_blank" rel="noopener noreferrer">Maven</a> to handle the dependencies. It is similar in functionality to other tools such as <a href="https://en.wikipedia.org/wiki/Pip_(package_manager)" target="_blank">pip</a> and <a href="https://www.npmjs.com/" target="_blank">npm</a></p>
+
+            <p>Most Java Development environments come with Maven; if you installed NetBeans previously, Maven is included.</p>
+          </aside>
+
+          <p>Using <a href="https://projects.spring.io/spring-boot/" target="_blank">Spring Boot</a>, a web application that returns "Hello World!" to any request looks as follows. </p>
+
+
+          <pre><code class="java">import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+public class HelloWorldController {
+
+    @RequestMapping("*")
+    @ResponseBody
+    public String home() {
+        return "Hello World!";
+    }
+}</code></pre>
+
+            <p>There are a few items of interest. The <code>@Controller</code> annotation indicates that this class contains code that handles requests. The <code>@RequestMapping</code> annotation defines the request paths (e.g. "/hello") that the subsequent method will handle, and the <code>@ResponseBody</code> annotation essentially says that the response that has been created in the method should be sent directly to the user requesting the content.</p>
+
+            <p>In the above example, any request that is made to the web application will return the text "Hello World!".</p>
+
+            <div class="assignments">
+              <div class="assignment" id="t-hello-web">
+
+                <header>
+                  <h1>
+                    <a data-toggle="collapse" class="collapsed" href="#t-hello-web">
+                      Hello Web!
+                    </a>
+                  </h1>
+                </header>
+
+                <div id="t-hello-web" class="collapse">
+
+                  <p>In this assignment, you will familiarize yourself with the very basic functionality of the web framework, and will create an application that returns a "Hello Web!" response to the user.</p>
+
+                  <p>The assignment template contains a few files. The file <code>HelloWebApplication</code> is used to launch the web application, and the file <code>HelloWebController</code> is used to create the response to the user. Modify the class <code>HelloWebController</code> so that the user will receive the text "Hello Web!" when he or she sends a request to the server.</p>
+
+                  <p>Note that you may have to download the <em>dependencies</em> that the framework uses. In NetBeans, this can be done by selecting the Dependencies, and selecting "Download Declared Dependencies".</p>
+
+                  <p>Once finished, submit the assignment to the TMC server.</p>
+
+                </div>
+              </div>
+            </div>
+
+
+            <h2>Requests and Responses</h2>
+
+            <p>Each request receives one response.</p>
+
+            <p>The annotation <code>@RequestMapping</code> defines the path or paths that the method following the annotation will handle. If the path is defined using an asterisk, i.e. <code>@RequestMapping("*")</code>, then all requests are forwarded to that specific method.</p>
+
+	<p>The path can be defined also more explicitly. For example, <code>@RequestMapping("/secret")</code> would forward all the requests that come to the path "/secret" to the method. In the example below, all such requests receive the response <code>"Kryptos"</code>.</p>
+
+
+<pre><code class="java">@RequestMapping("/secret")
+@ResponseBody
+public String home() {
+    return "Kryptos";
+}
+</code></pre>
+
+	<p>Web applications typically respond to requests to multiple paths, where each path has specific functionality. In the example below, there are three separate paths, each of them returning a String as a response to the user.</p>
+
+<pre><code class="java">import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+public class PathController {
+
+    @RequestMapping("/path")
+    @ResponseBody
+    public String path() {
+        return "Path";
+    }
+
+    @RequestMapping("/route")
+    @ResponseBody
+    public String route() {
+        return "Route";
+    }
+
+    @RequestMapping("/trail")
+    @ResponseBody
+    public String trail() {
+        return "Trail";
+    }
+}</code></pre>
+
+
+	<p>Each request may contain information that is being sent to the web application. In principle, there are two ways to handle this: (1) by adding parameters to the address, or by (2) adding parameters to the request body. We will look into the request body later in the course.</p>
+
+	<p>The parameters can be accessed using the <code><a href="http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/RequestParam.html" target="_blank">@RequestParam</a></code>-annotation. In the example below, the application greets every user that makes a request to the application; the application expects that the user sends information as a part of the request, and that the parameter name is "user".</p>
+
+<pre><code class="java">import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+public class GreetingController {
+
+    @RequestMapping("/greet")
+    @ResponseBody
+    public String greet(@RequestParam String user) {
+        return "Hi " + user + ", how are you?";
+    }
+}</code></pre>
+
+	<p>If the server hosting the application would be running on port <code>8080</code>, a request to <code>http://localhost:8080/greet?user=Ada</code> would receive a response "Hi Ada, how are you?".</p>
+
+
+
+        <div class="assignments">
+          <div class="assignment" id="t-calculator">
+
+	    <header>
+	      <h1>
+                <a data-toggle="collapse" class="collapsed" href="#t-calculator">
+                  Calculator
+                </a>
+              </h1>
+            </header>
+
+            <div id="t-calculator" class="collapse">
+
+	      <p>In this assignment, you will familiarize yourself with handling (1) requests to several paths and (2) request parameters. Implement the following functionality to the class <code>CalculatorController</code> that can be found in the package <code>sec.calculator</code>.</p>
+
+	      <ul>
+		<li>A request to the path <code>/add</code> sums the values in the request parameters <code>first</code> and <code>second</code> together and returns the response to the user. Note that the parameters are numbers and should also be treated as such.</li>
+		<li>A request to the path <code>/multiply</code> multiplies the values in the request parameters <code>first</code> and <code>second</code> and returns the response to the user. Note that the parameters are numbers and should also be treated as such.</li>
+	      </ul>
+
+	      <p>Once finished, submit the assignment to the TMC server.</p>
+
+
+            </div>
+          </div>
+	</div>
+
+
+	<aside class="info">
+	  <br/>
+	  <h1>Handing dependencies in Maven</h1>
+
+	  <p>Maven projects handle dependencies based on the configuration file <code>pom.xml</code>, which can be found in the project root. For example, in the previous assignment, the configuration file as a whole was as follows.</p>
+
+	  <pre><code class="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;project&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+    &lt;groupId&gt;wad&lt;/groupId&gt;
+    &lt;artifactId&gt;03.Calculator&lt;/artifactId&gt;
+    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+    &lt;packaging&gt;jar&lt;/packaging&gt;
+
+    &lt;... properties .../&gt;
+
+    &lt;parent&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+        &lt;version&gt;1.4.1.RELEASE&lt;/version&gt;
+    &lt;/parent&gt;
+
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- TMC --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;fi.helsinki.cs.tmc&lt;/groupId&gt;
+            &lt;artifactId&gt;edu-test-utils&lt;/artifactId&gt;
+            &lt;version&gt;0.4.2&lt;/version&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+
+    &lt;... repositories .../&gt;
+&lt;/project&gt;</code></pre>
+
+	  <p>It contains information on both the Spring framework that we are using as well as on the Test My Code -server specific components. If we would want to add new dependencies -- i.e. libraries that contain code that we wish to utilize -- we would add the dependencies within the &lt;dependencies&gt;-element. When working with Test My Code however, adding new dependencies has been disabled. </p>
+	</aside>
+
+
+        <h2>Views to the User</h2>
+
+
+	<p>The applications that we have worked on so far have received a request to a specific path and responded with a string. Whilst it is exactly the same end-to-end functionality that applications that send users HTML content use, HTML content is typically created using templates that include embedded commands that are used for determining the content that should be added to those templates. Here, we use a template engine called <a href="http://www.thymeleaf.org/" target="_blank">Thymeleaf</a>.</p>
+
+	<p>Thymeleaf pages (the so called templates) reside in the project folder <code>src/main/resources/templates</code> or underneath it. You can find this folder in NetBeans when you click the folder "Other Sources".</p>
+
+	<aside class="info">
+	  <br/>
+
+	  <h1>Taking Thymeleaf into use</h1>
+
+          <p>Thymeleaf is an additional dependency, which can be added to the <code>pom.xml</code> file. When we change the <code>spring-boot-starter-web</code> to <code>spring-boot-starter-thymeleaf</code>, thymeleaf is available in the project.</p>
+
+<pre><code class="xml">&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;</code></pre>
+
+	  <p>If the above dependency has not yet been downloaded to your machine, it needs to be downloaded. This can be done by either writing <code>mvn dependency:resolve</code> (if using terminal) or by choosing the folder <em>Dependencies</em> in NetBeans and clicking <em>Download Declared Dependencies</em>.</p>
+
+	  <p>In addition to the above, Thymeleaf expects that each HTML page has the following preamble.</p>
+
+          <pre><code class="xml">&lt;html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"&gt;</code></pre>
+	</aside>
+
+
+	<p>In the example below, we have created an application that listens to the root path <code>/</code>. When the user makes a request to the application, a HTML page that has been created based on a template is returned to the user. The template that is used for creating the site is determined based on the string that the method returns -- here <code>"index"</code>. This will lead to the framework looking for a template called <code>index.html</code> at <code>src/main/resources/templates/</code>. If the page is found (make sure the name is correct!), Thymeleaf will handle the page and return it to the user.</p>
+
+
+<pre><code class="java">import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class ThymeleafController {
+
+    @RequestMapping("/")
+    public String home() {
+        return "index";
+    }
+}</code></pre>
+
+	<p>Note that the method that handles the request no longer has the annotation <code>@ResponseBody</code>. Effectively this means that we do not wish that the response from the method is sent directly to the user, but that it is used to determine the template that will be used to create the view.</p>
+
+
+	<p></p>
+
+        <div class="assignments">
+          <div class="assignment" id="t-hellotemplates">
+
+	    <header>
+	      <h1>
+                <a data-toggle="collapse" class="collapsed" href="#t-hellotemplates">
+                  Hello Templates
+                </a>
+              </h1>
+            </header>
+
+            <div id="t-hellotemplates" class="collapse">
+
+	      <p>Next, we will look into returning content created using a template. Implement the following functionality to the class <code>HelloTemplateController</code> (in the package <code>sec.hellotemplates</code>):</p>
+
+	      <ul>
+		<li>A request to the path <code>/</code> will return a response based on the template <code>index.html</code> that resides in <code>src/main/resources/templates/</code>.</li>
+
+		<li>A request to the path <code>/video</code> will return a response based on the template <code>video.html</code> that resides in <code>src/main/resources/templates/</code>.</li>
+	      </ul>
+
+	      <p>Once finished, submit the assignment to the TMC server.</p>
+
+            </div>
+          </div>
+        </div>
+
+
+	<aside class="info">
+	  <br/>
+	  <h1>HTML</h1>
+
+	  <p>If you are wondering what this thing called HTML is about or want to refresh your HTML knowledge, now would be a great moment to visit the site <a href="http://www.w3schools.com/html/default.asp" target="_blank">http://www.w3schools.com/html/default.asp</a>.</p>
+
+	</aside>
+
+        <h3>Adding data to the view</h3>
+
+	<p>Adding data to the view is done using a <a href="http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/ui/Model.html" target="_blank">Model</a>-object. The Model object is automatically taken into use when it is added as a parameter to a method that handles incoming requests.</p>
+
+
+<pre><code class="java">import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class TemplatesAndDataController {
+
+    @RequestMapping("/")
+    public String home(Model model) {
+        return "index";
+    }
+}</code></pre>
+
+	<p>The Model is essentially a map with strings as keys and any objects as values. In the example below, we add the value "Hello World!" to the model with a key "text".</p>
+
+
+<pre><code class="java">import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class TemplatesAndDataController {
+
+    @RequestMapping("/")
+    public String home(Model model) {
+        model.addAttribute("text", "Hello World!");
+        return "index";
+    }
+}</code></pre>
+
+	<p>When a request is made to the above method, the Model object and the data in it will be available for the template. If the template would be as follows, the value from the model that corresponds to the key "text" would be added to the element with the <code>th:text="${text}"</code>-attribute.</p>
+
+<pre><code class="xml">&lt;!DOCTYPE html&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"&gt;
+    &lt;head&gt;
+        &lt;title&gt;Title&lt;/title&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
+        &lt;h1&gt;Something nice!&lt;/h1&gt;
+
+        &lt;h2 th:text="${text}"&gt;Testing..&lt;/h2&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+	<p></p>
+
+
+	<h2>Forming up: Content from Forms</h2>
+
+	<p>Web applications may contain forms that are used to send content to the application. Forms are defined in HTML (see <a href="http://www.w3schools.com/html/html_forms.asp" target="_blank">form</a>) using the <code>form</code>-element. The form-element will contain the path to which the content will be sent to, the type of the request, and the data. For now, the type of the request will be POST.</p>
+
+	<p>The data is defined using fields such as the input field (<code>&lt;input type="text"...</code>), and the content is sent to the server using a button (<code>&lt;input type="submit"...</code>). The form below is submitted to the root path of the application, and the field that the user can input content to has a name "content".</p>
+
+<pre><code class="xml">&lt;form th:action="@{/}" method="POST"&gt;
+    &lt;input type="text" name="content"/&gt;
+    &lt;input type="submit"/&gt;
+&lt;/form&gt;</code></pre>
+
+        <aside class="info">
+	  <br/>
+	  <h1>Wut, th:action?</h1>
+
+	  <p>If you are familiar with forms, you may have noticed that the path to which the form is sent to is defined using the attribute <code>th:action</code>. This allows us a situation, where the application could in principle be in any path within the web server, e.g. under <code>http://site.com/application1/</code> -- the framework will ensure that the path in the template will be correct.</p>
+	</aside>
+
+
+	<h2>Handling Lists</h2>
+
+	<p>One may also include lists to the model. In the example below, we retrieve a request parameter called <code>"content"</code>, and add it to the list. The parameter has been defined as non mandatory using the <code>@RequestMapping</code> annotation attribute <code>required = false</code>.</p>
+
+<pre><code class="java">import java.util.List;
+import java.util.ArrayList;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@Controller
+public class ListController {
+    private List&lt;String&gt; data;
+
+    public ListController() {
+        this.data = new ArrayList&lt;&gt;();
+        this.data.add("Hello world!");
+    }
+
+    @RequestMapping(value = "/")
+    public String home(Model model, @RequestParam(required = false) String content) {
+        if(content != null && !content.trim().isEmpty()) {
+            this.data.add(content);
+        }
+
+        model.addAttribute("list", data);
+        return "index";
+    }
+}</code></pre>
+
+	<p>Iterating a list in the Thymeleaf template can be done using the attribute <code>th:each</code>. The basic syntax for <code>th:each</code> is as follows.</p>
+
+<pre><code class="xml">&lt;p th:each="item : ${list}"&gt;
+    &lt;span th:text="${item}"&gt;hello world!&lt;/span&gt;
+&lt;/p&gt;</code></pre>
+
+
+        <p>In the example above, we search for a value with the key <code>list</code> and print all the items in the list one by one. The attribute <code>th:each</code> can be used in principle with any repeatable element; it could be used, for example, with the <code>li</code>-element as follows.</p>
+
+<pre><code class="xml">&lt;ul&gt;
+    &lt;li th:each="item : ${list}"&gt;
+        &lt;span th:text="${item}"&gt;hello world!&lt;/span&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+        <p><em>Note! One of the most classic mistakes is to define the list of items as a string <code>th:each="item : list"</code>. This does not work.</em></p>
+
+        <div class="assignments">
+          <div class="assignment" id="t-hellolist">
+
+	    <header>
+	      <h1>
+                <a data-toggle="collapse" class="collapsed" href="#t-hellolist">
+                  Hello List
+                </a>
+                  </h1>
+            </header>
+
+            <div id="t-hellolist" class="collapse">
+
+	      <p>In this assignment we will look into using lists and using them as data for the templates.</p>
+
+	      <p>The assignment has the server side functionality that handles a request to the root path and adds a list for processing for Thymeleaf. The template that is used to create the site is missing some functionality however.</p>
+
+	      <p>Your task is to (1) print the values in the list using the <code>th:each</code>-attribute that we saw previously, and (2) add a form that can be used to send content to the server.</p>
+
+	      <p>Once finished, submit the assignment to the TMC server.</p>
+
+            </div>
+          </div>
+        </div>
+
+
+        </article>
+
+
+        <!-- LOGIN MODAL -->
+        <div class="modal fade" id="tmc-login-modal" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Log in with your MOOC.fi account</h4>
+              </div>
+              <div class="modal-body">
+                <div class="alert alert-info">
+                  Don't have a MOOC.fi account? <a href="https://tmc.mooc.fi/user/new" target="_blank">Sign up</a>.
+                </div>
+
+                <div class="alert alert-danger" id="tmc-login-error" style="display: none">
+                </div>
+
+                <div class="form-group">
+                  <label>Username or email</label>
+                  <input type="text" id="tmc-login-username" class="form-control" placeholder="Username or email"/>
+                </div>
+
+                <div class="form-group">
+                  <label>Password</label>
+                  <input type="password" id="tmc-login-password" class="form-control" placeholder="Password"/>
+                </div>
+
+                <div class="form-group">
+                  <a href="https://tmc.mooc.fi/password_reset_keys/new">I forgot my password</a>
+                </div>
+              </div>
+
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="tmc-login-submit">Log in</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TABLE OF CONTENTS -->
+        <div class="table-of-contents-layer">
+        </div>
+
+        <div class="table-of-contents">
+          <h1 class="table-of-contents__heading">
+            Table of contents
+          </h1>
+
+          <div class="table-of-contents__content">
+            <ul class="nav" id="material-toc"></ul>
+          </div>
+        </div>
+
+        <!-- PROGRESS -->
+        <div class="content-progress">
+          <div class="content-progress__label">
+          </div>
+
+          <div class="content-progress__bar">
+          </div>
+        </div>
+
+
+        <!-- QUIZNATOR DASHBOARD -->
+        <div class="quiznator-dashboard"></div>
+
+        <!-- BROWSER SUPPORT WARNING -->
+        <div class="browser-support-warning">
+          Some parts of this page might not work on your current browser. Consider switching to either <a href="https://www.google.com/chrome/browser/desktop/" target="_blank">Chrome</a> or <a href="https://www.mozilla.org/en-US/firefox/new/" target="_blank">Firefox</a>.
+          <a class="pull-right browser-support-warning__close">Got it!</a>
+        </div>
+
+        <script src="https://quiznator.mooc.fi/javascripts/plugin-loader.min.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+        <script src="/assets/js/tmc-client-js/dist/tmc-client.min.js"></script>
+        <script src="/assets/js/bowser/bowser.js"></script>
+        <script src="/assets/js/csa.js"></script>
+
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-86250620-1', 'auto');
+          ga('set', 'anonymizeIp', true);
+          ga('require', 'linkid');
+          ga('send', 'pageview');
+
+          var trackOutbound = function(url) {
+            ga('send', 'event', 'outbound', 'click', url, {
+              'transport': 'beacon',
+              'hitCallback': function(){ window.open(url); }
+            });
+          }
+        </script>
+
+
+        <!-- COOKIES -->
+        <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.1/cookieconsent.min.css" />
+        <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.1/cookieconsent.min.js"></script>
+        <script>window.cookieconsent.initialise({"palette":{"popup":{"background":"#000"},"button":{"background":"#f1d600"}}});</script>
+      </body>
+      </html>
