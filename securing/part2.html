@@ -1,0 +1,1135 @@
+<!-- BEGIN HEADER -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Introduction to Cyber Security</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/assets/css/mooc-icon/style.css"/>
+  <link rel="stylesheet" href="/assets/css/csa.css"/>
+  <link rel="stylesheet" href="/assets/css/csa-mooc.css"/>
+
+</head>
+
+<body>
+  <!-- BEGIN NAV -->
+  <header role="navigation">
+    <h1>
+      <a href="https://mooc.fi" alt="MOOC" target="_blank">
+        <span class="icon-mooc"></span>
+      </a>
+      <button type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </h1>
+    <nav class="collapse bs-navbar-collapse" role="navigation">
+      <ul>
+        <li>
+          <a href="#" class="table-of-contents-trigger">
+            Table of contents
+          </a>
+        </li>
+        <li>
+          <a href="index.html">Part I</a>
+        </li>
+        <li>
+          <a href="part2.html">Part II</a>
+        </li>
+        <li>
+          <a href="#" class="disabled-nav-link">Part III <span class="new badge">19.11.2018</span></a>
+        </li>
+        <li>
+          <a href="#" class="disabled-nav-link">Part IV <span class="new badge">26.11.2018</span></a>
+        </li>
+        <li>
+          <a href="#" class="disabled-nav-link">Part V <span class="new badge">3.12.2018</span></a>
+        </li>
+        <li>
+          <a href="#" class="disabled-nav-link">Part VI <span class="new badge">10.12.2018</span></a>
+        </li>
+      </ul>
+
+      <ul class="pull-right side-nav">
+        <li>
+          <a href="#" class="login-trigger">
+            Log in
+          </a>
+        </li>
+      </ul>
+
+    </nav>
+
+  </header>
+  <!-- // END NAV -->
+
+  <article>
+    <!-- END HEADER -->
+
+    <!-- BEGIN CONTENT -->
+    <section class="no-toc weeklimit hidden" data-week-id="0">
+
+      <h1>Assignments</h1>
+
+      <ul class="nav nav-pills nav-pills-fixed-width nav-pills--no-border" id="assignments-toc"></ul>
+
+    </section>
+    <!-- END CONTENT -->
+
+      <section class="weeklimit" data-week-id="3">
+
+        <aside class="warning">
+          <br />
+          <h1>How to pass the course</h1>
+          <p>Securing software is a course consisting of six parts (which are released weekly). In order to pass the course you'll need to complete and pass 85% of the quizzes and essays, and 85% of the programming assignments. In order to pass an essay you must also do <i>all</i> the peer reviews we offer for it (usually it is 3 peer reviews).
+          </p>
+          <p>
+            Essays must be within 20% of the proposed length. If they're not within this limit you will not get any points for your answer.
+            We also may reject your answer if it's flagged too many times as spam or if it doesn't contain deep enough discussion. Also, we may reject your peer reviews if you haven't put genuine effort into them. All essays must be written in english. Other languages are not acceptable.</p>
+
+            <p>If you want ECTS credits you will need to register here AFTER completing the course:
+              <b>To be announced after the course.</b> Join the mailing list for updates!
+            </p>
+
+            <p>The course will be graded after the final deadline for this course and the results will be announced on the mailing list.</p>
+          </aside>
+
+
+
+        <header>
+          <h1 id="part-web">Structure and Development of Web Applications</h1>
+        </header>
+
+
+  <p>In this part, we will look into dynamic content in the browser, the use of databases, and briefly visit the underlying HTTP protocol.</p>
+
+  <h1>Web Applications continued..</h1>
+
+  <p>A few of the participants have asked for information on how to reload the changes automatically to the web application. There exists a few ways to do this, one of which is the use of <a href="http://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-devtools.html" target="_blank">Spring Boot developer tools</a>. They can be enabled by including the following dependency to the <code>pom.xml</code> file.</p>
+
+<pre><code class="xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;
+&lt;/dependency&gt;</code></pre>
+
+  <p>When the developer tools are in use, changes in the code trigger an automatic restart of the web application. This depends on the used programming environment. In NetBeans, one may need to additionally take the Spring Boot Maven plugin into use. This can be done by adding the following snippet to the <code>pom.xml</code>.</p>
+
+<pre><code class="xml">&lt;build&gt;
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+            &lt;configuration&gt;
+                &lt;fork&gt;true&lt;/fork&gt;
+            &lt;/configuration&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/build&gt;</code></pre>
+
+  <p>Now, the application can be restarted from the command line using the command <code>mvn spring-boot:run</code> (when in the same folder with the <code>pom.xml</code> file). This launches the application. As the program is developed in NetBeans, changes will trigger reloads.</p>
+
+  <p>When the above plugins are in use, it is possible to also use <a href="http://livereload.com/" target="_blank">LiveReload</a> to trigger a site refresh in the browser. Chrome plugin for LiveReload can be found at <a href="https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei" target="_blank">https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei</a>.</p>
+
+
+  <h2>Dynamic Content in the Browser</h2>
+
+
+  <p>The pages that are shown to the user are defined using the HTML language. A single HTML document consists of nested and sequential elements that define the structure and the content of the page.</p>
+
+  <p>Each element may contain attributes that may have one or more values. For example, an input element typically has the attribute <code>name</code>, and the value of that attribute is then used to identify the data from that input element as it is being sent to the server. Other common attribute names include <code>id</code> that is used to define a unique identifier for the element and <code>class</code> that is used to define a classification for that element.</p>
+
+  <h3>Javascript</h3>
+
+  <p>While HTML is the language for defining the structure and content of a web page, Javascript is a language for defining dynamic content to the page. javascript is a programming language, and like almost any programming language, it is executed one command at a time, top to bottom, left to right.</p>
+
+
+  <aside class="info">
+    <br/>
+    <h1>What about all the Javascript frameworks out there?</h1>
+
+    <p>For the purposes of this course, we use the <a href="http://vanilla-js.com/" target="_blank">VanillaJS</a> framework. It is one of the most used Javascript frameworks, requires no downloading or installing, and is crucial for an in-depth understanding of most of the other Javascript components and frameworks.</p>
+
+    <p>(VanillaJS is not actually a framework, just plain Javascript. <em>Understanding</em> it will likely help you immensely, and likely also reduce the possibility of writing code with plenty of holes that others must fix...)</p>
+
+    <blockquote class="twitter-tweet" data-lang="fi"><p lang="en" dir="ltr">“Maybe switching to [insert new JS framework] will compensate for my lack of actual JavaScript knowledge” - front-end developers in 2015.</p>&mdash; I Am Devloper (@iamdevloper) <a href="https://twitter.com/iamdevloper/status/610191865216786432">14. kesäkuuta 2015</a></blockquote>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+  </aside>
+
+
+  <p>Javascript file names typically end with <code>.js</code> and they are included to a HTML page using the <code>script</code> element. The element <code>script</code> has an attribute <code>src</code>, which defines the location of the source code file.</p>
+
+  <p>When adding Javascript code to a Spring Boot project, it is typically added to the folder <code>src/main/resources/public/javascript/</code>. All the files in the folder <code>src/main/resources/public</code> are made publicly available and downloadable through the server. Given that a Javascript file -- say <code>code.js</code> is in the folder <code>javascript</code>, the <code>script</code>-element is used as follows: <code>&lt;script th:src="@{/javascript/code.js}"&gt;&lt;/script&gt;</code>.</p>
+
+  <p>Assume that the file <code>code.js</code> has the following content, i.e. a function that displays an alert pop-up with the text "Hello there!".</p>
+
+
+<pre><code class="javascript">function sayHello() {
+    alert("Hello there!");
+}</code></pre>
+
+  <p>The Javascript file can be included to a HTML site as follows. Note that we load the Javascript file at the end of the document. This is both to allow the browser to parse the page before including the Javascript code, and to avoid any blocking downloading of content.</p>
+
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Title (shown in the browser bar)&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;header&gt;
+            &lt;h1&gt;Title on the page.&lt;/h1&gt;
+        &lt;/header&gt;
+
+        &lt;article&gt;
+            &lt;p&gt;Text content (within a paragraph, p). By pressing
+            the button below, a javascript function "sayHello" is called.&lt;/p&gt;
+            &lt;input type="button" value="Boom!" onclick="sayHello();" /&gt;
+        &lt;/article&gt;
+
+        &lt;!-- Ask the browser to load the Javascript --&gt;
+        &lt;script th:src="@{javascript/code.js}"&gt;&lt;/script&gt;
+
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+  <aside class="info">
+    <br/>
+    <h1>Javascript tutorials</h1>
+
+    <p>The Mozilla Developer Network has a high-quality and comprehensive <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">Javascript</a> tutorial. </p>
+
+  </aside>
+
+
+  <h3>Modifying page content with Javascript</h3>
+
+  <p>Each element in a web page can be accessed and modified using Javascript. Specific elements can be identified using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector" target="_blank">querySelector</a> method. It allows identifying elements based in the id-attribute value (identified with a hash), as well as the class attribute value (identified with a dot). If multiple elements with the same class exist, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll" target="_blank">querySelectorAll</a> is used.</p>
+
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Title (shown in the browser bar)&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+
+        &lt;article&gt;
+            &lt;input type="text" id="content" value="0"&gt;&lt;/input&gt;&lt;/p&gt;
+            &lt;input type="button" value="Add!" onclick="increment();" /&gt;
+        &lt;/article&gt;
+
+        &lt;!-- Ask the browser to load the Javascript --&gt;
+        &lt;script th:src="@{javascript/code.js}"&gt;&lt;/script&gt;
+
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+  <p>In the above HTML document, the input field can be identified with the id value "content". Using Javascript, the value of the field could be changed as follows.</p>
+
+<pre><code class="javascript">function increment() {
+    document.querySelector("#content").value = "new value";
+}</code></pre>
+
+  <p>The above functionality would change the field value to "new value", which is not exactly what the function promises. We can, also, change the functionality so that it increments the previous value by one.</p>
+
+<pre><code class="javascript">function increment() {
+    var value = Number(document.querySelector("#content").value) + 1;
+    document.querySelector("#content").value = value;
+}</code></pre>
+
+
+  <p></p>
+
+  <h3>Setting a value as a part of text</h3>
+
+  <p>In the previous example, the value attribute of a text field was altered. However, some elements do not have an attribute called value. Instead, for some elements, the value of the element is inside the element. Changing the value inside an element can be changed -- for example -- using the innerHTML parameter of an element.</p>
+
+  <p>As an example, one could create a simple validator that verifies that an input field is not empty.</p>
+
+
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Title (shown in the browser bar)&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+
+        &lt;article&gt;
+            &lt;p&gt;Type in your username&lt/p&gt;
+            &lt;p id="error"&gt;&lt/p&gt;
+            &lt;input type="text" id="content"&gt;&lt;/input&gt;&lt;/p&gt;
+            &lt;input type="button" value="Add!" onclick="validate();" /&gt;
+        &lt;/article&gt;
+
+        &lt;!-- Ask the browser to load the Javascript --&gt;
+        &lt;script th:src="@{javascript/code.js}"&gt;&lt;/script&gt;
+
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<pre><code class="javascript">function validate() {
+    var content = document.querySelector("#content").value;
+    if(!content) {
+        document.querySelector("#error").innerHtml = "No content to process";
+        return;
+    }
+
+    // do something else
+}</code></pre>
+
+  <p></p>
+
+  <aside class="info">
+    <br/>
+    <h1>Validation and Javascript</h1>
+
+    <p>Note that Javascript code is executed within the browser. This means that the above validation functionality works primarily as a way to increase usability of the site, but not the validity of the data. If there is a need to validate content, one cannot only rely on the browser (i.e. the client).</p>
+
+  </aside>
+
+  <div class="quiznator-plugin" data-quiz-id="5be98a0257a13b8543cb0f45"></div>
+
+
+  <h3>Adding elements to a page</h3>
+
+  <p>New elements can be created using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement" target="_blank">createElement</a> function. In the example below, a new <code>p</code> element is created, and text content is added to it. Finally, the paragraph is added to an element with the id "messages".</p>
+
+<pre><code class="javascript">var paragraph = document.createElement("p");
+var textContent = document.createTextNode("content");
+
+paragraph.appendChild(textContent);
+
+document.querySelector("#messages").appendChild(paragraph);
+</code></pre>
+
+  <p></p>
+
+  <aside class="info">
+    <br/>
+    <h1>DOM</h1>
+
+    <p>These Javascript calls use the Document Object Model (DOM) interface for altering the HTML document. See <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model" target="_blank">https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model</a> for additional information.</p>
+
+  </aside>
+
+  <h3>JSON dataformat and retrieving data from a server</h3>
+
+  <p>Objects and data in Javascript are typically represented using the <a href="http://www.json.org/" target="_blank">Javascript Object Notation</a> (JSON) format. The format follows essentially a key: value structure, where variables are separated using commas. The definition of an object starts and ends with a bracket. For example, a person could be represented as follows.</p>
+
+<pre><code class="javascript">var person = {name: "Jack Bauer", age: 24};</code></pre>
+
+  <p>Assuming that the page would have an element with an id "user", the person details could be added to the page dynamically. Variable values can be retrieved using dot notation.</p>
+
+<pre><code class="javascript">var person = {name: "Jack Bauer", age: 24};
+document.querySelector("#user").innerHtml = person.name;</code></pre>
+
+  <p>Often, we wish to retrieve data from the server. This can be done using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest" target="_blank">XMLHttpRequest</a> object as follows.</p>
+
+<pre><code class="javascript">var xmlHttp = new XMLHttpRequest();
+xmlHttp.onreadystatechange = function() {
+    if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+        var response = JSON.parse(xmlHttp.responseText);
+        document.querySelector("#content").innerHTML = response.value.joke;
+    }
+}
+xmlHttp.open("GET", "http://api.icndb.com/jokes/random/", true);
+xmlHttp.send(null);</code></pre>
+
+  <p>In the example above, a query is made to the address "http://api.icndb.com/jokes/random/". When a response is received, it is processed and content from the response is shown to a user in an element with the id "content".</p>
+
+  <aside class="info">
+    <br/>
+    <h1>On debugging Javascript applications</h1>
+
+    <p>When building and analyzing Javascript applications, being able to debug them is crucial. Up to date browsers such as Google Chrome provide quite good tools for analyzing the application. See <a href="https://developers.google.com/web/tools/chrome-devtools/" target="_blank">Chrome DevTools</a> for a start.</p>
+
+    <p>When debugging your own applications, the very basic command is <code>console.log()</code>, which can be used to print out variable details and other information to the developer tools console. When the command <code>console.log("Hello world!");</code> is inserted into your Javascript code, the text "Hello world!" will be printed to the Developer tools console. When looking for problems in code, debugging using the console log is a good start.</p>
+
+    <p>If you are familiar with debuggers and breakpoints in IDEs, similar functionality is available for browsers as well. See <a href="https://developers.google.com/web/tools/chrome-devtools/javascript/add-breakpoints" target="_blank">Inspect and Debug Javascript</a> at Google Developers.</p>
+
+  </aside>
+
+
+  <h2>Returning JSON Data from the Web Application</h2>
+
+  <p>The controller classes can return JSON data as well. If a method that returns an object is annotated using the <code>@ResponseBody</code> annotation, then the object will be returned as a JSON object by default. Let us assume that we have a class Book, which is as follows:</p>
+
+
+<pre><code class="java">
+public class Book {
+    private String name;
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}</code></pre>
+
+  <p>Now a controller that returns a Book object and has been annotated with the <code>@ResponseBody</code> annotation would return a JSON object as a response to the request made to that address.</p>
+
+<pre><code class="java">
+@RequestMapping("/books")
+@ResponseBody
+public Book getBook() {
+    Book book = new Book();
+    book.setName("The Book of Eli.");
+    return book;
+}</code></pre>
+
+  <p></p>
+
+  <aside class="info">
+    <br/>
+    <h1>Assignments can be found in Test My Code</h1>
+
+    <p>Similarly to the previous part, these assignments are submitted to the Test My Code service.</p>
+  </aside>
+
+        <div class="assignments">
+          <div class="assignment">
+            <header>
+              <h1 class="panel-title">
+                <a data-toggle="collapse" class="collapsed" href="#t-tasks">
+                  Tasks (Click to Open!)
+                </a>
+              </h1>
+            </header>
+            <div id="t-tasks" class="collapse">
+
+        <p>The assignment template has some functionality for adding tasks. Your task is to alter the loadTasks function so that the existing tasks are loaded when the page is shown to the user. Do this using Javascript -- note that the server will return a list of objects.</p>
+
+        <p>If you wish an additional challenge, add the functionality to remove tasks as well.</p>
+
+        <p>Note that the application has no automated tests. Once you are able to list the tasks, return your solution to TMC.</p>
+
+            </div>
+          </div>
+        </div>
+
+  <aside class="info">
+    <br/>
+    <h1>Cross-origin Resource Sharing</h1>
+
+    <p>Public resources such as javascript files, images and stylesheets and can be accessed from anywhere. At the same time, if a web application requests data using javascript, the request may be blocked if the target server has not explicitly allowed such requests and the target server is not the same server on which the application is currently running on.</p>
+
+    <p><a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing" target="_blank">Cross-origin resource sharing</a> (CORS) defines guidelines for the browser. Following those guidelines, the browser can restrict and allow queries to specific external resources. It is configured on the server.</p>
+
+    <P>Simple CORS support is added through the <code>@CrossOrigin</code> annotation, which is given the application addresses, from which requests can be made to the server. In the configuration below, books can be retrieved from any application.</p>
+
+<pre><code class="java">@CrossOrigin(origins = "/**")
+@RequestMapping("/books")
+@ResponseBody
+public Book getBook() {
+    Book book = new Book();
+    book.setName("Spring API");
+    return book;
+}</code></pre>
+
+    <p>Additional information on how CORS and Spring can be found in the <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/cors.html" target="_blank">Spring documentation</a>.</p>
+
+  </aside>
+
+
+  <h1>The Data has Value -- Let's store it!</h1>
+
+  <p>The web applications that we built in the previous part of this course handled and stored data within the application. This means that when the web server or the application is restarted, the data is lost.</p>
+
+  <p>Almost every web application has the need for storing and retrieving data. The data can be stored into the file system as files by the application, or the responsibility of storing the data can be given out to a separate application such as a database management system. Database management systems have been built with the explicit purpose of storing and retrieving data in a robust and efficient manner, and they can reside both on the same server as the web application or somewhere elsewhere on the internet.</p>
+
+  <p>Although there are vast differences between the term database management system and database, we will use the term 'database' to cover these both. Similarly, although there are many types of database systems, we will mostly focus on relational databases.</p>
+
+  <aside class="info">
+    <br/>
+    <h1>Not familiar with SQL or databases?</h1>
+
+    <p>Check out the tutorial at <a href="https://sqlbolt.com/" target="_blank">https://sqlbolt.com/</a>
+  </aside>
+
+
+  <h2>Java Database Connectivity API</h2>
+
+  <p>We will use the <a href="http://www.h2database.com/html/main.html" target="_blank">H2 Database Engine</a> for getting started with databases. H2 Database Engine can be added to a Maven project by adding the following dependency to the <code>pom.xml</code> file.</p>
+
+<pre><code class="xml">&lt;dependency&gt;
+    &lt;groupId&gt;com.h2database&lt;/groupId&gt;
+    &lt;artifactId&gt;h2&lt;/artifactId&gt;
+    &lt;version&gt;1.4.193&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+
+  <p>The previously added dependency provides H2-specific support for interacting with the database. </p>
+
+  <p>A program that uses a database needs to (1) create a database connection, (2) execute a query to the database, (3) do something with the query results, and (4) close the connection. When using Java and <a href="https://en.wikipedia.org/wiki/Java_Database_Connectivity" target="_blank">JDBC</a>, a program that does the previously mentioned steps could be as follows -- we assume, that there exists a database table called "Book" with the columns "id" and "name".</p>
+
+<pre><code class="java">// Open connection
+Connection connection = DriverManager.getConnection("jdbc:h2:file:./database", "sa", "");
+
+// Execute query and retrieve the query results
+ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM Book");
+
+// Do something with the results -- here, we print the books
+while (resultSet.next()) {
+    String id = resultSet.getString("id");
+    String name = resultSet.getString("name");
+
+    System.out.println(id + "\t" + name);
+}
+
+// Close the connection
+resultSet.close();
+connection.close();</code></pre>
+
+  <p>Perhaps the most important part here is the class <a href="https://docs.oracle.com/javase/8/docs/api/java/sql/ResultSet.html" target="_blank">ResultSet</a>, which provides an access to the query results. The method <code>next</code> moves to the next row in the result table, and the method <code>getString("column name")</code> retrieves the value for column "column name" for that row as a String.</p>
+
+  <aside class="info">
+
+    <br/>
+
+    <h1>On creating a database connection</h1>
+
+    <p>The command <code>DriverManager.getConnection("jdbc:h2:file:./database", "sa", "");</code> creates a JDBC connection to a database called "database". The username is "sa" and the password is empty.</p>
+
+    <p>If no such database called "database" exists, the file will be created to the root of the project. In this case, the file <code>database.mv.db</code> would be created during the first run, which would be complemented by a file called <code>database.trace.db</code> later. One could also create the database connection to an in-memory database, for example by <code>DriverManager.getConnection("jdbc:h2:mem:./database", "sa", "");</code>. Here, the database file would not exist on the file system, and the information would be lost during application restart.</p>
+
+    <p>For more information on the tools and commands that the H2 Database Engine supports, see a tutorial at <a href="http://www.h2database.com/html/tutorial.html" target="_blank">http://www.h2database.com/html/tutorial.html</a>.</p>
+
+  </aside>
+
+        <p></p>
+
+  <p>The data in a database is typically organized so that it represents the problem domain and follows a specific structure. This structure, i.e. <a href="https://en.wikipedia.org/wiki/Database_schema" target="_blank">schema</a>, defines the database table names, the columns in each table, and the datatypes for each column. In addition to the schema, a database contains data.</p>
+
+  <p>H2 Database Engine provides support for loading schemas and data using the <a href="http://www.h2database.com/javadoc/org/h2/tools/RunScript.html" target="_blank">RunScript</a> class. In the example below, the content of <code>database-schema.sql</code> and <code>database-import.sql</code> is inserted to the database after the database connection has been made.</p>
+
+<pre><code class="java">// Open connection to database
+Connection connection = DriverManager.getConnection("jdbc:h2:file:./database", "sa", "");
+
+try {
+    // If database has not yet been created, create it
+    RunScript.execute(connection, new FileReader("database-schema.sql"));
+    RunScript.execute(connection, new FileReader("database-import.sql"));
+} catch (Throwable t) {
+    System.out.println(t.getMessage());
+}
+// ...</code></pre>
+
+  <p></p>
+
+
+  <div class="assignments">
+    <div class="assignment" id="t-hellodatabase-ex">
+      <header>
+        <h1>
+                <a data-toggle="collapse" class="collapsed" href="#t-hellodatabase">
+                  Hello Database
+                </a>
+              </h1>
+            </header>
+
+            <div id="t-hellodatabase" class="collapse">
+
+        <p>You have a database with the following schema at your disposal.</p>
+
+<pre><code class="sql">
+CREATE TABLE Agent (
+    id varchar(9) PRIMARY KEY,
+    name varchar(200)
+);</pre></code>
+
+        <p>Write a program that outputs all the agents and their identifier codes from the database. The output format should be as follows:</p>
+
+<pre>agent_id agent_name
+agent_id agent_name
+...</pre>
+
+        <p>Once completed, return the assignment to the TMC server.</p>
+
+            </div>
+          </div>
+
+          <div class="assignment" id="t-helloinsert-ex">
+            <header>
+              <h1>
+                <a data-toggle="collapse" class="collapsed" href="#t-helloinsert">
+                  Hello Insert
+                </a>
+              </h1>
+            </header>
+
+            <div id="t-helloinsert" class="collapse">
+
+        <p>The same database schema from the previous assignment is at your disposal here. Implement the functionality for adding an agent to the database. The application should function as follows (input from the user given in red):</p>
+
+<pre>Agents in database:
+Secret	Clank
+Gecko	Gex
+Robocod	James Pond
+Fox	Sasha Nein
+
+Add one:
+What id? <font color="red">Riddle</font>
+What name? <font color="red">Voldemort</font>
+
+Agents in database:
+Secret	Clank
+Gecko	Gex
+Robocod	James Pond
+Fox	Sasha Nein
+Riddle	Voldemort</pre>
+
+        <p>Now, when the application is started again, agent Voldemort is within the database and the details of a new agent is queried from the user. </p>
+
+<pre>Agents in database:
+Secret	Clank
+Gecko	Gex
+Robocod	James Pond
+Fox	Sasha Nein
+Riddle	Voldemort
+
+Add one:
+What id? <font color="red">Feather</font>
+What name? <font color="red">Major Tickle</font>
+
+Agents in database:
+Secret	Clank
+Gecko	Gex
+Robocod	James Pond
+Fox	Sasha Nein
+Riddle	Voldemort
+Feather	Major Tickle</pre>
+
+            </div>
+          </div>
+  </div>
+
+  <aside class="info">
+    <br/>
+    <h1>Parameterized queries and SQL Injection Prevention</h1>
+
+    <p>Read the <a href="https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet" target="_blank">OWASP SQL Injection Prevention Cheat Sheet</a>. If you implemented the insert query in the previous assignment without parameterized queries, i.e. as below, redo the assignment.</p>
+
+<pre><code class="java">String query = "INSERT INTO Agent (id, name) VALUES ('" + id + "', '" + name + "')";</code></pre>
+  </aside>
+
+
+  <h2>Objects and Databases</h2>
+
+  <p>When working with classes, objects and databases, the need for transforming database query results into objects arises (see <a href="https://en.wikipedia.org/wiki/Object-relational_mapping" target="_blank">Object-relational mapping</a>, ORM). As this is a very typical task, an abundance of tools have been created for the task.</p>
+
+  <p>ORM tools offer -- among other things -- the functionality needed to transform existing classes into database schemas and to build queries using objects. This has created a situation where large parts of the typical database interaction is no longer implemented by the developer, but by a framework. The developer effectively only needs to implement the database interaction in those parts, where the existing approaches are not sufficient. </p>
+
+  <p>One standard for ORM technique in Java is the <a href="http://en.wikipedia.org/wiki/Java_Persistence_API" target="_blank">Java Persistence Api</a> (JPA), which has been implemented by a set of frameworks. When using JPA and an implementation of the standard such as <a href="http://www.hibernate.org/" target="_blank">Hibernate</a>, developing basic database queries becomes quite straightforward.</p>
+
+  <aside class="info">
+    <br/>
+    <h1>Including JPA to a Spring Boot Project</h1>
+
+    <p>Including Java Persistence API support to a Spring project requires adding the dependency <code>spring-boot-starter-data-jpa</code> to the <code>pom.xml</code>. In the following snippet, both the JPA starter and the H2 Database Engine are included.</p>
+
+<pre><code class="xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;com.h2database&lt;/groupId&gt;
+    &lt;artifactId&gt;h2&lt;/artifactId&gt;
+&lt;/dependency&gt;</code></pre>
+
+    <p>We do not need to include the H2 Database Engine version as it is already stated in the Spring Boot parent project.</p>
+
+  </aside>
+
+
+  <h2>Classes and Entities</h2>
+
+  <p>The JPA standard states that each class that represents a database table should be defined as an <em>entity</em>; this can be done with the annotation <code>@Entity</code>. Moreover, each class that represents a table should have an identifier that can be used to identify a specific instance of that class. Such an identifier is typically an object variable which is annotated using the <code>@Id</code> annotation. Finally, the class should implement the <code>Serializable</code>-interface.</p>
+
+        <p>For example, the following class that represents a person would be transformed into a database table on the fly, and instances of it could be stored to that database table.</p>
+
+<pre><code class="java">// package
+
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Person implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    private String name;
+
+    // getters and setters
+}</code></pre>
+
+        <p>If the programmer wishes to, the column names and the database table name can be included using the annotations <code>@Column</code> and <code>@Table</code>.</p>
+
+<pre><code class="java">// package
+
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Person")
+public class Person implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private Long id;
+    @Column(name = "name")
+    private String name;
+
+    // getters and setters
+}</code></pre>
+
+        <p>The above configuration defines a database table called "Person" that has the columns "id" and "name". The column types are inferred from the variable types (but can be also defined through the <code>@Column</code> annotation).</p>
+
+        <p>The above examples follow the JPA specification. The Spring project called Spring Data JPA provides a superclass <a href="http://docs.spring.io/autorepo/docs/spring-data-jpa/current/api/org/springframework/data/jpa/domain/AbstractPersistable.html" target="_blank">AbstractPersistable</a> that can be inherited. It provides functionality that makes the previous definitions a bit more straightforward. </p>
+
+<pre><code class="java">// package
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Person")
+public class Person extends AbstractPersistable&lt;Long&gt; {
+
+    @Column(name = "name")
+    private String name;
+
+    // getters and setters
+}</code></pre>
+
+  <p>Now, creating the queries that alter the data in table "Person" is rather straightforward. We need to implement an interface that extends the interface <a href="http://docs.spring.io/spring-data/jpa/docs/current/api/org/springframework/data/jpa/repository/JpaRepository.html" target="_blank">JpaRepository</a>. This provides us all the basic functionality needed for altering the database contents.</p>
+
+
+<pre><code class="java">// package
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PersonRepository extends JpaRepository&lt;Person, Long&gt; {
+}</code></pre>
+
+        <p>Note that we only created an interface, but not the actual implementation. The Spring framework takes care of the rest for us, given that we tell it to <em>autowire</em> -- i.e. include -- the implementation of the interface to our application. This is done using an annotation called <code>@Autowired</code>.</p>
+
+  <p>The database functionality can be included to a controller as follows:</p>
+
+
+<pre><code class="java">// package and imports
+
+@Controller
+public class PersonController {
+
+    @Autowired
+    private PersonRepository personRepository;
+
+    // when a request is made to the address "/persons"
+    @RequestMapping("/persons")
+    public String listAll(Model model) {
+
+        // find all persons from the database and add them to the model
+        model.addAttribute("persons", personRepository.findAll());
+
+        // then create a view from a file called "persons.html" and
+        // send it as a response to the request
+        return "persons";
+    }
+
+    // etc ...
+}</code></pre>
+
+  <p></p>
+
+  <div class="assignments">
+    <div class="assignment" id="t-hellowebwithdatabase-ex">
+      <header>
+        <h1>
+                <a data-toggle="collapse" class="collapsed" href="#t-hellowebwithdatabase">
+                  Hello Web with a Database
+                </a>
+              </h1>
+            </header>
+
+            <div id="t-hellowebwithdatabase" class="collapse">
+
+        <p>The assignment template contains an application that always returns the message "Hello Web!" to the user. Change the implementation so that the message content is randomly selected from the messages in the database. That is, if the database has messages "Hello" and "World", the message "Hello" should be shown now and then, as should the message "World".</p>
+
+        <p>Once finished, return your solution to TMC.</p>
+
+      </div>
+          </div>
+  </div>
+
+  <aside class="info">
+    <br/>
+    <h1>H2 Database Engine and Spring</h1>
+
+    <p>By default, when developing applications, Spring loads the H2 database engine in memory. This means that as the application is restarted, the data will be lost. For other options, see <a href="http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-sql.html" target="_blank">Working with SQL databases</a>.</p>
+  </aside>
+
+
+  <h2>Database Transactions</h2>
+
+  <p>Transactions are used to verify that all the database operations in a group are executed, or that none of them are. Database management systems offer support for implementing transactions, but, as we often work outside the database, additional steps are needed.</p>
+
+  <p>Spring provides transaction support on both class- and method-level through the <code>@Transactional</code> annotation. If a method has been annotated using the <code>@Transactional</code> annotation, then all the database functionality within that method will be performed within a single transaction. If the annotation is on the class level (i.e. before the class definition), then all the methods in that class are transactional.</p>
+
+  <p>Perhaps the most classic transaction example is shown below. If the execution of the method fails (e.g. an exception is thrown) after money has been withdrawn from one account and the money has not yet been added to another, then the original withdraw will be also canceled. Without the annotation <code>@Transactional</code>, the money would disappear.</p>
+
+<pre><code class="java">@Transactional
+public void bankTransfer(Long fromAccount, Long toAccount, Integer amount) {
+    Account from = accountRepository.findOne(fromAccount);
+    Account to = accountRepository.findOne(toAccount);
+
+    from.setBalance(from.getBalance() - amount);
+    to.setBalance(to.getBalance() + amount);
+}</code></pre>
+
+  <p>The annotation <code>@Transactional</code> also indicates that the entities are managed within the method. That is, the entities that have been loaded from the database are tracked, and the changes that are made to them are written to the database at the end of the method.</p>
+
+  <p>If the method would not have been annotated with the <code>@Transactional</code> annotation, the accounts would have to be separately saved if we want to commit the changes to the database.</p>
+
+
+<pre><code class="java">@Transactional
+public void bankTransfer(Long fromAccount, Long toAccount, Integer amount) {
+    Account from = accountRepository.findOne(fromAccount);
+    Account to = accountRepository.findOne(toAccount);
+
+    from.setBalance(from.getBalance() - amount);
+    to.setBalance(to.getBalance() + amount);
+}</code></pre>
+
+  <p></p>
+
+  <div class="assignments">
+    <div class="assignment">
+      <header>
+        <h1>
+                <a data-toggle="collapse" class="collapsed" href="#t-banktransfer">
+                  Bank Transfer
+                </a>
+              </h1>
+            </header>
+            <div id="t-banktransfer" class="collapse">
+
+        <p>The assignment template has a simple application for managing accounts and transfers. There is, however, small things to be fixed in the transfer functionality. Think about the fixes that are needed, perform them, and return the assignment to the TMC server.</p>
+
+              <p>Note that the assignment has no tests; this means that you get to define what types of changes are needed.</p>
+
+            </div>
+          </div>
+  </div>
+
+
+        <h2>Handling object relationships</h2>
+
+  <p>When working with databases, information in one table can refer to information in another table. A customer -- for example -- can have multiple orders, and each order points to a specific customer. In Java, the references for such a case would be written as follows.</p>
+
+<pre><code class="java">// package and imports
+
+public class Customer {
+    // variables
+
+    private List&lt;Order&gt; orders = new ArrayList<>();
+
+    // getters and setters
+}</code></pre>
+
+<pre><code class="java">// package and imports
+
+public class Order {
+    // variables
+
+    private Customer customer;
+
+    // getters and setters
+}</code></pre>
+
+
+  <p>When working with JPA and databases, the programmer needs to define the relationships with annotations. These relationship types are <code>@OneToMany</code>, <code>@ManyToOne</code> and <code>@ManyToMany</code>. The above classes would be transformed into the following entities.</p>
+
+<pre><code class="java">// package and imports
+
+@Entity
+public class Customer extends AbstractPersistable&lt;Long&gt; {
+    // variables
+
+    // the field customer in Order points here
+    @OneToMany(mappedBy = "customer")
+    private List&lt;Order&gt; orders = new ArrayList<>();
+
+    // getters and setters
+}</code></pre>
+
+<pre><code class="java">// package and imports
+
+@Entity
+public class Order extends AbstractPersistable&lt;Long&gt; {
+    // variables
+
+    @ManyToOne
+    private Customer customer;
+
+    // getters and setters
+}</code></pre>
+
+<p></p>
+
+  <aside class="info">
+    <br/>
+    <h1>@OneToMany and @ManyToMany annotations in practice</h1>
+
+    <p>In practice, when you write a reference from one entity class to another (e.g. a list), the IDE will ask you for the type of relationship between the entities. Getting familiar with the programming environment always helps!</p>
+
+  </aside>
+
+
+        <div class="assignments">
+          <div class="assignment">
+            <header>
+              <h1>
+                <a data-toggle="collapse" class="collapsed" href="#t-simplebanking">
+                  Simple Banking
+                </a>
+              </h1>
+            </header>
+            <div id="t-simplebanking" class="collapse">
+
+        <p>The assignment template has the entities for managing accounts and clients, but they are missing a connection. Modify the application so that a customer may have multiple accounts, but each account belongs only to a single client. Adding an account must also add the account to a client.</p>
+
+        <p>Look for hints and tips in the existing classes and templates. When the application works as intended, return it to TMC.</p>
+            </div>
+          </div>
+  </div>
+
+
+  <div class="quiznator-plugin" data-quiz-id="5be98a0257a13b8543cb0f46"></div>
+
+    <div class="quiznator-plugin" data-quiz-id="5be98a0257a13b8543cb0f47"></div>
+
+    <div class="quiznator-plugin" data-quiz-id="5be98a0257a13b8543cb0f48"></div>
+
+    <div class="quiznator-plugin" data-quiz-id="5be98a0257a13b8543cb0f49"></div>
+
+  <div class="quiznator-plugin" data-quiz-id="5be98a0257a13b8543cb0f4a"></div>
+
+
+
+  <h1>The HTTP protocol</h1>
+
+  <p>Almost everything that we've done so far has relied on the HTTP protocol. The HTTP protocol is the protocol that browsers and servers use for communication. It defines eight separate request methods, from which the <code>GET</code> and <code>POST</code> are most widely used. Each request method has a set of restrictions and suggestions on the content of the message and on how the message should be processed by the server. For example, <a href="http://jcp.org/aboutJava/communityprocess/mrel/jsr154/index2.html" target="_blank">Java Servlet API (version 2.5)</a> includes the following suggestion for handling the normal GET requests, i.e. the ones that users use for retrieving data.</p>
+
+        <p><em>The GET method should be safe, that is, without any side effects for which users are held responsible. For example, most form queries have no side effects. If a client request is intended to change stored data, the request should use some other HTTP method.</em></p>
+
+        <h4>Data is retrieved using the GET method</h4>
+
+        <p>The GET method is used for retrieving data. When you type in an address to the browser input field and press enter, the browser performs a GET request. No additional parameters are required. In the protocol, assuming that we are using HTTP/1.1, information on the host machine needs to be sent as well -- this is needed so that each server can handle multiple domains.</p>
+
+<pre>GET /page.html HTTP/1.1
+Host: f-secure.com
+
+</pre>
+
+  <p>We have used the <code>@RequestMapping</code> annotation for handling GET requests that are sent to the server. Actually, the same annotation can be used for any of the HTTP request methods; the annotation can be configured using attributes. For example, the following annotation would capture GET requests to the path "/salmiakki": <code>@RequestMapping(value = "/salmiakki", method = RequestMethod.GET)</code>.</p>
+
+
+        <h4>Data is sent using the POST method</h4>
+
+        <p>The practical difference between the POST and GET requests is that whilst GET methods may contain information within the path and the request parameters, content can be added to the body of the POST method. The type of the data in the body is sent as a part of a request header, and it can contain images, videos, music etc.</p>
+
+<pre>
+POST /page.html HTTP/1.1
+Host: f-secure.com
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 10
+
+...data...
+</pre>
+
+  <p></p>
+
+  <aside class="info">
+    <br/>
+    <h1>Other request methods</h1>
+
+    <p>Whilst the GET and POST methods are most widely used in the communication between servers and browsers, other types of requests also exist. These include requesting the types of options that the server supports, asking to delete a resource, etc.</p>
+
+    <p>For additional details, see e.g. <a href="http://www.w3schools.com/tags/ref_httpmethods.asp" target="_blank">http://www.w3schools.com/tags/ref_httpmethods.asp</a>.</p>
+  </aside>
+
+
+  <h2>HTTP is stateless</h2>
+
+  <p>HTTP is a stateless protocol which means that each request that is sent to a server is processed individually, and from the point of view of the server, the requests are not linked with each others. This design decision was made to make it straightforward to retrieve content from multiple servers and to increase the performance of the HTTP protocol (<a href="https://www.w3.org/Protocols/HTTP/HTTP2.html" target="_blank">Basic HTTP as defined in 1992</a>). The decision was initially solid as most of the web traffic was related to transmitting static content.</p>
+
+  <p>Identifying users is however needed. For example, web shops and other services that identify users require means to maintain knowledge of the user. A classic -- but rather poor -- way to maintain knowledge of the user was to use parameters in the GET request that could be used to identify the user. This is not recommended however, as these parameters can also be modified or tampered with.</p>
+
+        <p>Currently, many web applications include user-specific functionality that expect that the users can be identified. Here, cookies that were introduced in the HTTP/1.1 protocol are handy. When the server adds a cookie to the response that it sends to the user, the browser of the user will always send the cookie back to the user. This way, sessions across multiple requests can be maintained.</p>
+
+  <aside class="info">
+    <br/>
+    <h1>Session Management Cheat Sheet</h1>
+
+    <p>Familiarize yourself with the <a href="https://www.owasp.org/index.php/Session_Management_Cheat_Sheet" target="_blank">OWASP Session Management Cheat Sheet</a> and <a href="https://www.owasp.org/index.php/Session_hijacking_attack" target="_blank">Session hijacking attack</a>.</p>
+  </aside>
+
+
+
+        <div class="assignments">
+          <div class="assignment">
+            <header>
+              <h1>
+                <a data-toggle="collapse" class="collapsed" href="#t-euroshopper">
+                  EuroShopper
+                </a>
+              </h1>
+            </header>
+            <div id="t-euroshopper" class="collapse">
+
+        <p>The assignment template has a very basic web shop functionality. Study the code and add a vulnerability to it that makes it possible to conduct a session highjacking attack on the web site. Limit your approach to predictable session tokens and client-side attacks such as inserting malicious Javascript codes. The template already contains a mistake that will make your job a bit easier.</p>
+
+        <p>Once finished, submit the assignment to TMC. There are no tests for the assignment, so you can modify the application as much as you want.</p>
+            </div>
+          </div>
+  </div>
+
+
+  <p>During this part of the securing software course, we briefly visited frontend and backend functionality and looked into how databases are used when developing web applications. During the next week we will look deeper into the typical security issues in web applications.</p>
+
+
+      </section>
+
+
+
+    </article>
+        <!-- LOGIN MODAL -->
+        <div class="modal fade" id="tmc-login-modal" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Log in with your MOOC.fi account</h4>
+              </div>
+              <div class="modal-body">
+                <div class="alert alert-info">
+                  Don't have a MOOC.fi account? <a href="https://tmc.mooc.fi/user/new" target="_blank">Sign up</a>.
+                </div>
+
+                <div class="alert alert-danger" id="tmc-login-error" style="display: none">
+                </div>
+
+                <div class="form-group">
+                  <label>Username or email</label>
+                  <input type="text" id="tmc-login-username" class="form-control" placeholder="Username or email"/>
+                </div>
+
+                <div class="form-group">
+                  <label>Password</label>
+                  <input type="password" id="tmc-login-password" class="form-control" placeholder="Password"/>
+                </div>
+
+                <div class="form-group">
+                  <a href="https://tmc.mooc.fi/password_reset_keys/new">I forgot my password</a>
+                </div>
+              </div>
+
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="tmc-login-submit">Log in</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TABLE OF CONTENTS -->
+        <div class="table-of-contents-layer">
+        </div>
+
+        <div class="table-of-contents">
+          <h1 class="table-of-contents__heading">
+            Table of contents
+          </h1>
+
+          <div class="table-of-contents__content">
+            <ul class="nav" id="material-toc"></ul>
+          </div>
+        </div>
+
+        <!-- PROGRESS -->
+        <div class="content-progress">
+          <div class="content-progress__label">
+          </div>
+
+          <div class="content-progress__bar">
+          </div>
+        </div>
+
+
+        <!-- QUIZNATOR DASHBOARD -->
+        <div class="quiznator-dashboard"></div>
+
+        <!-- BROWSER SUPPORT WARNING -->
+        <div class="browser-support-warning">
+          Some parts of this page might not work on your current browser. Consider switching to either <a href="https://www.google.com/chrome/browser/desktop/" target="_blank">Chrome</a> or <a href="https://www.mozilla.org/en-US/firefox/new/" target="_blank">Firefox</a>.
+          <a class="pull-right browser-support-warning__close">Got it!</a>
+        </div>
+
+        <script src="https://quiznator.mooc.fi/javascripts/plugin-loader.min.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+        <script src="/assets/js/tmc-client-js/dist/tmc-client.min.js"></script>
+        <script src="/assets/js/bowser/bowser.js"></script>
+        <script src="/assets/js/csa.js"></script>
+
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-86250620-1', 'auto');
+          ga('set', 'anonymizeIp', true);
+          ga('require', 'linkid');
+          ga('send', 'pageview');
+
+          var trackOutbound = function(url) {
+            ga('send', 'event', 'outbound', 'click', url, {
+              'transport': 'beacon',
+              'hitCallback': function(){ window.open(url); }
+            });
+          }
+        </script>
+
+
+        <!-- COOKIES -->
+        <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.1/cookieconsent.min.css" />
+        <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.1/cookieconsent.min.js"></script>
+        <script>window.cookieconsent.initialise({"palette":{"popup":{"background":"#000"},"button":{"background":"#f1d600"}}});</script>
+      </body>
+      </html>
