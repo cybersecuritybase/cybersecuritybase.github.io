@@ -1,0 +1,269 @@
+<!-- BEGIN HEADER -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cyber Security Base: Course Project II</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/assets/css/mooc-icon/style.css"/>
+  <link rel="stylesheet" href="/assets/css/csa.css"/>
+  <link rel="stylesheet" href="/assets/css/csa-mooc.css"/>
+
+</head>
+
+<body>
+  <!-- BEGIN NAV -->
+  <header role="navigation">
+    <h1>
+      <a href="http://mooc.fi" alt="MOOC" target="_blank">
+        <span class="icon-mooc"></span>
+      </a>
+      <button type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </h1>
+    <nav class="collapse bs-navbar-collapse" role="navigation">
+      <ul>
+        <li>
+          <a href="#" class="table-of-contents-trigger">
+            Table of contents
+          </a>
+        </li>
+      </ul>
+
+      <ul class="pull-right side-nav">
+        <li>
+          <a href="#" class="login-trigger">
+            Log in
+          </a>
+        </li>
+      </ul>
+
+    </nav>
+
+  </header>
+  <!-- // END NAV -->
+
+  <article>
+    <!-- END HEADER -->
+
+    <header>
+        <h1 id="part-project">Cyber Security Base - Course Project II</h1>
+      </header>
+
+  <p>
+    In the second course project, you will install an operating system with a variety of vulnerabilities and then install tools that monitor attacks into it. After you have the system running, you will work with penetration testing software to attack the system. Please note that this project is challenging and completing it may take a lot of time if you're not comfortable with the command line.
+  </p>
+
+  <p>
+    The system that you are expected to install is <a href="https://github.com/rapid7/metasploitable3/" target="_blank">Metasploitable 3</a>. We recommend that you create a virtual machine for the installation by, e.g., using Virtualbox (See installation notes in Appendix A on the bottom of the page). Once you have the Metasploitable 3 virtual machine running, install <a href="https://www.snort.org/" target="_blank">Snort</a> into it -- see their <a href="https://www.snort.org/faq" target="_blank">F.A.Q.</a>. Make sure that your Snort (community) rules are up to date.
+  </p>
+
+  <p>
+    Now you have a system that you can attack! Next, download <a href="https://www.metasploit.com/" target="_blank">Metasploit</a> and <a href="https://www.rapid7.com/products/metasploit/" target="_blank">get familiar with it</a>.
+  </p>
+
+  <p>
+    As a primer to the attacks, read <a href="https://www.sans.org/reading-room/whitepapers/detection/intrusion-detection-evasion-attackers-burglar-alarm-1284" target="_blank">Intrusion detection evasion: How Attackers get past the burglar alarm</a>.
+  </p>
+
+  <p>
+    Start your attacks by a simple port scan. If you worked through the Securing Software -course, you can also use the portscanner that you implemented as a part of the first assignments.
+  </p>
+
+  <p>
+    You will then write a brief (1000 words) report with the title "Is it easier to fix the application than to detect attacks?". Include at least three attacks that Snort could identify and two attacks that Snort could not identify into the report. If you cannot find any attacks that Snort cannot identify, remove some of the Snort rules (and include description about this into the report as well!).
+  </p>
+
+  <p>
+    Once your report is completed, you will review three reports from other course participants. Note that your report should be +- 20% of the expected report length and it must include the content expected above.
+  </p>
+
+
+  <h2>Returning the project</h2>
+
+  <div class="quiznator-plugin" data-quiz-id="5c7431cc3972a91474107a18"></div>
+
+  <h2>Performing the reviews</h2>
+
+<div class="quiznator-plugin" data-quiz-id="5c74323dc41ed4148d96fdf5"></div>
+
+<div class="quiznator-plugin" data-quiz-id="5c74326ac41ed4148d96fdf7"></div>
+
+<div class="quiznator-plugin" data-quiz-id="5c74328a14524713f95a5db2"></div>
+
+
+<h2>View reviews</h2>
+
+<div class="quiznator-plugin" data-quiz-id="5c74332fddb6b814af326980"></div>
+
+
+  <h2>Appendix A: Installation notes</h2>
+
+  <p>
+  <ul>
+      <li>Download and install Virtualbox and Vagrant.</li>
+        <li>Download the  <a href="Vagrantfile">Vagrantfile</a> on to your local machine and use vagrant to build it, i.e., "vagrant up" in the same folder as the Vagrant file.</li>
+    <li>The default address, username and password can be read from the Vagrantfile.</a>
+    <li>Log into the newly created box. (vagrant ssh)</li>
+    <li>Install snort to the box, i.e., "apt install snort"</li>
+        <li>wget https://www.snort.org/downloads/community/community-rules.tar.gz</li>
+    <li>Unpack it to snort rules folder ("/etc/snort/rules/"), i.e., "tar xzf community-rules.tar.gz -C /etc/snort/rules"</li>
+    <li>wget the emerging rules set, i.e., wget https://rules.emergingthreats.net/open/snort-2.9.0/emerging.rules.tar.gz</li>
+     <li>"tar xzf emerging.rules.tar.gz -C /etc/snort/rules/"</li>
+    <li>Modify the "/etc/snort/snort.conf" to include all the rules in the "/etc/snort/snort.conf" or use the one we provided: <a href="snort.conf" target="_blank">snort.conf</a></li>
+    <li>Note that some of the rules may conflict and cannot be enabled at the same time.</li>
+    <li>Do remember that in a production setup you would not enable all of the rules by default but would choose a set of rules that you think are the important ones. Which of them are, there is a good question?</li>
+    <li>Finalize snort configuration. We for example changed the file /etc/snort/snort.debian.conf to to the following: <a href="snort.debian.conf" target="_blank">snort.debian.conf</a>.</li>
+    <li>Restart snort with "sudo service snort restart"</li>
+    <li>Test the box and it's snort with metasploitable commandline, i.e., msfconsole</li>
+        <li>Some usefull commands to use in msfconsole are:</li>
+      <ul>
+      <li>
+      use [exploit/...]
+      <li>
+      set RHOST [targetIP]
+      </li>
+      <li>
+      exploit
+      </li>
+      <li>
+      show options
+      </li>
+      <li>
+      info
+      </li>
+      <li>
+      search [KEYWORD]
+      </li>
+      </ul>
+      <li>You can check that snort logged by tailing "/var/log/syslog" (or "/var/snort/snort.log", depending on your configuration). If that doesn't work you can try starting snort from the command line -- you can force it to print straight to the console with the right options.</li>
+      <li>Note that you can see malformed traffic without any attacks.</li>
+  </ul>
+  </p>
+
+    </section>
+
+    <!-- END PROJECT II -->
+
+  </article>
+        <!-- LOGIN MODAL -->
+        <div class="modal fade" id="tmc-login-modal" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Log in with your MOOC.fi account</h4>
+              </div>
+              <div class="modal-body">
+                <div class="alert alert-info">
+                  Don't have a MOOC.fi account? <a href="https://tmc.mooc.fi/user/new" target="_blank">Sign up</a>.
+                </div>
+
+                <div class="alert alert-danger" id="tmc-login-error" style="display: none">
+                </div>
+
+                <div class="form-group">
+                  <label>Username or email</label>
+                  <input type="text" id="tmc-login-username" class="form-control" placeholder="Username or email"/>
+                </div>
+
+                <div class="form-group">
+                  <label>Password</label>
+                  <input type="password" id="tmc-login-password" class="form-control" placeholder="Password"/>
+                </div>
+
+                <div class="form-group">
+                  <a href="https://tmc.mooc.fi/password_reset_keys/new">I forgot my password</a>
+                </div>
+              </div>
+
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="tmc-login-submit">Log in</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TABLE OF CONTENTS -->
+        <div class="table-of-contents-layer">
+        </div>
+
+        <div class="table-of-contents">
+          <h1 class="table-of-contents__heading">
+            Table of contents
+          </h1>
+
+          <div class="table-of-contents__content">
+            <ul class="nav" id="material-toc"></ul>
+          </div>
+        </div>
+
+        <!-- PROGRESS -->
+        <div class="content-progress">
+          <div class="content-progress__label">
+          </div>
+
+          <div class="content-progress__bar">
+          </div>
+        </div>
+
+
+        <!-- QUIZNATOR DASHBOARD -->
+        <div class="quiznator-dashboard"></div>
+
+        <!-- BROWSER SUPPORT WARNING -->
+        <div class="browser-support-warning">
+          Some parts of this page might not work on your current browser. Consider switching to either <a href="https://www.google.com/chrome/browser/desktop/" target="_blank">Chrome</a> or <a href="https://www.mozilla.org/en-US/firefox/new/" target="_blank">Firefox</a>.
+          <a class="pull-right browser-support-warning__close">Got it!</a>
+        </div>
+
+        <script src="https://quiznator.mooc.fi/javascripts/plugin-loader.min.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+        <script src="/assets/js/tmc-client-js/dist/tmc-client.min.js"></script>
+        <script src="/assets/js/bowser/bowser.js"></script>
+        <script src="/assets/js/csa.js"></script>
+
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-86250620-1', 'auto');
+          ga('set', 'anonymizeIp', true);
+          ga('require', 'linkid');
+          ga('send', 'pageview');
+
+          var trackOutbound = function(url) {
+            ga('send', 'event', 'outbound', 'click', url, {
+              'transport': 'beacon',
+              'hitCallback': function(){ window.open(url); }
+            });
+          }
+        </script>
+
+
+        <!-- COOKIES -->
+        <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.1/cookieconsent.min.css" />
+        <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.1/cookieconsent.min.js"></script>
+        <script>window.cookieconsent.initialise({"palette":{"popup":{"background":"#000"},"button":{"background":"#f1d600"}}});</script>
+      </body>
+      </html>
